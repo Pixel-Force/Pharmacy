@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation | CuraRx Pharmacy</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/pharmacy.css">
+
+  <style>
+    .confirmation-card {
+      max-width: 780px;
+      margin: 40px auto 80px;
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .order-status-pill {
+      background: var(--primary-subtle);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media print {
+      .announcement-bar, .main-header, .btn-print-hide, .mobile-bottom-nav, .main-footer {
+        display: none !important;
+      }
+      .confirmation-card {
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-left">
+        <span class="announcement-badge"><i class="fa-solid fa-circle-check"></i> Order Placed</span>
+        <span>Every prescription item is verified by our licensed clinical pharmacist</span>
+      </div>
+      <div class="announcement-right">
+        <a href="tel:1800287279"><i class="fa-solid fa-phone"></i> 1-800-CURA-RX</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-symbol">
+          <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Cura<span>Rx</span></h1>
+          <span class="logo-tagline">Licensed Pharmacy & Wellness</span>
+        </div>
+      </a>
+      <div style="margin-left:auto;">
+        <a href="portal.html" class="header-action-btn">
+          <i class="fa-regular fa-user"></i>
+          <span>My Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="confirmation-card">
+      <div style="text-align:center;margin-bottom:32px;">
+        <div style="width:72px;height:72px;background:var(--success-bg);color:var(--secondary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h1 style="font-family:var(--font-heading);font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
+          Order Confirmed!
+        </h1>
+        <p style="color:var(--slate-500);font-size:1rem;">
+          Thank you for choosing CuraRx. We have received your order and transmitted it to the dispensing station.
+        </p>
+      </div>
+
+      <!-- Key Details Box -->
+      <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:24px;margin-bottom:28px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:20px;">
+          <div>
+            <span style="font-size:0.75rem;color:var(--slate-500);text-transform:uppercase;font-weight:700;">Order Reference</span>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--primary);margin-top:2px;" id="order-ref-id">
+              CRX-XXXXX
+            </div>
+          </div>
+          <div>
+            <span style="font-size:0.75rem;color:var(--slate-500);text-transform:uppercase;font-weight:700;">Clinical Status</span>
+            <div style="margin-top:4px;">
+              <span class="order-status-pill" id="order-status-badge">
+                <i class="fa-solid fa-user-doctor"></i> Pharmacist Reviewing
+              </span>
+            </div>
+          </div>
+          <div>
+            <span style="font-size:0.75rem;color:var(--slate-500);text-transform:uppercase;font-weight:700;">Estimated Fulfillment</span>
+            <div style="font-size:0.9375rem;font-weight:700;color:var(--navy);margin-top:4px;" id="order-eta">
+              Tomorrow by 1:00 PM
+            </div>
+          </div>
+          <div>
+            <span style="font-size:0.75rem;color:var(--slate-500);text-transform:uppercase;font-weight:700;">Total Charged</span>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--navy);margin-top:2px;" id="order-total-val">
+              $0.00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itemized Receipt -->
+      <div style="margin-bottom:28px;">
+        <h3 style="font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:14px;">
+          Ordered Items & Medications
+        </h3>
+        <div id="confirmed-items-list" style="border:1px solid var(--slate-200);border-radius:var(--radius-lg);overflow:hidden;">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Delivery / Contact Details -->
+      <div style="background:#ffffff;border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:20px;margin-bottom:30px;font-size:0.875rem;">
+        <h4 style="font-size:0.9375rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
+          Delivery & Recipient Coordinates
+        </h4>
+        <div id="recipient-details" style="color:var(--slate-600);line-height:1.6;">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;" class="btn-print-hide">
+        <a id="btn-track-order" href="track-order.html" class="btn-primary">
+          <i class="fa-solid fa-truck"></i> Live Order Tracking
+        </a>
+        <button type="button" class="btn-white" onclick="window.print()">
+          <i class="fa-solid fa-print"></i> Print Official Receipt
+        </button>
+        <a href="portal.html" class="btn-white">
+          <i class="fa-solid fa-user"></i> Go to Patient Portal
+        </a>
+        <a href="shop.html" class="btn-white">
+          <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="mobile-bottom-nav">
+    <div class="mobile-bottom-inner">
+      <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+      <a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-pills"></i><span>Shop</span></a>
+      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn"><i class="fa-solid fa-prescription"></i></a>
+      <a href="track-order.html" class="mobile-nav-link active"><i class="fa-solid fa-truck"></i><span>Track</span></a>
+      <a href="portal.html" class="mobile-nav-link"><i class="fa-solid fa-user"></i><span>Account</span></a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pharmacy-data.js"></script>
+  <script src="js/pharmacy-store.js"></script>
+  <script src="js/pharmacy-ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get("id");
+
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const order = orderId ? store.getOrderById(orderId) : store.getOrders()[0];
+      if (!order) {
+        window.location.href = "shop.html";
+        return;
+      }
+
+      document.getElementById("order-ref-id").textContent = order.id;
+      document.getElementById("order-status-badge").innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> ${order.orderStatus}`;
+      document.getElementById("order-eta").textContent = order.estimatedDelivery || "Tomorrow";
+      document.getElementById("order-total-val").textContent = `$${order.total.toFixed(2)}`;
+      document.getElementById("btn-track-order").href = `track-order.html?id=${order.id}`;
+
+      // Render items
+      const itemsList = document.getElementById("confirmed-items-list");
+      itemsList.innerHTML = (order.items || []).map((item, idx) => `
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:${idx === order.items.length - 1 ? 'none' : '1px solid var(--slate-100)'};background:${idx % 2 === 0 ? '#ffffff' : 'var(--slate-50)'};">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <img src="${item.image}" alt="${item.name}" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid var(--slate-200);">
+            <div>
+              <strong style="color:var(--navy);font-size:0.9375rem;">${item.name}</strong>
+              <div style="font-size:0.75rem;color:var(--slate-500);">${item.strength || item.brand || ''}</div>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-weight:700;color:var(--navy);">$${(item.price * item.quantity).toFixed(2)}</div>
+            <div style="font-size:0.75rem;color:var(--slate-500);">Qty: ${item.quantity}</div>
+          </div>
+        </div>
+      `).join("");
+
+      // Render Recipient
+      document.getElementById("recipient-details").innerHTML = `
+        <strong>Patient:</strong> ${order.customer.name} • ${order.customer.phone}<br>
+        <strong>Address / Fulfillment:</strong> ${order.customer.address} (${order.fulfillmentType === 'delivery' ? 'Home Delivery' : 'Counter Pickup'})<br>
+        <strong>Payment Method:</strong> ${order.paymentMethod} (${order.paymentStatus})
+        ${order.prescriptionId ? `<br><strong>Linked Prescription:</strong> #${order.prescriptionId}` : ''}
+      `;
+    });
+  </script>
+</body>
+</html>

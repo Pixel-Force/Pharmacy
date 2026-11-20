@@ -1,0 +1,21 @@
+{
+  "name": "curarx-pharmacy",
+  "version": "1.0.0",
+  "description": "CuraRx Licensed Online Pharmacy & Healthcare E-Commerce Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-server.js"
+  },
+  "keywords": [
+    "pharmacy",
+    "online-pharmacy",
+    "e-commerce",
+    "healthcare",
+    "prescriptions",
+    "pharmacist",
+    "cold-chain"
+  ],
+  "author": "CuraRx Healthcare Systems",
+  "license": "MIT"
+}

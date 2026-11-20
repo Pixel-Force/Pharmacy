@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal & Account | CuraRx Pharmacy</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/pharmacy.css">
+
+  <style>
+    .portal-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      padding: 40px 0 80px;
+    }
+
+    .portal-nav-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 24px 16px;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+    }
+
+    .portal-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      border: none;
+      background: transparent;
+      color: var(--slate-600);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      margin-bottom: 4px;
+    }
+
+    .portal-nav-btn:hover {
+      background-color: var(--slate-50);
+      color: var(--navy);
+    }
+
+    .portal-nav-btn.active {
+      background-color: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .portal-content-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 32px;
+    }
+
+    .portal-tab-pane {
+      display: none;
+    }
+
+    .portal-tab-pane.active {
+      display: block;
+    }
+
+    .rx-record-card {
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: var(--slate-50);
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .portal-layout {
+        grid-template-columns: 1fr;
+      }
+      .portal-nav-card {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-left">
+        <span class="announcement-badge"><i class="fa-solid fa-lock"></i> Patient Portal</span>
+        <span>Secure health management & prescription refills</span>
+      </div>
+      <div class="announcement-right">
+        <a href="tel:1800287279"><i class="fa-solid fa-phone"></i> 1-800-CURA-RX</a>
+        <a href="admin/index.html"><i class="fa-solid fa-user-doctor"></i> Pharmacist Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-symbol">
+          <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Cura<span>Rx</span></h1>
+          <span class="logo-tagline">Licensed Pharmacy & Wellness</span>
+        </div>
+      </a>
+
+      <div class="search-wrapper">
+        <div class="search-input-group">
+          <input type="text" class="search-input global-search-input" placeholder="Search medicines...">
+          <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="upload-prescription.html" class="btn-upload-rx-header">
+          <i class="fa-solid fa-prescription"></i> Upload Script
+        </a>
+        <button class="header-action-btn btn-open-cart-drawer">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="action-badge cart-count-badge" style="display:none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="portal-layout">
+      <!-- Left Sidebar Nav -->
+      <aside class="portal-nav-card">
+        <div style="display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--slate-100);">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;" id="portal-avatar">
+            AR
+          </div>
+          <div>
+            <strong style="color:var(--navy);font-size:0.9375rem;display:block;" id="portal-user-name">Alexander Reed</strong>
+            <span style="font-size:0.75rem;color:var(--slate-500);">Patient ID: #PAT-44019</span>
+          </div>
+        </div>
+
+        <button class="portal-nav-btn active" onclick="switchPortalTab('prescriptions', this)">
+          <i class="fa-solid fa-prescription"></i> My Prescriptions
+        </button>
+        <button class="portal-nav-btn" onclick="switchPortalTab('orders', this)">
+          <i class="fa-solid fa-box"></i> Order History
+        </button>
+        <button class="portal-nav-btn" onclick="switchPortalTab('profile', this)">
+          <i class="fa-solid fa-heart-pulse"></i> Health & Allergy Profile
+        </button>
+        <button class="portal-nav-btn" onclick="switchPortalTab('wishlist', this)">
+          <i class="fa-solid fa-heart"></i> Saved Items
+        </button>
+        <button class="portal-nav-btn" onclick="switchPortalTab('consultations', this)">
+          <i class="fa-solid fa-user-doctor"></i> Pharmacist Notes
+        </button>
+      </aside>
+
+      <!-- Right Main Content -->
+      <section class="portal-content-card">
+        <!-- 1. PRESCRIPTIONS TAB -->
+        <div class="portal-tab-pane active" id="tab-prescriptions">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+            <div>
+              <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);">
+                My Prescriptions & Refills
+              </h2>
+              <p style="font-size:0.875rem;color:var(--slate-500);">
+                Active medical prescriptions reviewed and signed by licensed clinical pharmacists.
+              </p>
+            </div>
+            <a href="upload-prescription.html" class="btn-primary" style="font-size:0.875rem;padding:10px 18px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload New Prescription
+            </a>
+          </div>
+
+          <div id="portal-prescriptions-list">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- 2. ORDERS TAB -->
+        <div class="portal-tab-pane" id="tab-orders">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
+            Order History & Fulfillment Tracking
+          </h2>
+          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
+            Inspect past dispensations, invoice receipts, and active delivery statuses.
+          </p>
+
+          <div id="portal-orders-list">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- 3. HEALTH & ALLERGY PROFILE TAB -->
+        <div class="portal-tab-pane" id="tab-profile">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
+            Patient Health & Allergy Profile
+          </h2>
+          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
+            Our pharmacists screen every order against your known drug allergies and health conditions.
+          </p>
+
+          <form onsubmit="event.preventDefault(); saveProfileDetails();">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Full Legal Name</label>
+                <input type="text" id="prof-name" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" id="prof-dob" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Contact Phone</label>
+                <input type="tel" id="prof-phone" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="prof-email" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+              <label class="form-label">Known Drug Allergies (Critical for Pharmacist Screening)</label>
+              <input type="text" id="prof-allergies" class="form-input" placeholder="e.g. Penicillin, Sulfa, Codeine">
+              <span class="form-hint">Separate multiple allergies with commas.</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+              <label class="form-label">Chronic Medical Conditions</label>
+              <input type="text" id="prof-conditions" class="form-input" placeholder="e.g. Hypertension, Type 2 Diabetes, Asthma">
+            </div>
+
+            <div class="form-grid-2" style="margin-bottom:24px;">
+              <div class="form-group">
+                <label class="form-label">Health Insurance Provider</label>
+                <input type="text" id="prof-insurance" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Policy / Member ID</label>
+                <input type="text" id="prof-policy" class="form-input">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary">
+              <i class="fa-solid fa-floppy-disk"></i> Save Health Profile
+            </button>
+          </form>
+        </div>
+
+        <!-- 4. WISHLIST TAB -->
+        <div class="portal-tab-pane" id="tab-wishlist">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
+            Saved Healthcare Items
+          </h2>
+          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
+            Your personal wishlist of vitamins, monitors, and wellness items.
+          </p>
+          <div class="products-grid" id="portal-wishlist-grid"></div>
+        </div>
+
+        <!-- 5. PHARMACIST NOTES TAB -->
+        <div class="portal-tab-pane" id="tab-consultations">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
+            Pharmacist Consultation Notes
+          </h2>
+          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
+            Confidential clinical records, dosage adjustments, and interaction warnings logged by our pharmacists.
+          </p>
+
+          <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:20px;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <strong style="color:var(--navy);">Dr. Eleanor Vance, PharmD (Chief Supervising Pharmacist)</strong>
+              <span style="font-size:0.75rem;color:var(--slate-400);">Nov 15, 2026</span>
+            </div>
+            <p style="font-size:0.875rem;color:var(--slate-700);line-height:1.5;margin:0;">
+              "Reviewed Atorvastatin 20mg + Lisinopril 10mg maintenance regime. Patient reported mild urticaria history with Penicillin; no cross-sensitivity present. Advised patient to take Atorvastatin at bedtime and avoid grapefruit juice. Blood pressure log scheduled for follow-up in 30 days."
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="mobile-bottom-nav">
+    <div class="mobile-bottom-inner">
+      <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+      <a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-pills"></i><span>Shop</span></a>
+      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn"><i class="fa-solid fa-prescription"></i></a>
+      <a href="track-order.html" class="mobile-nav-link"><i class="fa-solid fa-truck"></i><span>Track</span></a>
+      <a href="portal.html" class="mobile-nav-link active"><i class="fa-solid fa-user"></i><span>Account</span></a>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-overlay"></div>
+  <div class="cart-drawer">
+    <div class="drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
+      <button class="btn-close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="shipping-progress-box"></div>
+    <div class="drawer-items"></div>
+    <div class="drawer-footer">
+      <div class="drawer-summary-total">
+        <span>Total</span>
+        <span class="drawer-total-val">$0.00</span>
+      </div>
+      <a href="checkout.html" class="btn-checkout-drawer">Proceed to Checkout</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pharmacy-data.js"></script>
+  <script src="js/pharmacy-store.js"></script>
+  <script src="js/pharmacy-ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadPortalData();
+
+      // Check hash
+      if (window.location.hash === "#wishlist") {
+        const btn = document.querySelector('button[onclick*="wishlist"]');
+        if (btn) btn.click();
+      }
+    });
+
+    function switchPortalTab(tabName, btn) {
+      document.querySelectorAll(".portal-nav-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".portal-tab-pane").forEach(p => p.classList.remove("active"));
+
+      btn.classList.add("active");
+      const targetPane = document.getElementById(`tab-${tabName}`);
+      if (targetPane) targetPane.classList.add("active");
+
+      if (tabName === "wishlist") {
+        renderWishlistItems();
+      }
+    }
+
+    function loadPortalData() {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const user = store.getUser();
+      const prescriptions = store.getPrescriptions();
+      const orders = store.getOrders();
+
+      // Profile fields
+      document.getElementById("portal-user-name").textContent = user.name;
+      document.getElementById("prof-name").value = user.name;
+      document.getElementById("prof-dob").value = user.dob;
+      document.getElementById("prof-phone").value = user.phone;
+      document.getElementById("prof-email").value = user.email;
+      document.getElementById("prof-allergies").value = (user.allergies || []).join(", ");
+      document.getElementById("prof-conditions").value = (user.chronicConditions || []).join(", ");
+      document.getElementById("prof-insurance").value = user.insuranceProvider || "";
+      document.getElementById("prof-policy").value = user.insurancePolicyNumber || "";
+
+      // Prescriptions List
+      const rxContainer = document.getElementById("portal-prescriptions-list");
+      rxContainer.innerHTML = prescriptions.map(rx => `
+        <div class="rx-record-card">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--primary-subtle);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:22px;">
+              <i class="fa-solid fa-file-prescription"></i>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <strong style="color:var(--navy);font-size:1.05rem;">Prescription #${rx.id}</strong>
+                <span style="font-size:0.75rem;font-weight:700;padding:2px 8px;border-radius:var(--radius-full);background:${rx.status === 'Verified' ? 'var(--success-bg)' : 'var(--warning-bg)'};color:${rx.status === 'Verified' ? 'var(--secondary-dark)' : '#b45309'};">
+                  ${rx.status}
+                </span>
+              </div>
+              <div style="font-size:0.8125rem;color:var(--slate-500);margin-top:2px;">
+                Prescribed by ${rx.doctorName} (${rx.doctorClinic}) • Dated: ${rx.prescriptionDate}
+              </div>
+              ${rx.verifiedBy ? `
+                <div style="font-size:0.75rem;color:var(--primary);font-weight:600;margin-top:4px;">
+                  <i class="fa-solid fa-certificate"></i> Verified by: ${rx.verifiedBy}
+                </div>
+              ` : ''}
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;">
+            <a href="track-order.html?id=${rx.id}" class="btn-white" style="font-size:0.8125rem;padding:8px 14px;">
+              <i class="fa-solid fa-satellite-dish"></i> Status
+            </a>
+            ${rx.status === 'Verified' ? `
+              <a href="shop.html?filter=rx" class="btn-primary" style="font-size:0.8125rem;padding:8px 14px;">
+                <i class="fa-solid fa-cart-plus"></i> Order Refill
+              </a>
+            ` : ''}
+          </div>
+        </div>
+      `).join("");
+
+      // Orders List
+      const ordersContainer = document.getElementById("portal-orders-list");
+      ordersContainer.innerHTML = orders.map(order => `
+        <div class="rx-record-card">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <strong style="color:var(--navy);font-size:1.05rem;">Order #${order.id}</strong>
+              <span class="order-status-pill">${order.orderStatus}</span>
+            </div>
+            <div style="font-size:0.8125rem;color:var(--slate-500);margin-top:4px;">
+              ${order.items.length} items • Total: $${order.total.toFixed(2)} • Placed: ${new Date(order.createdAt).toLocaleDateString()}
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <a href="track-order.html?id=${order.id}" class="btn-primary" style="font-size:0.8125rem;padding:8px 14px;">
+              <i class="fa-solid fa-truck"></i> Track Delivery
+            </a>
+            <a href="order-confirmation.html?id=${order.id}" class="btn-white" style="font-size:0.8125rem;padding:8px 14px;">
+              <i class="fa-solid fa-receipt"></i> Invoice
+            </a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderWishlistItems() {
+      const store = window.PharmacyStore;
+      const wishlist = store.getWishlist();
+      const grid = document.getElementById("portal-wishlist-grid");
+
+      if (wishlist.length === 0) {
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--slate-400);">No items saved to your wishlist yet.</div>`;
+        return;
+      }
+
+      const products = store.getProducts().filter(p => wishlist.includes(p.id));
+      grid.innerHTML = products.map(p => window.PharmacyUI.createProductCard(p)).join("");
+    }
+
+    function saveProfileDetails() {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      store.saveUser({
+        name: document.getElementById("prof-name").value.trim(),
+        dob: document.getElementById("prof-dob").value,
+        phone: document.getElementById("prof-phone").value.trim(),
+        email: document.getElementById("prof-email").value.trim(),
+        allergies: document.getElementById("prof-allergies").value.split(",").map(s => s.trim()).filter(Boolean),
+        chronicConditions: document.getElementById("prof-conditions").value.split(",").map(s => s.trim()).filter(Boolean),
+        insuranceProvider: document.getElementById("prof-insurance").value.trim(),
+        insurancePolicyNumber: document.getElementById("prof-policy").value.trim()
+      });
+    }
+  </script>
+</body>
+</html>

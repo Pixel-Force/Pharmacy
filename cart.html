@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Basket & Prescription Verification | CuraRx Pharmacy</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/pharmacy.css">
+
+  <style>
+    .cart-page-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 36px;
+      padding: 40px 0 80px;
+    }
+
+    .cart-table-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 28px;
+    }
+
+    .cart-summary-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 28px;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+    }
+
+    .cart-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto auto;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .cart-row:last-child {
+      border-bottom: none;
+    }
+
+    .cart-thumb-img {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-md);
+      object-fit: contain;
+      border: 1px solid var(--slate-200);
+      padding: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .cart-page-layout {
+        grid-template-columns: 1fr;
+      }
+      .cart-row {
+        grid-template-columns: 70px 1fr;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-left">
+        <span class="announcement-badge"><i class="fa-solid fa-shield-halved"></i> Licensed Pharmacy</span>
+        <span>Free Expedited Cold-Chain Delivery on orders over $45.00</span>
+      </div>
+      <div class="announcement-right">
+        <a href="tel:1800287279"><i class="fa-solid fa-phone"></i> 1-800-CURA-RX</a>
+        <a href="admin/index.html"><i class="fa-solid fa-user-doctor"></i> Pharmacist Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-symbol">
+          <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Cura<span>Rx</span></h1>
+          <span class="logo-tagline">Licensed Pharmacy & Wellness</span>
+        </div>
+      </a>
+
+      <div class="header-actions" style="margin-left:auto;">
+        <a href="shop.html" class="btn-white" style="font-size:0.875rem;padding:8px 16px;">
+          <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+        </a>
+        <a href="portal.html" class="header-action-btn">
+          <i class="fa-regular fa-user"></i>
+          <span>My Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container">
+    <div style="margin-top:30px;">
+      <h1 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--navy);">
+        Your Shopping Basket
+      </h1>
+      <p style="color:var(--slate-500);font-size:0.9375rem;">
+        Review your healthcare essentials, attach prescriptions where required, and select fulfillment.
+      </p>
+    </div>
+
+    <!-- Rx Warning Alert if cart contains Rx items -->
+    <div id="cart-rx-banner" style="display:none;margin-top:20px;background:var(--rx-bg);border:1.5px solid var(--rx-border);border-radius:var(--radius-xl);padding:20px;">
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <i class="fa-solid fa-file-prescription" style="font-size:24px;color:var(--rx-teal);margin-top:2px;"></i>
+        <div style="flex:1;">
+          <h4 style="font-size:1.05rem;font-weight:800;color:var(--rx-teal);margin-bottom:4px;">
+            Prescription Medications Detected
+          </h4>
+          <p style="font-size:0.875rem;color:var(--navy);line-height:1.5;margin-bottom:12px;">
+            Your basket includes medications requiring a verified prescription. Please link an existing verified script from your health profile or upload a new doctor's prescription.
+          </p>
+
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <select id="select-linked-rx" class="finder-select" style="max-width:320px;background:#ffffff;padding:8px 12px;font-size:0.8125rem;">
+              <option value="">-- Choose verified prescription --</option>
+            </select>
+            <a href="upload-prescription.html" class="btn-white" style="font-size:0.8125rem;padding:8px 16px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload New Script
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-page-layout">
+      <!-- 1. Cart Items List -->
+      <section class="cart-table-card">
+        <div id="cart-items-container">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div id="cart-empty-message" style="display:none;text-align:center;padding:60px 20px;">
+          <div style="width:72px;height:72px;background:var(--slate-100);color:var(--slate-400);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <h3 style="color:var(--navy);margin-bottom:6px;">Your basket is empty</h3>
+          <p style="color:var(--slate-500);font-size:0.875rem;margin-bottom:20px;">Explore our catalog or upload a prescription to get started.</p>
+          <a href="shop.html" class="btn-primary">Browse Pharmacy Catalog</a>
+        </div>
+      </section>
+
+      <!-- 2. Order Summary Sidebar -->
+      <aside class="cart-summary-card">
+        <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:20px;">
+          Order Summary
+        </h3>
+
+        <!-- Free shipping meter -->
+        <div class="shipping-progress-box" style="border-radius:var(--radius-lg);margin-bottom:20px;border:1px solid var(--primary-border);">
+          <!-- Dynamic from store -->
+        </div>
+
+        <!-- Promo coupon -->
+        <div style="display:flex;gap:8px;margin-bottom:20px;">
+          <input type="text" id="coupon-code" placeholder="Promo code (e.g., RX10)" class="form-input" style="padding:8px 12px;font-size:0.875rem;text-transform:uppercase;">
+          <button type="button" class="btn-white" style="padding:8px 14px;font-size:0.8125rem;" onclick="applyPromoCode()">Apply</button>
+        </div>
+
+        <div class="drawer-summary-row" style="margin-bottom:10px;">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="drawer-summary-row" style="margin-bottom:10px;">
+          <span>Estimated Cold-Chain Shipping</span>
+          <span id="cart-shipping">$0.00</span>
+        </div>
+        <div class="drawer-summary-row" style="margin-bottom:10px;">
+          <span>Estimated Sales Tax</span>
+          <span id="cart-tax">$0.00</span>
+        </div>
+        <div class="drawer-summary-row" id="discount-row" style="display:none;color:#16a34a;margin-bottom:10px;font-weight:700;">
+          <span>Special Discount</span>
+          <span id="cart-discount">-$0.00</span>
+        </div>
+
+        <div class="drawer-summary-total" style="margin-top:16px;">
+          <span>Total Payable</span>
+          <span id="cart-total" style="color:var(--primary);">$0.00</span>
+        </div>
+
+        <button type="button" class="btn-checkout-drawer" style="margin-top:24px;" onclick="proceedToCheckout()">
+          <i class="fa-solid fa-lock"></i> Proceed to Clinical Checkout
+        </button>
+
+        <div style="margin-top:16px;text-align:center;font-size:0.75rem;color:var(--slate-500);">
+          <i class="fa-solid fa-shield-halved text-primary"></i> 256-bit Encrypted Checkout • Pharmacist Monitored
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="mobile-bottom-nav">
+    <div class="mobile-bottom-inner">
+      <a href="index.html" class="mobile-nav-link">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="shop.html" class="mobile-nav-link">
+        <i class="fa-solid fa-pills"></i>
+        <span>Shop</span>
+      </a>
+      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn">
+        <i class="fa-solid fa-prescription"></i>
+      </a>
+      <a href="track-order.html" class="mobile-nav-link">
+        <i class="fa-solid fa-truck"></i>
+        <span>Track</span>
+      </a>
+      <a href="portal.html" class="mobile-nav-link">
+        <i class="fa-solid fa-user"></i>
+        <span>Account</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pharmacy-data.js"></script>
+  <script src="js/pharmacy-store.js"></script>
+  <script src="js/pharmacy-ui.js"></script>
+
+  <script>
+    let discountRate = 0;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCartPage();
+
+      if (window.PharmacyStore) {
+        window.PharmacyStore.subscribe((event) => {
+          if (event === "cart_changed") renderCartPage();
+        });
+      }
+    });
+
+    function renderCartPage() {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const cart = store.getCart();
+      const summary = store.getCartSummary();
+      const container = document.getElementById("cart-items-container");
+      const emptyMsg = document.getElementById("cart-empty-message");
+      const rxBanner = document.getElementById("cart-rx-banner");
+
+      if (cart.length === 0) {
+        container.style.display = "none";
+        emptyMsg.style.display = "block";
+        rxBanner.style.display = "none";
+      } else {
+        container.style.display = "block";
+        emptyMsg.style.display = "none";
+
+        container.innerHTML = cart.map(item => `
+          <div class="cart-row">
+            <img src="${item.image}" alt="${item.name}" class="cart-thumb-img">
+            <div>
+              <a href="product-detail.html?id=${item.id}" style="font-weight:700;color:var(--navy);font-size:1.05rem;display:block;">
+                ${item.name}
+              </a>
+              <div style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0;">
+                ${item.strength || item.brand}
+              </div>
+              ${item.prescriptionRequired ? `
+                <span class="badge-rx" style="font-size:0.72rem;display:inline-flex;margin-top:4px;">
+                  <i class="fa-solid fa-prescription"></i> Prescription Required
+                </span>
+              ` : `
+                <span class="badge-otc" style="font-size:0.72rem;display:inline-flex;margin-top:4px;">OTC</span>
+              `}
+            </div>
+
+            <div class="qty-control">
+              <button class="qty-btn" onclick="window.PharmacyStore.updateCartQuantity('${item.id}', ${item.quantity - 1})">-</button>
+              <span class="qty-number">${item.quantity}</span>
+              <button class="qty-btn" onclick="window.PharmacyStore.updateCartQuantity('${item.id}', ${item.quantity + 1})">+</button>
+            </div>
+
+            <div style="text-align:right;">
+              <div style="font-weight:800;font-size:1.15rem;color:var(--navy);">$${(item.price * item.quantity).toFixed(2)}</div>
+              <button onclick="window.PharmacyStore.removeFromCart('${item.id}')" style="background:none;border:none;color:var(--slate-400);cursor:pointer;font-size:0.8125rem;margin-top:4px;">
+                <i class="fa-regular fa-trash-can"></i> Remove
+              </button>
+            </div>
+          </div>
+        `).join("");
+
+        // Handle Rx alert banner
+        if (summary.hasPrescriptionItems) {
+          rxBanner.style.display = "block";
+          populatePrescriptionDropdown();
+        } else {
+          rxBanner.style.display = "none";
+        }
+      }
+
+      // Calculations with discount
+      const subtotal = summary.subtotal;
+      const discountVal = subtotal * discountRate;
+      const finalSub = Math.max(0, subtotal - discountVal);
+      const tax = finalSub * 0.07;
+      const total = finalSub + summary.shippingFee + tax;
+
+      document.getElementById("cart-subtotal").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("cart-shipping").textContent = summary.shippingFee === 0 ? "FREE" : `$${summary.shippingFee.toFixed(2)}`;
+      document.getElementById("cart-tax").textContent = `$${tax.toFixed(2)}`;
+      document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+
+      if (discountVal > 0) {
+        document.getElementById("discount-row").style.display = "flex";
+        document.getElementById("cart-discount").textContent = `-$${discountVal.toFixed(2)}`;
+      }
+    }
+
+    function populatePrescriptionDropdown() {
+      const store = window.PharmacyStore;
+      const select = document.getElementById("select-linked-rx");
+      if (!store || !select) return;
+
+      const prescriptions = store.getPrescriptions();
+      select.innerHTML = '<option value="">-- Choose verified prescription --</option>' + 
+        prescriptions.map(rx => `
+          <option value="${rx.id}" ${rx.status === "Verified" ? "selected" : ""}>
+            ${rx.id} - ${rx.doctorName} (${rx.status})
+          </option>
+        `).join("");
+    }
+
+    function applyPromoCode() {
+      const code = document.getElementById("coupon-code").value.trim().toUpperCase();
+      if (code === "RX10" || code === "HEALTH10") {
+        discountRate = 0.10;
+        window.PharmacyStore.showToast("10% Promotional discount applied!", "success");
+        renderCartPage();
+      } else {
+        window.PharmacyStore.showToast("Invalid or expired coupon code", "warning");
+      }
+    }
+
+    function proceedToCheckout() {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const cart = store.getCart();
+      if (cart.length === 0) {
+        store.showToast("Your basket is empty", "warning");
+        return;
+      }
+
+      const summary = store.getCartSummary();
+      if (summary.hasPrescriptionItems) {
+        const selectedRx = document.getElementById("select-linked-rx").value;
+        if (!selectedRx) {
+          // Check if there is an approved one
+          const prescriptions = store.getPrescriptions();
+          const verified = prescriptions.find(p => p.status === "Verified");
+          if (verified) {
+            sessionStorage.setItem("curarx_attached_rx", verified.id);
+          }
+        } else {
+          sessionStorage.setItem("curarx_attached_rx", selectedRx);
+        }
+      }
+
+      window.location.href = "checkout.html";
+    }
+  </script>
+</body>
+</html>

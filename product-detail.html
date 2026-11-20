@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Details | CuraRx Pharmacy</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/pharmacy.css">
+
+  <style>
+    .product-detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      padding: 40px 0 60px;
+    }
+
+    .detail-gallery {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 480px;
+    }
+
+    .detail-gallery img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .detail-info-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .detail-category {
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .detail-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .detail-generic {
+      font-size: 1rem;
+      color: var(--slate-500);
+      margin-bottom: 16px;
+    }
+
+    .detail-generic strong {
+      color: var(--navy-light);
+    }
+
+    .detail-price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 16px 0;
+      border-top: 1px solid var(--slate-100);
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .detail-current-price {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .detail-original-price {
+      font-size: 1.1rem;
+      color: var(--slate-400);
+      text-decoration: line-through;
+    }
+
+    .detail-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.875rem;
+    }
+
+    .detail-spec-item {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+    }
+
+    .detail-spec-item span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--slate-500);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .detail-spec-item strong {
+      color: var(--navy);
+    }
+
+    /* Rx Verification Notice Box */
+    .rx-notice-card {
+      background: var(--rx-bg);
+      border: 1.5px solid var(--rx-border);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .rx-notice-card i {
+      color: var(--rx-teal);
+      font-size: 1.5rem;
+      margin-top: 2px;
+    }
+
+    .rx-notice-content h5 {
+      font-size: 0.9375rem;
+      font-weight: 800;
+      color: var(--rx-teal);
+      margin-bottom: 4px;
+    }
+
+    .rx-notice-content p {
+      font-size: 0.8125rem;
+      color: var(--slate-700);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    /* Actions */
+    .detail-actions-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .qty-picker {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-full);
+      padding: 4px 8px;
+      background: var(--slate-50);
+    }
+
+    .qty-picker button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #ffffff;
+      color: var(--navy);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .qty-picker span {
+      width: 44px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .btn-add-detail {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      padding: 16px 28px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(13, 148, 136, 0.35);
+      transition: all 0.2s;
+    }
+
+    .btn-add-detail:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(13, 148, 136, 0.45);
+    }
+
+    /* Monograph Tabs */
+    .monograph-container {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 32px;
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+
+    .monograph-tabs {
+      display: flex;
+      gap: 12px;
+      border-bottom: 2px solid var(--slate-100);
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+
+    .monograph-tab-btn {
+      background: none;
+      border: none;
+      padding: 12px 18px;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--slate-500);
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .monograph-tab-btn.active {
+      color: var(--primary);
+    }
+
+    .monograph-tab-btn.active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .monograph-pane {
+      display: none;
+      line-height: 1.7;
+      color: var(--slate-700);
+      font-size: 0.9375rem;
+    }
+
+    .monograph-pane.active {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .product-detail-layout {
+        grid-template-columns: 1fr;
+      }
+      .detail-gallery {
+        height: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-left">
+        <span class="announcement-badge"><i class="fa-solid fa-shield-halved"></i> Licensed Pharmacy</span>
+        <span>Free Expedited Cold-Chain Delivery on orders over $45.00</span>
+      </div>
+      <div class="announcement-right">
+        <a href="tel:1800287279"><i class="fa-solid fa-phone"></i> 1-800-CURA-RX</a>
+        <a href="admin/index.html"><i class="fa-solid fa-user-doctor"></i> Pharmacist Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-symbol">
+          <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Cura<span>Rx</span></h1>
+          <span class="logo-tagline">Licensed Pharmacy & Wellness</span>
+        </div>
+      </a>
+
+      <div class="search-wrapper">
+        <div class="search-input-group">
+          <input type="text" class="search-input global-search-input" placeholder="Search medicines by name, generic, or brand...">
+          <button type="button" class="search-btn" title="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="upload-prescription.html" class="btn-upload-rx-header">
+          <i class="fa-solid fa-prescription"></i> Upload Script
+        </a>
+        <a href="portal.html" class="header-action-btn" title="Patient Account">
+          <i class="fa-regular fa-user"></i>
+          <span>My Account</span>
+        </a>
+        <a href="portal.html#wishlist" class="header-action-btn" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="action-badge wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <button class="header-action-btn btn-open-cart-drawer" title="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="action-badge cart-count-badge" style="display:none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div style="background-color:var(--slate-50);border-bottom:1px solid var(--slate-200);padding:14px 0;">
+    <div class="container" style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--slate-500);">
+      <a href="index.html" style="color:var(--navy);font-weight:600;"><i class="fa-solid fa-house"></i> Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i>
+      <a href="shop.html" style="color:var(--navy);font-weight:600;">Shop Catalog</a>
+      <i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i>
+      <span id="breadcrumb-title" style="color:var(--primary);font-weight:700;">Loading Medicine...</span>
+    </div>
+  </div>
+
+  <!-- Main Product Detail View -->
+  <main class="container">
+    <div class="product-detail-layout" id="product-detail-container">
+      <!-- Media Left -->
+      <div class="detail-gallery">
+        <div id="badge-container" style="position:absolute;top:20px;left:20px;display:flex;flex-direction:column;gap:6px;"></div>
+        <img id="detail-img" src="" alt="Medicine Photo">
+      </div>
+
+      <!-- Info Right -->
+      <div class="detail-info-box">
+        <div class="detail-category" id="detail-cat">Category</div>
+        <h1 class="detail-title" id="detail-name">Medicine Name</h1>
+        
+        <div class="detail-generic">
+          Active Generic: <strong id="detail-generic-name">--</strong> • Brand: <strong id="detail-brand">--</strong>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div class="stars" style="color:#f59e0b;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span style="font-size:0.875rem;color:var(--slate-500);" id="detail-reviews">(48 verified patient reviews)</span>
+        </div>
+
+        <div class="detail-price-box">
+          <span class="detail-current-price" id="detail-price">$0.00</span>
+          <span class="detail-original-price" id="detail-orig-price" style="display:none;">$0.00</span>
+          <span style="background:var(--success-bg);color:var(--secondary-dark);font-size:0.78rem;font-weight:700;padding:2px 8px;border-radius:var(--radius-full);" id="detail-stock-status">
+            In Stock & Ready for Dispensing
+          </span>
+        </div>
+
+        <!-- Specifications Grid -->
+        <div class="detail-specs-grid">
+          <div class="detail-spec-item">
+            <span>Dosage Form</span>
+            <strong id="spec-form">--</strong>
+          </div>
+          <div class="detail-spec-item">
+            <span>Strength</span>
+            <strong id="spec-strength">--</strong>
+          </div>
+          <div class="detail-spec-item">
+            <span>Package Size</span>
+            <strong id="spec-pack">--</strong>
+          </div>
+          <div class="detail-spec-item">
+            <span>Batch & Expiry</span>
+            <strong id="spec-batch">--</strong>
+          </div>
+        </div>
+
+        <!-- Rx Notice Alert Card -->
+        <div class="rx-notice-card" id="detail-rx-alert" style="display:none;">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+          <div class="rx-notice-content">
+            <h5>Prescription Medication Verification Required</h5>
+            <p>
+              In accordance with pharmaceutical dispensing laws, this product cannot be shipped or picked up without a valid prescription written by a licensed medical practitioner.
+            </p>
+            <a href="upload-prescription.html" style="color:var(--rx-teal);font-weight:800;text-decoration:underline;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload your prescription now
+            </a>
+          </div>
+        </div>
+
+        <!-- Purchase Action Controls -->
+        <div class="detail-actions-row">
+          <div class="qty-picker">
+            <button onclick="changeDetailQty(-1)">-</button>
+            <span id="detail-qty-val">1</span>
+            <button onclick="changeDetailQty(1)">+</button>
+          </div>
+
+          <button class="btn-add-detail" onclick="handleDetailAddToCart()">
+            <i class="fa-solid fa-cart-plus"></i> Add to Prescription Basket
+          </button>
+        </div>
+
+        <!-- Cold Chain & Genuine Guarantee -->
+        <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:14px;font-size:0.8125rem;color:var(--slate-600);display:flex;gap:16px;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <i class="fa-solid fa-snowflake text-primary"></i> Cold-Chain Certified
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <i class="fa-solid fa-shield-halved text-primary"></i> Tamper-Sealed
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <i class="fa-solid fa-certificate text-primary"></i> 100% Genuine
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clinical Monograph Tabs -->
+    <div class="monograph-container">
+      <div class="monograph-tabs">
+        <button class="monograph-tab-btn active" onclick="switchTab('indications', this)">Indications & Description</button>
+        <button class="monograph-tab-btn" onclick="switchTab('dosage', this)">Dosage Instructions</button>
+        <button class="monograph-tab-btn" onclick="switchTab('ingredients', this)">Active Composition</button>
+        <button class="monograph-tab-btn" onclick="switchTab('warnings', this)">Precautions & Side Effects</button>
+        <button class="monograph-tab-btn" onclick="switchTab('storage', this)">Storage & Quality</button>
+      </div>
+
+      <div class="monograph-pane active" id="pane-indications">
+        <h4 style="color:var(--navy);margin-bottom:8px;">Therapeutic Indications & Purpose</h4>
+        <p id="mono-indications">Loading clinical data...</p>
+        <h4 style="color:var(--navy);margin-top:16px;margin-bottom:8px;">Clinical Overview</h4>
+        <p id="mono-desc">Loading clinical data...</p>
+      </div>
+
+      <div class="monograph-pane" id="pane-dosage">
+        <h4 style="color:var(--navy);margin-bottom:8px;">Recommended Dosage & Administration</h4>
+        <p id="mono-dosage">Loading clinical data...</p>
+        <div style="background:var(--warning-bg);border:1px solid var(--warning-border);padding:12px;border-radius:var(--radius-md);margin-top:16px;font-size:0.8125rem;color:#78350f;">
+          <i class="fa-solid fa-triangle-exclamation"></i> <strong>Pharmacist Note:</strong> Never alter your prescribed dosage without consulting your primary doctor or speaking with our clinical pharmacist.
+        </div>
+      </div>
+
+      <div class="monograph-pane" id="pane-ingredients">
+        <h4 style="color:var(--navy);margin-bottom:8px;">Active Pharmaceutical Ingredients</h4>
+        <p id="mono-active">Loading clinical data...</p>
+      </div>
+
+      <div class="monograph-pane" id="pane-warnings">
+        <h4 style="color:var(--navy);margin-bottom:8px;">Important Warnings & Safety Precautions</h4>
+        <p id="mono-warnings" style="color:#b91c1c;">Loading clinical data...</p>
+      </div>
+
+      <div class="monograph-pane" id="pane-storage">
+        <h4 style="color:var(--navy);margin-bottom:8px;">Storage & Handling Guidelines</h4>
+        <p id="mono-storage">Loading clinical data...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-overlay"></div>
+  <div class="cart-drawer">
+    <div class="drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Prescription Basket</h3>
+      <button class="btn-close-drawer" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="shipping-progress-box"></div>
+    <div class="drawer-items"></div>
+    <div class="drawer-footer">
+      <div class="drawer-rx-warning" style="display:none;"></div>
+      <div class="drawer-summary-row">
+        <span>Subtotal</span>
+        <span class="drawer-subtotal-val">$0.00</span>
+      </div>
+      <div class="drawer-summary-row">
+        <span>Estimated Delivery</span>
+        <span class="drawer-shipping-val">Calculated at checkout</span>
+      </div>
+      <div class="drawer-summary-total">
+        <span>Estimated Total</span>
+        <span class="drawer-total-val">$0.00</span>
+      </div>
+      <a href="checkout.html" class="btn-checkout-drawer">
+        <i class="fa-solid fa-lock"></i> Proceed to Checkout
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="mobile-bottom-nav">
+    <div class="mobile-bottom-inner">
+      <a href="index.html" class="mobile-nav-link">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="shop.html" class="mobile-nav-link active">
+        <i class="fa-solid fa-pills"></i>
+        <span>Shop</span>
+      </a>
+      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn">
+        <i class="fa-solid fa-prescription"></i>
+      </a>
+      <a href="track-order.html" class="mobile-nav-link">
+        <i class="fa-solid fa-truck"></i>
+        <span>Track</span>
+      </a>
+      <a href="portal.html" class="mobile-nav-link">
+        <i class="fa-solid fa-user"></i>
+        <span>Account</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CuraRx Licensed Pharmacy & Wellness. All rights reserved.</div>
+      <div>
+        <a href="compliance.html" style="margin-right:16px;">Privacy Policy</a>
+        <a href="compliance.html">Terms of Dispensing</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/pharmacy-data.js"></script>
+  <script src="js/pharmacy-store.js"></script>
+  <script src="js/pharmacy-ui.js"></script>
+
+  <script>
+    let currentProduct = null;
+    let selectedQuantity = 1;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id") || "med-rx-001";
+
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      currentProduct = store.getProductById(productId);
+      if (!currentProduct) {
+        // Fallback to first product
+        const all = store.getProducts();
+        currentProduct = all[0];
+      }
+
+      renderProductDetail(currentProduct);
+    });
+
+    function renderProductDetail(product) {
+      document.title = `${product.name} | CuraRx Pharmacy`;
+      document.getElementById("breadcrumb-title").textContent = product.name;
+      document.getElementById("detail-img").src = product.image;
+      document.getElementById("detail-img").alt = product.name;
+      document.getElementById("detail-cat").textContent = product.category.replace("-", " ");
+      document.getElementById("detail-name").textContent = product.name;
+      document.getElementById("detail-generic-name").textContent = product.genericName || "Standard";
+      document.getElementById("detail-brand").textContent = product.brand || "Licensed Laboratory";
+      document.getElementById("detail-price").textContent = `$${product.price.toFixed(2)}`;
+
+      if (product.originalPrice && product.originalPrice > product.price) {
+        const origEl = document.getElementById("detail-orig-price");
+        origEl.textContent = `$${product.originalPrice.toFixed(2)}`;
+        origEl.style.display = "inline";
+      }
+
+      // Specs
+      document.getElementById("spec-form").textContent = product.dosageForm || "Standard";
+      document.getElementById("spec-strength").textContent = product.strength || "Standard";
+      document.getElementById("spec-pack").textContent = product.packSize || "Standard Pack";
+      document.getElementById("spec-batch").textContent = `${product.batchNumber || 'CRX-2026'} (Exp: ${product.expiryDate || '2028'})`;
+
+      // Rx Badge & Warning
+      const badgeContainer = document.getElementById("badge-container");
+      const rxNotice = document.getElementById("detail-rx-alert");
+
+      if (product.prescriptionRequired) {
+        badgeContainer.innerHTML = `<span class="badge-rx" style="font-size:0.875rem;padding:4px 12px;"><i class="fa-solid fa-prescription"></i> Prescription Required (Rx)</span>`;
+        rxNotice.style.display = "flex";
+      } else {
+        badgeContainer.innerHTML = `<span class="badge-otc" style="font-size:0.875rem;padding:4px 12px;">Over-The-Counter (OTC)</span>`;
+        rxNotice.style.display = "none";
+      }
+
+      // Monograph
+      document.getElementById("mono-indications").textContent = product.indications || "Indicated for therapeutic management pursuant to doctor advice.";
+      document.getElementById("mono-desc").textContent = product.description || "";
+      document.getElementById("mono-dosage").textContent = product.dosageInstructions || "Take as directed by your physician or pharmacist.";
+      document.getElementById("mono-active").textContent = product.activeIngredients || product.genericName || "";
+      document.getElementById("mono-warnings").textContent = product.warnings || "Keep out of reach of children. Consult doctor if pregnant or nursing.";
+      document.getElementById("mono-storage").textContent = product.storage || "Store below 25°C away from moisture and direct sunlight.";
+    }
+
+    function changeDetailQty(delta) {
+      selectedQuantity = Math.max(1, selectedQuantity + delta);
+      document.getElementById("detail-qty-val").textContent = selectedQuantity;
+    }
+
+    function handleDetailAddToCart() {
+      if (!currentProduct || !window.PharmacyStore) return;
+      window.PharmacyStore.addToCart(currentProduct, selectedQuantity);
+      if (window.PharmacyUI) {
+        window.PharmacyUI.openCartDrawer();
+      }
+    }
+
+    function switchTab(tabName, btn) {
+      document.querySelectorAll(".monograph-tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".monograph-pane").forEach(p => p.classList.remove("active"));
+
+      btn.classList.add("active");
+      const targetPane = document.getElementById(`pane-${tabName}`);
+      if (targetPane) targetPane.classList.add("active");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Checkout & Order Verification | CuraRx Pharmacy</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/pharmacy.css">
+
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 36px;
+      padding: 40px 0 80px;
+    }
+
+    .checkout-section-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 30px;
+      margin-bottom: 24px;
+    }
+
+    .checkout-section-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkout-section-title i {
+      color: var(--primary);
+    }
+
+    .checkout-summary-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-2xl);
+      padding: 28px;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+    }
+
+    .checkout-mini-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: 0.875rem;
+    }
+
+    .checkout-mini-item img {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      object-fit: contain;
+      border: 1px solid var(--slate-200);
+    }
+
+    @media (max-width: 900px) {
+      .checkout-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-left">
+        <span class="announcement-badge"><i class="fa-solid fa-lock"></i> 256-Bit SSL Encrypted Checkout</span>
+        <span>Every prescription order is verified by a licensed pharmacist before fulfillment</span>
+      </div>
+      <div class="announcement-right">
+        <a href="tel:1800287279"><i class="fa-solid fa-phone"></i> 1-800-CURA-RX</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-symbol">
+          <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Cura<span>Rx</span></h1>
+          <span class="logo-tagline">Licensed Pharmacy & Wellness</span>
+        </div>
+      </a>
+
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px;">
+        <span style="font-size:0.8125rem;color:var(--slate-500);font-weight:600;">
+          <i class="fa-solid fa-shield-halved text-primary"></i> Safe & HIPAA Compliant
+        </span>
+        <a href="cart.html" class="btn-white" style="font-size:0.8125rem;padding:6px 14px;">
+          <i class="fa-solid fa-arrow-left"></i> Back to Basket
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout View -->
+  <main class="container">
+    <div style="margin-top:30px;margin-bottom:10px;">
+      <h1 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--navy);">
+        Checkout & Clinical Dispensing
+      </h1>
+      <p style="color:var(--slate-500);font-size:0.9375rem;">
+        Provide delivery coordinates, confirm prescription verification, and select payment method.
+      </p>
+    </div>
+
+    <form class="checkout-layout" id="checkout-form" onsubmit="event.preventDefault(); submitFinalOrder();">
+      <!-- Left Column: Forms -->
+      <div>
+        <!-- 1. Patient & Delivery Coordinates -->
+        <div class="checkout-section-card">
+          <h3 class="checkout-section-title">
+            <i class="fa-solid fa-user-shield"></i> 1. Patient & Delivery Address
+          </h3>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Patient Full Name *</label>
+              <input type="text" id="cust-name" class="form-input" value="Alexander Reed" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="cust-email" class="form-input" value="alexander.reed@healthmail.com" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" id="cust-phone" class="form-input" value="+1 (555) 382-9014" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Street Address *</label>
+              <input type="text" id="cust-street" class="form-input" value="458 Magnolia Crest Ave, Apt 3B" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">City & State *</label>
+              <input type="text" id="cust-city" class="form-input" value="Metro City, CA" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Zip / Postal Code *</label>
+              <input type="text" id="cust-zip" class="form-input" value="90210" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Fulfillment Method -->
+        <div class="checkout-section-card">
+          <h3 class="checkout-section-title">
+            <i class="fa-solid fa-truck-medical"></i> 2. Fulfillment Preference
+          </h3>
+
+          <div class="radio-card-grid">
+            <div class="radio-card selected" id="c-delivery-card" onclick="toggleCheckoutFulfillment('delivery')">
+              <input type="radio" name="checkoutFulfillment" id="chk-delivery" checked style="accent-color:var(--primary);margin-top:2px;">
+              <div>
+                <strong style="color:var(--navy);font-size:0.9375rem;display:block;">
+                  Express Cold-Chain Courier Delivery
+                </strong>
+                <p style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0 6px;">
+                  Delivered to your address in temperature-controlled packaging.
+                </p>
+                <select id="delivery-slot" class="form-select" style="font-size:0.8125rem;padding:6px 10px;">
+                  <option value="Tomorrow 9AM - 1PM">Tomorrow Morning (9:00 AM - 1:00 PM)</option>
+                  <option value="Tomorrow 2PM - 6PM">Tomorrow Afternoon (2:00 PM - 6:00 PM)</option>
+                  <option value="Saturday 10AM - 3PM">Weekend Priority (10:00 AM - 3:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="radio-card" id="c-pickup-card" onclick="toggleCheckoutFulfillment('pickup')">
+              <input type="radio" name="checkoutFulfillment" id="chk-pickup" style="accent-color:var(--primary);margin-top:2px;">
+              <div>
+                <strong style="color:var(--navy);font-size:0.9375rem;display:block;">
+                  In-Store Pharmacy Pickup
+                </strong>
+                <p style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0 6px;">
+                  Pick up at our dispensary counter with zero wait time.
+                </p>
+                <select id="pickup-location" class="form-select" style="font-size:0.8125rem;padding:6px 10px;">
+                  <option value="Downtown Health Center Pharmacy">Downtown Health Center Pharmacy (742 Healthcare Pkwy)</option>
+                  <option value="Metro Medical Tower Pharmacy">Metro Medical Tower Pharmacy (120 Elm St)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Prescription Attachment Verification -->
+        <div class="checkout-section-card" id="checkout-rx-card">
+          <h3 class="checkout-section-title">
+            <i class="fa-solid fa-file-prescription"></i> 3. Prescription Verification Status
+          </h3>
+
+          <div id="rx-verified-badge-box" style="background:var(--rx-bg);border:1px solid var(--rx-border);border-radius:var(--radius-lg);padding:16px;display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:20px;">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div style="flex:1;">
+              <strong style="color:var(--rx-teal);font-size:0.9375rem;display:block;" id="checkout-rx-label">
+                Linked Prescription: #RX-2026-9812 (Verified by Pharmacist)
+              </strong>
+              <span style="font-size:0.78rem;color:var(--slate-600);">
+                Prescriber: Dr. Jonathan Hayes, MD • Refills remaining: 3
+              </span>
+            </div>
+            <a href="upload-prescription.html" class="btn-white" style="font-size:0.75rem;padding:6px 12px;">
+              Change Script
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Payment Method -->
+        <div class="checkout-section-card">
+          <h3 class="checkout-section-title">
+            <i class="fa-solid fa-credit-card"></i> 4. Secure Payment Method
+          </h3>
+
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+            <label class="radio-card selected" id="pay-card-opt" onclick="selectPaymentMethod('card')">
+              <input type="radio" name="paymentMethod" value="Credit Card" checked style="accent-color:var(--primary);margin-top:2px;">
+              <div style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <strong style="color:var(--navy);font-size:0.9375rem;">Credit / Debit Card</strong>
+                  <div style="display:flex;gap:6px;font-size:1.2rem;color:var(--slate-400);">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-amex"></i>
+                  </div>
+                </div>
+                <div style="margin-top:10px;" id="card-fields">
+                  <input type="text" placeholder="Card Number (4242 •••• •••• 4242)" class="form-input" value="4242 •••• •••• 4242" style="margin-bottom:8px;">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                    <input type="text" placeholder="MM/YY" class="form-input" value="08/28">
+                    <input type="password" placeholder="CVV" class="form-input" value="123">
+                  </div>
+                </div>
+              </div>
+            </label>
+
+            <label class="radio-card" id="pay-insurance-opt" onclick="selectPaymentMethod('insurance')">
+              <input type="radio" name="paymentMethod" value="Insurance Co-Pay" style="accent-color:var(--primary);margin-top:2px;">
+              <div>
+                <strong style="color:var(--navy);font-size:0.9375rem;">Health Insurance Co-Pay Direct Billing</strong>
+                <p style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0 0;">
+                  BlueCross Health Plus (Policy #BC-98310-RX4). Co-pay billed upon dispatch.
+                </p>
+              </div>
+            </label>
+
+            <label class="radio-card" id="pay-cod-opt" onclick="selectPaymentMethod('cod')">
+              <input type="radio" name="paymentMethod" value="Cash on Delivery / Pickup" style="accent-color:var(--primary);margin-top:2px;">
+              <div>
+                <strong style="color:var(--navy);font-size:0.9375rem;">Pay Upon Delivery or Counter Pickup</strong>
+                <p style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0 0;">
+                  Pay cash, card, or debit directly to the courier or pharmacy clerk.
+                </p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Regulatory Consent Checkbox -->
+          <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:16px;">
+            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+              <input type="checkbox" id="compliance-check" required checked style="accent-color:var(--primary);width:18px;height:18px;margin-top:3px;">
+              <span style="font-size:0.8125rem;color:var(--navy-muted);line-height:1.45;">
+                I declare that I am at least 18 years of age and authorized to receive these medications. I consent to confidential dispensing review by a licensed pharmacist in compliance with health and pharmacy regulations.
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Sticky Summary & Checkout Button -->
+      <aside>
+        <div class="checkout-summary-card">
+          <h3 style="font-family:var(--font-heading);font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:16px;">
+            Basket Summary (<span id="chk-item-count">0</span> items)
+          </h3>
+
+          <div id="checkout-mini-items-list" style="margin-bottom:20px;max-height:260px;overflow-y:auto;">
+            <!-- Mini items -->
+          </div>
+
+          <div class="drawer-summary-row" style="margin-bottom:8px;">
+            <span>Subtotal</span>
+            <span id="chk-subtotal">$0.00</span>
+          </div>
+          <div class="drawer-summary-row" style="margin-bottom:8px;">
+            <span>Delivery Fee</span>
+            <span id="chk-shipping">$0.00</span>
+          </div>
+          <div class="drawer-summary-row" style="margin-bottom:8px;">
+            <span>Estimated Sales Tax</span>
+            <span id="chk-tax">$0.00</span>
+          </div>
+
+          <div class="drawer-summary-total" style="margin-top:14px;padding-top:14px;">
+            <span>Total Payable</span>
+            <span id="chk-total" style="color:var(--primary);">$0.00</span>
+          </div>
+
+          <button type="submit" class="btn-checkout-drawer" style="margin-top:24px;">
+            <i class="fa-solid fa-lock"></i> Authorize & Place Order
+          </button>
+
+          <div style="margin-top:18px;background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-md);padding:12px;font-size:0.75rem;color:var(--primary-dark);line-height:1.4;">
+            <i class="fa-solid fa-shield-check"></i> <strong>Pharmacist Dispatch Stamp:</strong> After placement, this order is logged into our dispensing system for drug-allergy and interaction screening.
+          </div>
+        </div>
+      </aside>
+    </form>
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="mobile-bottom-nav">
+    <div class="mobile-bottom-inner">
+      <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+      <a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-pills"></i><span>Shop</span></a>
+      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn"><i class="fa-solid fa-prescription"></i></a>
+      <a href="track-order.html" class="mobile-nav-link"><i class="fa-solid fa-truck"></i><span>Track</span></a>
+      <a href="portal.html" class="mobile-nav-link"><i class="fa-solid fa-user"></i><span>Account</span></a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pharmacy-data.js"></script>
+  <script src="js/pharmacy-store.js"></script>
+  <script src="js/pharmacy-ui.js"></script>
+
+  <script>
+    let checkoutFulfillmentMode = "delivery";
+    let selectedPayment = "Credit Card";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const cart = store.getCart();
+      const summary = store.getCartSummary();
+
+      if (cart.length === 0) {
+        window.location.href = "cart.html";
+        return;
+      }
+
+      // Render mini items
+      document.getElementById("chk-item-count").textContent = summary.itemsCount;
+      const listEl = document.getElementById("checkout-mini-items-list");
+      listEl.innerHTML = cart.map(item => `
+        <div class="checkout-mini-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div style="flex:1;">
+            <div style="font-weight:700;color:var(--navy);line-height:1.2;">${item.name}</div>
+            <div style="font-size:0.75rem;color:var(--slate-500);">${item.quantity} × $${item.price.toFixed(2)}</div>
+          </div>
+          <div style="font-weight:700;color:var(--navy);">$${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("chk-subtotal").textContent = `$${summary.subtotal.toFixed(2)}`;
+      document.getElementById("chk-shipping").textContent = summary.shippingFee === 0 ? "FREE" : `$${summary.shippingFee.toFixed(2)}`;
+      document.getElementById("chk-tax").textContent = `$${summary.tax.toFixed(2)}`;
+      document.getElementById("chk-total").textContent = `$${summary.total.toFixed(2)}`;
+
+      // Rx status
+      const rxCard = document.getElementById("checkout-rx-card");
+      if (summary.hasPrescriptionItems) {
+        rxCard.style.display = "block";
+        const attachedRx = sessionStorage.getItem("curarx_attached_rx") || "RX-2026-9812";
+        const rxRecord = store.getPrescriptionById(attachedRx);
+        if (rxRecord) {
+          document.getElementById("checkout-rx-label").textContent = `Linked Prescription: #${rxRecord.id} (${rxRecord.status})`;
+        }
+      } else {
+        rxCard.style.display = "none";
+      }
+    });
+
+    function toggleCheckoutFulfillment(mode) {
+      checkoutFulfillmentMode = mode;
+      document.getElementById("c-delivery-card").classList.toggle("selected", mode === "delivery");
+      document.getElementById("c-pickup-card").classList.toggle("selected", mode === "pickup");
+      document.getElementById("chk-delivery").checked = mode === "delivery";
+      document.getElementById("chk-pickup").checked = mode === "pickup";
+    }
+
+    function selectPaymentMethod(type) {
+      selectedPayment = type === "card" ? "Credit Card" : (type === "insurance" ? "Insurance Co-Pay" : "Cash on Delivery / Pickup");
+      document.getElementById("pay-card-opt").classList.toggle("selected", type === "card");
+      document.getElementById("pay-insurance-opt").classList.toggle("selected", type === "insurance");
+      document.getElementById("pay-cod-opt").classList.toggle("selected", type === "cod");
+
+      const cardFields = document.getElementById("card-fields");
+      if (cardFields) cardFields.style.display = type === "card" ? "block" : "none";
+    }
+
+    function submitFinalOrder() {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const summary = store.getCartSummary();
+      const customer = {
+        name: document.getElementById("cust-name").value.trim(),
+        email: document.getElementById("cust-email").value.trim(),
+        phone: document.getElementById("cust-phone").value.trim(),
+        address: `${document.getElementById("cust-street").value.trim()}, ${document.getElementById("cust-city").value.trim()} ${document.getElementById("cust-zip").value.trim()}`
+      };
+
+      const attachedRx = sessionStorage.getItem("curarx_attached_rx") || (summary.hasPrescriptionItems ? "RX-2026-9812" : null);
+
+      const order = store.createOrder({
+        customer,
+        fulfillmentType: checkoutFulfillmentMode,
+        pickupLocation: document.getElementById("pickup-location").value,
+        pickupTimeSlot: document.getElementById("delivery-slot").value,
+        prescriptionId: attachedRx,
+        hasPrescriptionItems: summary.hasPrescriptionItems,
+        subtotal: summary.subtotal,
+        shipping: summary.shippingFee,
+        tax: summary.tax,
+        total: summary.total,
+        paymentMethod: selectedPayment
+      });
+
+      sessionStorage.removeItem("curarx_attached_rx");
+      window.location.href = `order-confirmation.html?id=${order.id}`;
+    }
+  </script>
+</body>
+</html>
