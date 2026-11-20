@@ -28,3 +28,8 @@
 ## Log
 - **2026-11-20**: Initialized, built, verified, and pushed to GitHub organizations `Penta-Websites` and `Pixel-Force`.
 - **2026-11-20**: Relocated project directory to `D:\My-Work\Ai-Websites\Pharmacy` to align with the workspace standard for AI websites.
+- **2026-11-20**: UI/UX Simplification & Header Modernization:
+  - Streamlined the header to a small, compact (58px height) single-tier sticky navigation bar with integrated search pill and one-click "+ Upload Script" button across all 14 website pages.
+  - Eliminated the bulky multi-tiered header, top announcement bar, and redundant category sub-bar for a clean, focused user experience.
+  - Revamped the homepage to be visually striking and modern: clean hero layout inspired by modern digital pharmacies (Capsule, Ro, Hims), 1-click sample prescriptions, interactive clinical categories, top essential medicines grid with instant add-to-basket, 3-step prescription refill process, and trustworthy security badge strip.
+  - Synchronized and verified across both GitHub Pages deployments (`Penta-Websites/Pharmacy` & `Pixel-Force/Pharmacy`).
