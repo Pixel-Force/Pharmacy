@@ -303,11 +303,11 @@
 
         <div class="kpi-card">
           <div class="kpi-icon-box" style="background:var(--success-bg);color:var(--secondary-dark);">
-            <i class="fa-solid fa-dollar-sign"></i>
+            <i class="fa-solid fa-money-bill-wave"></i>
           </div>
           <div>
             <span style="font-size:0.75rem;color:var(--slate-500);text-transform:uppercase;font-weight:700;">Revenue</span>
-            <div style="font-size:1.4rem;font-weight:800;color:var(--navy);" id="kpi-revenue">$0.00</div>
+            <div style="font-size:1.4rem;font-weight:800;color:var(--navy);" id="kpi-revenue">Rs. 0</div>
           </div>
         </div>
 
@@ -443,24 +443,23 @@
               <div class="form-group">
                 <label class="form-label">Operating Country / Jurisdiction Regulatory Preset</label>
                 <select id="set-jurisdiction" class="form-select" onchange="handleJurisdictionPresetChange()">
+                  <option value="PK" selected>Pakistan (DRAP / Pharmacy Council of Pakistan)</option>
                   <option value="US">United States (FDA / DEA / State Board of Pharmacy)</option>
                   <option value="UK">United Kingdom (MHRA / GPhC)</option>
-                  <option value="CA">Canada (Health Canada / Provincial College of Pharmacy)</option>
-                  <option value="AU">Australia (TGA / Pharmacy Board of Australia)</option>
                   <option value="GLOBAL">International WHO Good Pharmacy Practice (GPP)</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Free Delivery Minimum Order Threshold ($)</label>
-                <input type="number" id="set-free-threshold" class="form-input" value="45.00" step="1">
+                <label class="form-label">Free Delivery Minimum Order Threshold (PKR / Rs.)</label>
+                <input type="number" id="set-free-threshold" class="form-input" value="1500" step="50">
               </div>
             </div>
 
             <div class="form-grid-2">
               <div class="form-group">
-                <label class="form-label">Standard Shipping Fee ($)</label>
-                <input type="number" id="set-shipping-fee" class="form-input" value="4.95" step="0.5">
+                <label class="form-label">Standard Shipping Fee (PKR / Rs.)</label>
+                <input type="number" id="set-shipping-fee" class="form-input" value="150" step="10">
               </div>
               <div class="form-group">
                 <label class="form-label">Pseudoephedrine Max Limit (Grams per order)</label>
@@ -690,7 +689,8 @@
       document.getElementById("kpi-orders-count").textContent = orders.length;
       document.getElementById("kpi-pending-rx").textContent = pendingRx.length;
       document.getElementById("pending-rx-count").textContent = pendingRx.length;
-      document.getElementById("kpi-revenue").textContent = `$${totalRevenue.toFixed(2)}`;
+      const store = window.PharmacyStore;
+      document.getElementById("kpi-revenue").textContent = store ? store.formatMoney(totalRevenue) : `Rs. ${totalRevenue}`;
       document.getElementById("kpi-products-count").textContent = products.length;
 
       // 1. Render Rx Table
@@ -744,7 +744,7 @@
           </td>
           <td><span style="font-size:0.75rem;text-transform:capitalize;">${p.category}</span></td>
           <td>${p.strength || '--'}</td>
-          <td><strong>$${p.price.toFixed(2)}</strong></td>
+          <td><strong>${store ? store.formatMoney(p.price) : 'Rs. ' + p.price}</strong></td>
           <td>
             ${p.prescriptionRequired 
               ? `<span class="badge-rx" style="font-size:0.7rem;"><i class="fa-solid fa-prescription"></i> Rx</span>` 
@@ -781,7 +781,7 @@
             <span style="font-size:0.75rem;color:var(--slate-500);">${ord.customer.phone}</span>
           </td>
           <td>${ord.items.length} item(s)</td>
-          <td><strong>$${ord.total.toFixed(2)}</strong></td>
+          <td><strong>${store ? store.formatMoney(ord.total) : 'Rs. ' + ord.total}</strong></td>
           <td><span style="font-size:0.75rem;text-transform:capitalize;">${ord.fulfillmentType}</span></td>
           <td>
             ${ord.prescriptionId ? `<span style="font-size:0.75rem;color:var(--primary);font-weight:700;">#${ord.prescriptionId}</span>` : '<span style="color:var(--slate-400);font-size:0.75rem;">None (OTC)</span>'}

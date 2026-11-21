@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Basket & Prescription Verification | CuraRx Pharmacy</title>
+  <title>Shopping Basket | CuraRx Pharmacy Pakistan</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
 
@@ -13,7 +18,7 @@
       display: grid;
       grid-template-columns: 1fr 380px;
       gap: 36px;
-      padding: 40px 0 80px;
+      padding: 30px 0 80px;
     }
 
     .cart-table-card {
@@ -21,6 +26,7 @@
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-2xl);
       padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .cart-summary-card {
@@ -31,6 +37,7 @@
       height: fit-content;
       position: sticky;
       top: 90px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
 
     .cart-row {
@@ -50,9 +57,9 @@
       width: 80px;
       height: 80px;
       border-radius: var(--radius-md);
-      object-fit: contain;
+      object-fit: cover;
       border: 1px solid var(--slate-200);
-      padding: 4px;
+      padding: 2px;
     }
 
     @media (max-width: 900px) {
@@ -68,48 +75,59 @@
 </head>
 <body>
 
-    <!-- 1. SLIM, ELEGANT STICKY HEADER -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery in Pakistan Over Rs. 1,500</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span style="color:#2dd4bf;"><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery (COD)</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> UAN: 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="brand-logo">
         <div class="logo-symbol">
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
       <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="shop.html?category=pain-fever" class="header-nav-link">Pain & Fever</a>
+        <a href="shop.html?category=vitamins-nutrition" class="header-nav-link">Vitamins</a>
+        <a href="shop.html?category=devices-monitors" class="header-nav-link">Devices</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
       </nav>
 
-      <!-- Slim Search Bar -->
       <div class="search-wrapper">
         <div class="search-input-group">
-          <input type="text" class="search-input global-search-input" placeholder="Search medicines, vitamins, brands...">
-          <button type="button" class="search-btn" title="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+          <input type="text" class="search-input global-search-input" placeholder="Search Panadol, Surbex Z, Augmentin...">
+          <button type="button" class="search-btn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
-
         <a href="portal.html" class="header-action-btn" title="Patient Account">
           <i class="fa-regular fa-user"></i>
           <span>Account</span>
         </a>
-
         <button class="header-action-btn btn-open-cart-drawer" title="Shopping Cart">
           <i class="fa-solid fa-bag-shopping"></i>
           <span>Basket</span>
@@ -123,35 +141,11 @@
   <main class="container">
     <div style="margin-top:30px;">
       <h1 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--navy);">
-        Your Shopping Basket
+        Your Medicine Basket
       </h1>
       <p style="color:var(--slate-500);font-size:0.9375rem;">
-        Review your healthcare essentials, attach prescriptions where required, and select fulfillment.
+        Review your items, apply vouchers, and proceed to Cash on Delivery checkout.
       </p>
-    </div>
-
-    <!-- Rx Warning Alert if cart contains Rx items -->
-    <div id="cart-rx-banner" style="display:none;margin-top:20px;background:var(--rx-bg);border:1.5px solid var(--rx-border);border-radius:var(--radius-xl);padding:20px;">
-      <div style="display:flex;gap:16px;align-items:flex-start;">
-        <i class="fa-solid fa-file-prescription" style="font-size:24px;color:var(--rx-teal);margin-top:2px;"></i>
-        <div style="flex:1;">
-          <h4 style="font-size:1.05rem;font-weight:800;color:var(--rx-teal);margin-bottom:4px;">
-            Prescription Medications Detected
-          </h4>
-          <p style="font-size:0.875rem;color:var(--navy);line-height:1.5;margin-bottom:12px;">
-            Your basket includes medications requiring a verified prescription. Please link an existing verified script from your health profile or upload a new doctor's prescription.
-          </p>
-
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-            <select id="select-linked-rx" class="finder-select" style="max-width:320px;background:#ffffff;padding:8px 12px;font-size:0.8125rem;">
-              <option value="">-- Choose verified prescription --</option>
-            </select>
-            <a href="upload-prescription.html" class="btn-white" style="font-size:0.8125rem;padding:8px 16px;">
-              <i class="fa-solid fa-cloud-arrow-up"></i> Upload New Script
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="cart-page-layout">
@@ -166,85 +160,102 @@
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
           <h3 style="color:var(--navy);margin-bottom:6px;">Your basket is empty</h3>
-          <p style="color:var(--slate-500);font-size:0.875rem;margin-bottom:20px;">Explore our catalog or upload a prescription to get started.</p>
-          <a href="shop.html" class="btn-primary">Browse Pharmacy Catalog</a>
+          <p style="color:var(--slate-500);font-size:0.875rem;margin-bottom:20px;">Explore our catalog or order your medicines directly via WhatsApp.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="shop.html" class="btn-primary">Browse Medicines</a>
+            <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-hero" style="font-size:0.875rem;padding:10px 20px;">
+              <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- 2. Order Summary Sidebar -->
       <aside class="cart-summary-card">
         <h3 style="font-family:var(--font-heading);font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:20px;">
-          Order Summary
+          Order Summary (PKR)
         </h3>
 
         <!-- Free shipping meter -->
-        <div class="shipping-progress-box" style="border-radius:var(--radius-lg);margin-bottom:20px;border:1px solid var(--primary-border);">
+        <div class="shipping-progress-box" style="border-radius:var(--radius-lg);margin-bottom:20px;border:1px solid #99f6e4;background:#f0fdfa;">
           <!-- Dynamic from store -->
         </div>
 
         <!-- Promo coupon -->
         <div style="display:flex;gap:8px;margin-bottom:20px;">
-          <input type="text" id="coupon-code" placeholder="Promo code (e.g., RX10)" class="form-input" style="padding:8px 12px;font-size:0.875rem;text-transform:uppercase;">
-          <button type="button" class="btn-white" style="padding:8px 14px;font-size:0.8125rem;" onclick="applyPromoCode()">Apply</button>
+          <input type="text" id="coupon-code" placeholder="Promo code (e.g. WELCOME100)" class="form-input" style="padding:8px 12px;font-size:0.875rem;text-transform:uppercase;border:1px solid var(--slate-300);border-radius:8px;flex:1;">
+          <button type="button" class="btn-primary" style="padding:8px 16px;font-size:0.8125rem;" onclick="applyPromoCode()">Apply</button>
         </div>
 
-        <div class="drawer-summary-row" style="margin-bottom:10px;">
+        <div class="drawer-summary-row" style="margin-bottom:10px;display:flex;justify-content:space-between;color:var(--slate-600);font-size:0.9rem;">
           <span>Subtotal</span>
-          <span id="cart-subtotal">$0.00</span>
+          <span id="cart-subtotal" style="font-weight:700;color:var(--navy);">Rs. 0</span>
         </div>
-        <div class="drawer-summary-row" style="margin-bottom:10px;">
-          <span>Estimated Cold-Chain Shipping</span>
-          <span id="cart-shipping">$0.00</span>
+        <div class="drawer-summary-row" style="margin-bottom:10px;display:flex;justify-content:space-between;color:var(--slate-600);font-size:0.9rem;">
+          <span>Delivery Charges</span>
+          <span id="cart-shipping" style="font-weight:700;">Rs. 150</span>
         </div>
-        <div class="drawer-summary-row" style="margin-bottom:10px;">
-          <span>Estimated Sales Tax</span>
-          <span id="cart-tax">$0.00</span>
-        </div>
-        <div class="drawer-summary-row" id="discount-row" style="display:none;color:#16a34a;margin-bottom:10px;font-weight:700;">
-          <span>Special Discount</span>
-          <span id="cart-discount">-$0.00</span>
+        <div class="drawer-summary-row" id="discount-row" style="display:none;color:#059669;margin-bottom:10px;font-weight:700;justify-content:space-between;">
+          <span>Voucher Discount</span>
+          <span id="cart-discount">-Rs. 0</span>
         </div>
 
-        <div class="drawer-summary-total" style="margin-top:16px;">
-          <span>Total Payable</span>
-          <span id="cart-total" style="color:var(--primary);">$0.00</span>
+        <div class="drawer-summary-total" style="margin-top:16px;padding-top:14px;border-top:1px solid var(--slate-200);display:flex;justify-content:space-between;font-size:1.2rem;font-weight:800;color:var(--navy);">
+          <span>Total Payable (COD)</span>
+          <span id="cart-total" style="color:#0f766e;">Rs. 0</span>
         </div>
 
-        <button type="button" class="btn-checkout-drawer" style="margin-top:24px;" onclick="proceedToCheckout()">
-          <i class="fa-solid fa-lock"></i> Proceed to Clinical Checkout
+        <button type="button" class="btn-checkout-drawer" style="margin-top:24px;width:100%;background:linear-gradient(135deg, #0d9488 0%, #059669 100%);color:#ffffff;border:none;padding:15px;border-radius:9999px;font-weight:800;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 18px rgba(13,148,136,0.3);" onclick="proceedToCheckout()">
+          <i class="fa-solid fa-truck-fast"></i> Proceed to Checkout (COD)
         </button>
 
         <div style="margin-top:16px;text-align:center;font-size:0.75rem;color:var(--slate-500);">
-          <i class="fa-solid fa-shield-halved text-primary"></i> 256-bit Encrypted Checkout • Pharmacist Monitored
+          <i class="fa-solid fa-shield-halved text-primary"></i> 100% Genuine DRAP Inspected &bull; Cash on Delivery
         </div>
       </aside>
     </div>
   </main>
 
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-      </a>
-      <a href="shop.html" class="mobile-nav-link">
-        <i class="fa-solid fa-pills"></i>
-        <span>Shop</span>
-      </a>
-      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn">
-        <i class="fa-solid fa-prescription"></i>
-      </a>
-      <a href="track-order.html" class="mobile-nav-link">
-        <i class="fa-solid fa-truck"></i>
-        <span>Track</span>
-      </a>
-      <a href="portal.html" class="mobile-nav-link">
-        <i class="fa-solid fa-user"></i>
-        <span>Account</span>
+  <!-- Slide-Out Cart Drawer -->
+  <div class="cart-drawer-overlay"></div>
+  <div class="cart-drawer">
+    <div class="drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
+      <button class="btn-close-drawer" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="shipping-progress-box"></div>
+    <div class="drawer-items"></div>
+    <div class="drawer-footer">
+      <div class="drawer-summary-row">
+        <span>Subtotal</span>
+        <span class="drawer-subtotal-val">Rs. 0</span>
+      </div>
+      <div class="drawer-summary-total">
+        <span>Total (Cash on Delivery)</span>
+        <span class="drawer-total-val">Rs. 0</span>
+      </div>
+      <a href="checkout.html" class="btn-checkout-drawer">
+        <i class="fa-solid fa-lock"></i> Proceed to Checkout (COD)
       </a>
     </div>
   </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="floating-whatsapp-pill" title="Order via WhatsApp">
+    <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i>
+    <span>Order on WhatsApp</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
+      <div>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="js/pharmacy-data.js"></script>
@@ -252,15 +263,13 @@
   <script src="js/pharmacy-ui.js"></script>
 
   <script>
-    let discountRate = 0;
+    let appliedDiscount = 0;
 
     document.addEventListener("DOMContentLoaded", () => {
       renderCartPage();
 
       if (window.PharmacyStore) {
-        window.PharmacyStore.subscribe((event) => {
-          if (event === "cart_changed") renderCartPage();
-        });
+        window.PharmacyStore.on("cart_changed", () => renderCartPage());
       }
     });
 
@@ -269,130 +278,95 @@
       if (!store) return;
 
       const cart = store.getCart();
-      const summary = store.getCartSummary();
       const container = document.getElementById("cart-items-container");
       const emptyMsg = document.getElementById("cart-empty-message");
-      const rxBanner = document.getElementById("cart-rx-banner");
+      const summary = store.getCartSummary();
 
       if (cart.length === 0) {
-        container.style.display = "none";
-        emptyMsg.style.display = "block";
-        rxBanner.style.display = "none";
+        if (container) container.innerHTML = "";
+        if (emptyMsg) emptyMsg.style.display = "block";
       } else {
-        container.style.display = "block";
-        emptyMsg.style.display = "none";
-
-        container.innerHTML = cart.map(item => `
-          <div class="cart-row">
-            <img src="${item.image}" alt="${item.name}" class="cart-thumb-img">
-            <div>
-              <a href="product-detail.html?id=${item.id}" style="font-weight:700;color:var(--navy);font-size:1.05rem;display:block;">
-                ${item.name}
-              </a>
-              <div style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0;">
-                ${item.strength || item.brand}
+        if (emptyMsg) emptyMsg.style.display = "none";
+        if (container) {
+          container.innerHTML = cart.map(item => `
+            <div class="cart-row">
+              <img src="${item.image}" alt="${item.name}" class="cart-thumb-img">
+              <div>
+                <a href="product-detail.html?id=${item.id}" style="font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--navy);text-decoration:none;">
+                  ${item.name}
+                </a>
+                <div style="font-size:0.8125rem;color:var(--slate-500);margin:3px 0;">
+                  ${item.strength || item.brand}
+                </div>
+                <div style="font-size:0.875rem;font-weight:700;color:#0f766e;">
+                  Unit: ${store.formatMoney(item.price)}
+                </div>
               </div>
-              ${item.prescriptionRequired ? `
-                <span class="badge-rx" style="font-size:0.72rem;display:inline-flex;margin-top:4px;">
-                  <i class="fa-solid fa-prescription"></i> Prescription Required
-                </span>
-              ` : `
-                <span class="badge-otc" style="font-size:0.72rem;display:inline-flex;margin-top:4px;">OTC</span>
-              `}
-            </div>
 
-            <div class="qty-control">
-              <button class="qty-btn" onclick="window.PharmacyStore.updateCartQuantity('${item.id}', ${item.quantity - 1})">-</button>
-              <span class="qty-number">${item.quantity}</span>
-              <button class="qty-btn" onclick="window.PharmacyStore.updateCartQuantity('${item.id}', ${item.quantity + 1})">+</button>
-            </div>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="updateQty('${item.id}', ${item.quantity - 1})">-</button>
+                <span class="qty-number">${item.quantity}</span>
+                <button class="qty-btn" onclick="updateQty('${item.id}', ${item.quantity + 1})">+</button>
+              </div>
 
-            <div style="text-align:right;">
-              <div style="font-weight:800;font-size:1.15rem;color:var(--navy);">$${(item.price * item.quantity).toFixed(2)}</div>
-              <button onclick="window.PharmacyStore.removeFromCart('${item.id}')" style="background:none;border:none;color:var(--slate-400);cursor:pointer;font-size:0.8125rem;margin-top:4px;">
-                <i class="fa-regular fa-trash-can"></i> Remove
-              </button>
+              <div style="text-align:right;">
+                <div style="font-family:var(--font-heading);font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
+                  ${store.formatMoney(item.price * item.quantity)}
+                </div>
+                <button onclick="removeItem('${item.id}')" style="background:none;border:none;color:var(--danger);font-size:0.75rem;font-weight:700;cursor:pointer;">
+                  <i class="fa-regular fa-trash-can"></i> Remove
+                </button>
+              </div>
             </div>
-          </div>
-        `).join("");
-
-        // Handle Rx alert banner
-        if (summary.hasPrescriptionItems) {
-          rxBanner.style.display = "block";
-          populatePrescriptionDropdown();
-        } else {
-          rxBanner.style.display = "none";
+          `).join("");
         }
       }
 
-      // Calculations with discount
-      const subtotal = summary.subtotal;
-      const discountVal = subtotal * discountRate;
-      const finalSub = Math.max(0, subtotal - discountVal);
-      const tax = finalSub * 0.07;
-      const total = finalSub + summary.shippingFee + tax;
+      // Update Order Summary Box
+      const subtotalEl = document.getElementById("cart-subtotal");
+      const shippingEl = document.getElementById("cart-shipping");
+      const totalEl = document.getElementById("cart-total");
 
-      document.getElementById("cart-subtotal").textContent = `$${subtotal.toFixed(2)}`;
-      document.getElementById("cart-shipping").textContent = summary.shippingFee === 0 ? "FREE" : `$${summary.shippingFee.toFixed(2)}`;
-      document.getElementById("cart-tax").textContent = `$${tax.toFixed(2)}`;
-      document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+      const finalTotal = Math.max(0, summary.total - appliedDiscount);
 
-      if (discountVal > 0) {
-        document.getElementById("discount-row").style.display = "flex";
-        document.getElementById("cart-discount").textContent = `-$${discountVal.toFixed(2)}`;
-      }
+      if (subtotalEl) subtotalEl.textContent = store.formatMoney(summary.subtotal);
+      if (shippingEl) shippingEl.textContent = summary.isFreeShipping ? "FREE" : store.formatMoney(summary.shippingFee);
+      if (totalEl) totalEl.textContent = store.formatMoney(finalTotal);
     }
 
-    function populatePrescriptionDropdown() {
-      const store = window.PharmacyStore;
-      const select = document.getElementById("select-linked-rx");
-      if (!store || !select) return;
+    function updateQty(id, qty) {
+      if (window.PharmacyStore) window.PharmacyStore.updateCartQuantity(id, qty);
+    }
 
-      const prescriptions = store.getPrescriptions();
-      select.innerHTML = '<option value="">-- Choose verified prescription --</option>' + 
-        prescriptions.map(rx => `
-          <option value="${rx.id}" ${rx.status === "Verified" ? "selected" : ""}>
-            ${rx.id} - ${rx.doctorName} (${rx.status})
-          </option>
-        `).join("");
+    function removeItem(id) {
+      if (window.PharmacyStore) window.PharmacyStore.removeFromCart(id);
     }
 
     function applyPromoCode() {
-      const code = document.getElementById("coupon-code").value.trim().toUpperCase();
-      if (code === "RX10" || code === "HEALTH10") {
-        discountRate = 0.10;
-        window.PharmacyStore.showToast("10% Promotional discount applied!", "success");
+      const codeInput = document.getElementById("coupon-code");
+      const code = codeInput ? codeInput.value.trim().toUpperCase() : "";
+      const store = window.PharmacyStore;
+
+      if (!code) return;
+
+      if (code === "WELCOME100" || code === "WELCOMEPK") {
+        appliedDiscount = 100;
+        document.getElementById("discount-row").style.display = "flex";
+        document.getElementById("cart-discount").textContent = "-Rs. 100";
+        if (store) store.showToast("Promo voucher applied: Rs. 100 off!", "success");
         renderCartPage();
       } else {
-        window.PharmacyStore.showToast("Invalid or expired coupon code", "warning");
+        if (store) store.showToast("Invalid promo code. Try 'WELCOME100'", "danger");
       }
     }
 
     function proceedToCheckout() {
       const store = window.PharmacyStore;
       if (!store) return;
-
-      const cart = store.getCart();
-      if (cart.length === 0) {
-        store.showToast("Your basket is empty", "warning");
+      if (store.getCart().length === 0) {
+        store.showToast("Your basket is empty", "danger");
         return;
       }
-
-      const summary = store.getCartSummary();
-      if (summary.hasPrescriptionItems) {
-        const selectedRx = document.getElementById("select-linked-rx").value;
-        if (!selectedRx) {
-          // Check if there is an approved one
-          const prescriptions = store.getPrescriptions();
-          const verified = prescriptions.find(p => p.status === "Verified");
-          if (verified) {
-            sessionStorage.setItem("curarx_attached_rx", verified.id);
-          }
-        } else {
-          sessionStorage.setItem("curarx_attached_rx", selectedRx);
-        }
-      }
-
       window.location.href = "checkout.html";
     }
   </script>

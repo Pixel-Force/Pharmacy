@@ -3,182 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About CuraRx Pharmacy | Certified Clinical Leadership</title>
+  <title>About Us | CuraRx Pharmacy Pakistan</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
+
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 50%, #eff6ff 100%);
+      padding: 60px 0 70px;
+      border-bottom: 1px solid var(--slate-200);
+      text-align: center;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 40px 0 60px;
+    }
+
+    .about-stat-box {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    @media (max-width: 768px) {
+      .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- 1. SLIM, ELEGANT STICKY HEADER -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery in Pakistan Over Rs. 1,500</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> UAN: 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="brand-logo">
         <div class="logo-symbol">
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
-      <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
+        <a href="track-order.html" class="header-nav-link">Track Order</a>
+        <a href="about.html" class="header-nav-link active">About Us</a>
       </nav>
 
-      <!-- Slim Search Bar -->
-      <div class="search-wrapper">
-        <div class="search-input-group">
-          <input type="text" class="search-input global-search-input" placeholder="Search medicines, vitamins, brands...">
-          <button type="button" class="search-btn" title="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
-
         <a href="portal.html" class="header-action-btn" title="Patient Account">
           <i class="fa-regular fa-user"></i>
           <span>Account</span>
         </a>
-
-        <button class="header-action-btn btn-open-cart-drawer" title="Shopping Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span>Basket</span>
-          <span class="action-badge cart-count-badge" style="display:none;">0</span>
-        </button>
       </div>
     </div>
   </header>
 
-  <!-- Banner -->
-  <div style="background:linear-gradient(135deg, #091e2f 0%, #0f766e 100%);color:#ffffff;padding:70px 0;">
-    <div class="container" style="max-width:820px;text-align:center;">
-      <span class="section-tag" style="background:rgba(255,255,255,0.2);color:#ffffff;border-color:rgba(255,255,255,0.3);margin-bottom:12px;">
-        Clinical Heritage & Trust
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container" style="max-width:800px;">
+      <span class="wp-badge-pill">
+        <i class="fa-solid fa-building-shield"></i> Founded in Pakistan
       </span>
-      <h1 style="font-family:var(--font-heading);font-size:2.8rem;font-weight:800;margin-bottom:16px;">
-        Your Health, Our Priority.
+      <h1 style="font-family:var(--font-heading);font-size:2.8rem;font-weight:800;color:var(--navy);margin:14px 0 16px;">
+        Pioneering Safe & Genuine Healthcare Delivery Across Pakistan
       </h1>
-      <p style="font-size:1.15rem;color:#ccfbf1;line-height:1.6;">
-        CuraRx is a fully licensed digital and physical community pharmacy combining modern e-commerce convenience with rigorous clinical oversight by licensed Doctor of Pharmacy (PharmD) practitioners.
+      <p style="color:var(--slate-600);font-size:1.1rem;line-height:1.65;">
+        CuraRx was established to eliminate counterfeit medicines and supply authentic, cold-chain protected medications to patients in Karachi, Lahore, Islamabad, and throughout Pakistan.
       </p>
     </div>
-  </div>
+  </section>
 
-  <main class="container" style="padding:60px 0 80px;">
-    <!-- Mission & Pillars -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:80px;">
+  <!-- Content Section -->
+  <main class="container" style="padding: 60px 0 80px;">
+    
+    <!-- Stats Grid -->
+    <div class="about-stats-grid">
+      <div class="about-stat-box">
+        <div style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:#0d9488;margin-bottom:4px;">100%</div>
+        <strong style="color:var(--navy);font-size:0.95rem;">Genuine Medicines</strong>
+        <p style="color:var(--slate-500);font-size:0.78rem;margin-top:2px;">DRAP Authorized Channels</p>
+      </div>
+
+      <div class="about-stat-box">
+        <div style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:#0d9488;margin-bottom:4px;">45,000+</div>
+        <strong style="color:var(--navy);font-size:0.95rem;">Pakistani Families</strong>
+        <p style="color:var(--slate-500);font-size:0.78rem;margin-top:2px;">Served Monthly</p>
+      </div>
+
+      <div class="about-stat-box">
+        <div style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:#0d9488;margin-bottom:4px;">2 - 4 Hrs</div>
+        <strong style="color:var(--navy);font-size:0.95rem;">Express City Delivery</strong>
+        <p style="color:var(--slate-500);font-size:0.78rem;margin-top:2px;">Karachi, Lahore & Islamabad</p>
+      </div>
+
+      <div class="about-stat-box">
+        <div style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:#0d9488;margin-bottom:4px;">24 / 7</div>
+        <strong style="color:var(--navy);font-size:0.95rem;">PharmD Helpline</strong>
+        <p style="color:var(--slate-500);font-size:0.78rem;margin-top:2px;">Free Clinical Advice</p>
+      </div>
+    </div>
+
+    <!-- Story Grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:60px;">
       <div>
-        <span class="section-tag"><i class="fa-solid fa-shield-halved"></i> Our Standards</span>
-        <h2 style="font-family:var(--font-heading);font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1.2;margin:10px 0 20px;">
-          Setting the Standard in Pharmaceutical Safety & Cold-Chain Care
+        <span class="section-tag"><i class="fa-solid fa-mortar-pestle"></i> Our Mission</span>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--navy);margin:12px 0 16px;">
+          Zero Tolerance for Counterfeits
         </h2>
         <p style="color:var(--slate-600);line-height:1.7;margin-bottom:16px;">
-          Founded with a steadfast mission to eliminate counterfeit medicines and lengthy pharmacy waiting lines, CuraRx sources 100% of medications directly from verified pharmaceutical manufacturers and licensed wholesale distributors.
+          The pharmaceutical supply chain in Pakistan faces significant challenges with spurious drugs and improper heat storage. At CuraRx, every single tablet, syrup, and injection is sourced directly from authorized principal distributors of Getz Pharma, GSK Pakistan, Abbott Laboratories, Martin Dow, and The Searle Company.
         </p>
-        <p style="color:var(--slate-600);line-height:1.7;margin-bottom:24px;">
-          Every dispensation is triple-checked: first by our algorithmic drug interaction database, second by a clinical pharmacist screening against patient allergy profiles, and finally verified at packing with tamper-evident seals.
+        <p style="color:var(--slate-600);line-height:1.7;">
+          Our state-of-the-art warehouses in Karachi, Lahore, and Islamabad maintain 24-hour temperature and humidity logging, ensuring that insulin, vaccines, and eye drops arrive at your door with full clinical potency intact.
         </p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:16px;">
-            <strong style="color:var(--primary);font-size:1.5rem;display:block;font-weight:800;">100%</strong>
-            <span style="font-size:0.8125rem;color:var(--slate-600);font-weight:600;">Authentic Sealed Packaging</span>
-          </div>
-          <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:16px;">
-            <strong style="color:var(--primary);font-size:1.5rem;display:block;font-weight:800;">&lt; 15 Mins</strong>
-            <span style="font-size:0.8125rem;color:var(--slate-600);font-weight:600;">Prescription Verification Speed</span>
-          </div>
-        </div>
       </div>
 
       <div>
-        <img src="https://images.unsplash.com/photo-1576073719676-aa955fc6b889?w=800&auto=format&fit=crop&q=80" alt="Clinical laboratory" style="border-radius:var(--radius-2xl);box-shadow:var(--shadow-xl);border:1px solid var(--slate-200);">
+        <img src="https://images.unsplash.com/photo-1576073719676-aa955fc6b889?w=800&auto=format&fit=crop&q=80" alt="Central Distribution Warehouse" style="border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,0.08);width:100%;">
       </div>
     </div>
 
-    <!-- Clinical Leadership Board -->
-    <div style="margin-bottom:80px;">
-      <div class="section-header">
-        <div>
-          <span class="section-tag"><i class="fa-solid fa-user-doctor"></i> Medical Governance</span>
-          <h2 class="section-title">Clinical Leadership & Supervising Pharmacists</h2>
-          <p class="section-subtitle">Board-certified specialists dedicated to patient safety and evidence-based pharmacotherapy.</p>
-        </div>
-      </div>
-
-      <div class="pharmacists-grid">
-        <div class="pharmacist-card">
-          <div class="pharmacist-image-box">
-            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80" alt="Dr. Eleanor Vance">
-          </div>
-          <div class="pharmacist-info">
-            <h4 class="pharmacist-name">Dr. Eleanor Vance, PharmD</h4>
-            <div class="pharmacist-role">Chief Supervising Pharmacist</div>
-            <div class="pharmacist-badge">
-              <strong>License:</strong> RPH-942817-A<br>
-              <strong>Specialty:</strong> Cardiovascular & Antimicrobial Stewardship<br>
-              <strong>Experience:</strong> 16+ Years Clinical Practice
-            </div>
-          </div>
-        </div>
-
-        <div class="pharmacist-card">
-          <div class="pharmacist-image-box">
-            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&auto=format&fit=crop&q=80" alt="Marcus Thorne">
-          </div>
-          <div class="pharmacist-info">
-            <h4 class="pharmacist-name">Marcus Thorne, RPh, BCMTMS</h4>
-            <div class="pharmacist-role">Clinical Dispensing Specialist</div>
-            <div class="pharmacist-badge">
-              <strong>License:</strong> RPH-771032-B<br>
-              <strong>Specialty:</strong> Medication Therapy Management & Chronic Care<br>
-              <strong>Experience:</strong> 11+ Years Health Systems
-            </div>
-          </div>
-        </div>
-
-        <div class="pharmacist-card">
-          <div class="pharmacist-image-box">
-            <img src="https://images.unsplash.com/photo-1594824813593-9c869e961962?w=400&auto=format&fit=crop&q=80" alt="Dr. Sarah Al-Mansoor">
-          </div>
-          <div class="pharmacist-info">
-            <h4 class="pharmacist-name">Dr. Sarah Al-Mansoor, PharmD</h4>
-            <div class="pharmacist-role">Compounding & Pediatric Pharmacist</div>
-            <div class="pharmacist-badge">
-              <strong>License:</strong> RPH-820941-C<br>
-              <strong>Specialty:</strong> Pediatric Formulations & Maternal Care<br>
-              <strong>Experience:</strong> 9+ Years Pharmacotherapy
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Leadership Pharmacists -->
+    <div style="text-align:center;margin-bottom:36px;">
+      <span class="section-tag"><i class="fa-solid fa-user-doctor"></i> Clinical Leadership</span>
+      <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--navy);margin:10px 0;">
+        Registered Clinical Pharmacists
+      </h2>
+      <p style="color:var(--slate-500);font-size:0.95rem;">
+        Graduates from top pharmacy faculties in Pakistan, registered with the Pharmacy Council of Pakistan.
+      </p>
     </div>
 
-    <!-- Accreditations & Compliance Bar -->
-    <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-2xl);padding:36px;">
-      <h3 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:14px;text-align:center;">
-        Licensed, Accredited & Fully Regulated
-      </h3>
-      <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;">
-        <div class="acc-badge" style="background:#ffffff;color:var(--navy);border-color:var(--slate-200);padding:12px 18px;font-size:0.875rem;">
-          <i class="fa-solid fa-stamp" style="color:var(--primary);"></i> State Board of Pharmacy Accredited
+    <div class="pharmacists-grid">
+      <div class="pharmacist-card">
+        <div class="pharmacist-image-box">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80" alt="Dr. Zohra Siddiqui, PharmD">
         </div>
-        <div class="acc-badge" style="background:#ffffff;color:var(--navy);border-color:var(--slate-200);padding:12px 18px;font-size:0.875rem;">
-          <i class="fa-solid fa-snowflake" style="color:var(--primary);"></i> Certified Cold-Chain Logistics
+        <div class="pharmacist-info">
+          <h4 class="pharmacist-name">Dr. Zohra Siddiqui, PharmD</h4>
+          <div class="pharmacist-role">Chief Clinical Pharmacist (Karachi Central)</div>
+          <div class="pharmacist-badge">
+            <i class="fa-solid fa-id-card"></i> PCP Reg. #PK-44910 &bull; 12+ Years Experience
+          </div>
         </div>
-        <div class="acc-badge" style="background:#ffffff;color:var(--navy);border-color:var(--slate-200);padding:12px 18px;font-size:0.875rem;">
-          <i class="fa-solid fa-lock" style="color:var(--primary);"></i> HIPAA / GDPR Health Data Security
+      </div>
+
+      <div class="pharmacist-card">
+        <div class="pharmacist-image-box">
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&auto=format&fit=crop&q=80" alt="Dr. Tariq Mahmood, PharmD">
+        </div>
+        <div class="pharmacist-info">
+          <h4 class="pharmacist-name">Dr. Tariq Mahmood, PharmD</h4>
+          <div class="pharmacist-role">Director of Cold-Chain & QC (Lahore Hub)</div>
+          <div class="pharmacist-badge">
+            <i class="fa-solid fa-id-card"></i> PCP Reg. #PK-38821 &bull; Biologics Specialist
+          </div>
+        </div>
+      </div>
+
+      <div class="pharmacist-card">
+        <div class="pharmacist-image-box">
+          <img src="https://images.unsplash.com/photo-1594824813583-14c1e405a2e7?w=600&auto=format&fit=crop&q=80" alt="Dr. Ayesha Haroon, PharmD">
+        </div>
+        <div class="pharmacist-info">
+          <h4 class="pharmacist-name">Dr. Ayesha Haroon, PharmD</h4>
+          <div class="pharmacist-role">Head of Telephonic Consultations (Islamabad)</div>
+          <div class="pharmacist-badge">
+            <i class="fa-solid fa-id-card"></i> PCP Reg. #PK-55201 &bull; Chronic Disease Care
+          </div>
         </div>
       </div>
     </div>
@@ -187,43 +213,15 @@
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container footer-bottom">
-      <div>&copy; 2026 CuraRx Licensed Pharmacy & Wellness. All rights reserved.</div>
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
       <div>
-        <a href="compliance.html" style="margin-right:16px;">Privacy Policy</a>
-        <a href="compliance.html">Terms of Dispensing</a>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
       </div>
     </div>
   </footer>
 
-  <!-- Slide-Out Cart Drawer -->
-  <div class="cart-drawer-overlay"></div>
-  <div class="cart-drawer">
-    <div class="drawer-header">
-      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
-      <button class="btn-close-drawer"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="shipping-progress-box"></div>
-    <div class="drawer-items"></div>
-    <div class="drawer-footer">
-      <div class="drawer-summary-total">
-        <span>Total</span>
-        <span class="drawer-total-val">$0.00</span>
-      </div>
-      <a href="checkout.html" class="btn-checkout-drawer">Proceed to Checkout</a>
-    </div>
-  </div>
-
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
-      <a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-pills"></i><span>Shop</span></a>
-      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn"><i class="fa-solid fa-prescription"></i></a>
-      <a href="track-order.html" class="mobile-nav-link"><i class="fa-solid fa-truck"></i><span>Track</span></a>
-      <a href="portal.html" class="mobile-nav-link"><i class="fa-solid fa-user"></i><span>Account</span></a>
-    </div>
-  </div>
-
+  <!-- Scripts -->
   <script src="js/pharmacy-data.js"></script>
   <script src="js/pharmacy-store.js"></script>
   <script src="js/pharmacy-ui.js"></script>

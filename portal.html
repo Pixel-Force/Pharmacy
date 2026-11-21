@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patient Portal & Account | CuraRx Pharmacy</title>
+  <title>Customer Account & Orders | CuraRx Pharmacy Pakistan</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
 
   <style>
     .portal-layout {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 32px;
-      padding: 40px 0 80px;
+      padding: 36px 0 80px;
     }
 
     .portal-nav-card {
@@ -24,6 +29,7 @@
       height: fit-content;
       position: sticky;
       top: 90px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .portal-nav-btn {
@@ -36,7 +42,7 @@
       border: none;
       background: transparent;
       color: var(--slate-600);
-      font-size: 0.9375rem;
+      font-size: 0.9rem;
       font-weight: 700;
       cursor: pointer;
       text-align: left;
@@ -50,8 +56,8 @@
     }
 
     .portal-nav-btn.active {
-      background-color: var(--primary-subtle);
-      color: var(--primary);
+      background-color: #ccfbf1;
+      color: #0f766e;
     }
 
     .portal-content-card {
@@ -59,6 +65,7 @@
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-2xl);
       padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .portal-tab-pane {
@@ -67,19 +74,6 @@
 
     .portal-tab-pane.active {
       display: block;
-    }
-
-    .rx-record-card {
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-xl);
-      padding: 20px;
-      margin-bottom: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      background: var(--slate-50);
-      flex-wrap: wrap;
     }
 
     @media (max-width: 900px) {
@@ -94,48 +88,43 @@
 </head>
 <body>
 
-    <!-- 1. SLIM, ELEGANT STICKY HEADER -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery in Pakistan Over Rs. 1,500</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> UAN: 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Helpline</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="brand-logo">
         <div class="logo-symbol">
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
-      <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
+        <a href="track-order.html" class="header-nav-link">Track Order</a>
       </nav>
 
-      <!-- Slim Search Bar -->
-      <div class="search-wrapper">
-        <div class="search-input-group">
-          <input type="text" class="search-input global-search-input" placeholder="Search medicines, vitamins, brands...">
-          <button type="button" class="search-btn" title="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
-
-        <a href="portal.html" class="header-action-btn" title="Patient Account">
-          <i class="fa-regular fa-user"></i>
-          <span>Account</span>
-        </a>
-
         <button class="header-action-btn btn-open-cart-drawer" title="Shopping Cart">
           <i class="fa-solid fa-bag-shopping"></i>
           <span>Basket</span>
@@ -150,191 +139,159 @@
       <!-- Left Sidebar Nav -->
       <aside class="portal-nav-card">
         <div style="display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--slate-100);">
-          <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;" id="portal-avatar">
-            AR
+          <div style="width:48px;height:48px;border-radius:50%;background:#0d9488;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;" id="portal-avatar">
+            MK
           </div>
           <div>
-            <strong style="color:var(--navy);font-size:0.9375rem;display:block;" id="portal-user-name">Alexander Reed</strong>
-            <span style="font-size:0.75rem;color:var(--slate-500);">Patient ID: #PAT-44019</span>
+            <strong style="color:var(--navy);font-size:0.95rem;display:block;" id="portal-user-name">Muhammad Ali Khan</strong>
+            <span style="font-size:0.75rem;color:var(--slate-500);">Karachi, Pakistan</span>
           </div>
         </div>
 
-        <button class="portal-nav-btn active" onclick="switchPortalTab('prescriptions', this)">
-          <i class="fa-solid fa-prescription"></i> My Prescriptions
-        </button>
-        <button class="portal-nav-btn" onclick="switchPortalTab('orders', this)">
-          <i class="fa-solid fa-box"></i> Order History
+        <button class="portal-nav-btn active" onclick="switchPortalTab('orders', this)">
+          <i class="fa-solid fa-box text-primary"></i> Order History
         </button>
         <button class="portal-nav-btn" onclick="switchPortalTab('profile', this)">
-          <i class="fa-solid fa-heart-pulse"></i> Health & Allergy Profile
+          <i class="fa-solid fa-location-dot text-primary"></i> Delivery Addresses
         </button>
-        <button class="portal-nav-btn" onclick="switchPortalTab('wishlist', this)">
-          <i class="fa-solid fa-heart"></i> Saved Items
+        <button class="portal-nav-btn" onclick="switchPortalTab('refills', this)">
+          <i class="fa-solid fa-arrows-spin text-primary"></i> Monthly Refill Plan
         </button>
-        <button class="portal-nav-btn" onclick="switchPortalTab('consultations', this)">
-          <i class="fa-solid fa-user-doctor"></i> Pharmacist Notes
-        </button>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20need%20account%20support" target="_blank" class="portal-nav-btn" style="color:#059669;margin-top:12px;">
+          <i class="fa-brands fa-whatsapp text-success"></i> WhatsApp Support
+        </a>
       </aside>
 
-      <!-- Right Main Content -->
+      <!-- Right Tab Content -->
       <section class="portal-content-card">
-        <!-- 1. PRESCRIPTIONS TAB -->
-        <div class="portal-tab-pane active" id="tab-prescriptions">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
-            <div>
-              <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);">
-                My Prescriptions & Refills
-              </h2>
-              <p style="font-size:0.875rem;color:var(--slate-500);">
-                Active medical prescriptions reviewed and signed by licensed clinical pharmacists.
-              </p>
-            </div>
-            <a href="upload-prescription.html" class="btn-primary" style="font-size:0.875rem;padding:10px 18px;">
-              <i class="fa-solid fa-cloud-arrow-up"></i> Upload New Prescription
-            </a>
-          </div>
+        <!-- 1. Orders Tab -->
+        <div id="orders-pane" class="portal-tab-pane active">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
+            Order History in Pakistan
+          </h2>
+          <p style="color:var(--slate-500);font-size:0.875rem;margin-bottom:24px;">
+            Track past and ongoing deliveries fulfilled across Pakistani cities.
+          </p>
 
-          <div id="portal-prescriptions-list">
-            <!-- Injected dynamically -->
+          <div id="orders-list-container">
+            <!-- Injected by script -->
           </div>
         </div>
 
-        <!-- 2. ORDERS TAB -->
-        <div class="portal-tab-pane" id="tab-orders">
-          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
-            Order History & Fulfillment Tracking
+        <!-- 2. Profile & Address Tab -->
+        <div id="profile-pane" class="portal-tab-pane">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
+            Saved Delivery Coordinates
           </h2>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            Inspect past dispensations, invoice receipts, and active delivery statuses.
+          <p style="color:var(--slate-500);font-size:0.875rem;margin-bottom:24px;">
+            Manage your home and work delivery locations for instant 1-click checkout.
           </p>
 
-          <div id="portal-orders-list">
-            <!-- Injected dynamically -->
-          </div>
-        </div>
-
-        <!-- 3. HEALTH & ALLERGY PROFILE TAB -->
-        <div class="portal-tab-pane" id="tab-profile">
-          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
-            Patient Health & Allergy Profile
-          </h2>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            Our pharmacists screen every order against your known drug allergies and health conditions.
-          </p>
-
-          <form onsubmit="event.preventDefault(); saveProfileDetails();">
+          <form onsubmit="event.preventDefault(); saveProfileChanges();">
             <div class="form-grid-2">
               <div class="form-group">
-                <label class="form-label">Full Legal Name</label>
-                <input type="text" id="prof-name" class="form-input">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="prof-name" class="form-input" value="Muhammad Ali Khan" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Date of Birth</label>
-                <input type="date" id="prof-dob" class="form-input">
+                <label class="form-label">Pakistani Mobile Number</label>
+                <input type="tel" id="prof-phone" class="form-input" value="0300-8241920" required>
               </div>
             </div>
 
             <div class="form-grid-2">
               <div class="form-group">
-                <label class="form-label">Contact Phone</label>
-                <input type="tel" id="prof-phone" class="form-input">
+                <label class="form-label">City</label>
+                <select id="prof-city" class="form-select">
+                  <option value="Karachi" selected>Karachi</option>
+                  <option value="Lahore">Lahore</option>
+                  <option value="Islamabad">Islamabad</option>
+                  <option value="Rawalpindi">Rawalpindi</option>
+                  <option value="Faisalabad">Faisalabad</option>
+                  <option value="Multan">Multan</option>
+                  <option value="Peshawar">Peshawar</option>
+                  <option value="Other City">Other City</option>
+                </select>
               </div>
               <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" id="prof-email" class="form-input">
+                <label class="form-label">Postal Code</label>
+                <input type="text" id="prof-zip" class="form-input" value="75500">
               </div>
             </div>
 
-            <div class="form-group" style="margin-bottom:20px;">
-              <label class="form-label">Known Drug Allergies (Critical for Pharmacist Screening)</label>
-              <input type="text" id="prof-allergies" class="form-input" placeholder="e.g. Penicillin, Sulfa, Codeine">
-              <span class="form-hint">Separate multiple allergies with commas.</span>
+            <div class="form-group">
+              <label class="form-label">Complete Street Address</label>
+              <textarea id="prof-street" class="form-textarea" rows="2">House 42, Street 14, Khayaban-e-Bukhari, Phase 6, DHA, Karachi</textarea>
             </div>
 
-            <div class="form-group" style="margin-bottom:20px;">
-              <label class="form-label">Chronic Medical Conditions</label>
-              <input type="text" id="prof-conditions" class="form-input" placeholder="e.g. Hypertension, Type 2 Diabetes, Asthma">
-            </div>
-
-            <div class="form-grid-2" style="margin-bottom:24px;">
-              <div class="form-group">
-                <label class="form-label">Health Insurance Provider</label>
-                <input type="text" id="prof-insurance" class="form-input">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Policy / Member ID</label>
-                <input type="text" id="prof-policy" class="form-input">
-              </div>
-            </div>
-
-            <button type="submit" class="btn-primary">
-              <i class="fa-solid fa-floppy-disk"></i> Save Health Profile
+            <button type="submit" class="btn-primary" style="margin-top:10px;">
+              <i class="fa-solid fa-floppy-disk"></i> Update Profile & Address
             </button>
           </form>
         </div>
 
-        <!-- 4. WISHLIST TAB -->
-        <div class="portal-tab-pane" id="tab-wishlist">
-          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
-            Saved Healthcare Items
+        <!-- 3. Monthly Refills Tab -->
+        <div id="refills-pane" class="portal-tab-pane">
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
+            Chronic Medication Refill Plan
           </h2>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            Your personal wishlist of vitamins, monitors, and wellness items.
-          </p>
-          <div class="products-grid" id="portal-wishlist-grid"></div>
-        </div>
-
-        <!-- 5. PHARMACIST NOTES TAB -->
-        <div class="portal-tab-pane" id="tab-consultations">
-          <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:6px;">
-            Pharmacist Consultation Notes
-          </h2>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            Confidential clinical records, dosage adjustments, and interaction warnings logged by our pharmacists.
+          <p style="color:var(--slate-500);font-size:0.875rem;margin-bottom:20px;">
+            Automate monthly deliveries for parents or family members requiring chronic blood pressure, diabetes, and cholesterol maintenance.
           </p>
 
-          <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:20px;margin-bottom:16px;">
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-              <strong style="color:var(--navy);">Dr. Eleanor Vance, PharmD (Chief Supervising Pharmacist)</strong>
-              <span style="font-size:0.75rem;color:var(--slate-400);">Nov 15, 2026</span>
+          <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:16px;padding:22px;margin-bottom:24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <i class="fa-solid fa-arrows-spin text-primary" style="font-size:20px;"></i>
+              <strong style="color:var(--navy);font-size:1rem;">Active Subscription: Cardiovascular & Diabetes Pack</strong>
             </div>
-            <p style="font-size:0.875rem;color:var(--slate-700);line-height:1.5;margin:0;">
-              "Reviewed Atorvastatin 20mg + Lisinopril 10mg maintenance regime. Patient reported mild urticaria history with Penicillin; no cross-sensitivity present. Advised patient to take Atorvastatin at bedtime and avoid grapefruit juice. Blood pressure log scheduled for follow-up in 30 days."
+            <p style="font-size:0.84rem;color:var(--slate-600);line-height:1.6;margin-bottom:12px;">
+              Next scheduled refill dispatch: <strong>1st of Next Month</strong> &bull; Free delivery in Karachi with complimentary pill organizer.
             </p>
+            <span class="order-status-pill"><i class="fa-solid fa-check"></i> Refill Active</span>
           </div>
+
+          <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20modify%20my%20monthly%20refill%20plan" target="_blank" class="btn-whatsapp-hero" style="font-size:0.9rem;padding:12px 24px;">
+            <i class="fa-brands fa-whatsapp"></i> Manage Refill on WhatsApp
+          </a>
         </div>
       </section>
     </div>
   </main>
 
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
-      <a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-pills"></i><span>Shop</span></a>
-      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn"><i class="fa-solid fa-prescription"></i></a>
-      <a href="track-order.html" class="mobile-nav-link"><i class="fa-solid fa-truck"></i><span>Track</span></a>
-      <a href="portal.html" class="mobile-nav-link active"><i class="fa-solid fa-user"></i><span>Account</span></a>
-    </div>
-  </div>
-
-  <!-- Cart Drawer -->
+  <!-- Slide-Out Cart Drawer -->
   <div class="cart-drawer-overlay"></div>
   <div class="cart-drawer">
     <div class="drawer-header">
       <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
-      <button class="btn-close-drawer"><i class="fa-solid fa-xmark"></i></button>
+      <button class="btn-close-drawer" title="Close"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="shipping-progress-box"></div>
     <div class="drawer-items"></div>
     <div class="drawer-footer">
-      <div class="drawer-summary-total">
-        <span>Total</span>
-        <span class="drawer-total-val">$0.00</span>
+      <div class="drawer-summary-row">
+        <span>Subtotal</span>
+        <span class="drawer-subtotal-val">Rs. 0</span>
       </div>
-      <a href="checkout.html" class="btn-checkout-drawer">Proceed to Checkout</a>
+      <div class="drawer-summary-total">
+        <span>Total (Cash on Delivery)</span>
+        <span class="drawer-total-val">Rs. 0</span>
+      </div>
+      <a href="checkout.html" class="btn-checkout-drawer">
+        <i class="fa-solid fa-lock"></i> Proceed to Checkout (COD)
+      </a>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
+      <div>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="js/pharmacy-data.js"></script>
@@ -343,139 +300,75 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      loadPortalData();
-
-      // Check hash
-      if (window.location.hash === "#wishlist") {
-        const btn = document.querySelector('button[onclick*="wishlist"]');
-        if (btn) btn.click();
-      }
+      renderPortalOrders();
     });
 
-    function switchPortalTab(tabName, btn) {
+    function switchPortalTab(tabName, btnElement) {
       document.querySelectorAll(".portal-nav-btn").forEach(b => b.classList.remove("active"));
       document.querySelectorAll(".portal-tab-pane").forEach(p => p.classList.remove("active"));
 
-      btn.classList.add("active");
-      const targetPane = document.getElementById(`tab-${tabName}`);
-      if (targetPane) targetPane.classList.add("active");
-
-      if (tabName === "wishlist") {
-        renderWishlistItems();
-      }
+      btnElement.classList.add("active");
+      const target = document.getElementById(`${tabName}-pane`);
+      if (target) target.classList.add("active");
     }
 
-    function loadPortalData() {
+    function renderPortalOrders() {
       const store = window.PharmacyStore;
       if (!store) return;
 
-      const user = store.getUser();
-      const prescriptions = store.getPrescriptions();
       const orders = store.getOrders();
+      const container = document.getElementById("orders-list-container");
+      if (!container) return;
 
-      // Profile fields
-      document.getElementById("portal-user-name").textContent = user.name;
-      document.getElementById("prof-name").value = user.name;
-      document.getElementById("prof-dob").value = user.dob;
-      document.getElementById("prof-phone").value = user.phone;
-      document.getElementById("prof-email").value = user.email;
-      document.getElementById("prof-allergies").value = (user.allergies || []).join(", ");
-      document.getElementById("prof-conditions").value = (user.chronicConditions || []).join(", ");
-      document.getElementById("prof-insurance").value = user.insuranceProvider || "";
-      document.getElementById("prof-policy").value = user.insurancePolicyNumber || "";
-
-      // Prescriptions List
-      const rxContainer = document.getElementById("portal-prescriptions-list");
-      rxContainer.innerHTML = prescriptions.map(rx => `
-        <div class="rx-record-card">
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:48px;height:48px;border-radius:var(--radius-md);background:var(--primary-subtle);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:22px;">
-              <i class="fa-solid fa-file-prescription"></i>
-            </div>
-            <div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <strong style="color:var(--navy);font-size:1.05rem;">Prescription #${rx.id}</strong>
-                <span style="font-size:0.75rem;font-weight:700;padding:2px 8px;border-radius:var(--radius-full);background:${rx.status === 'Verified' ? 'var(--success-bg)' : 'var(--warning-bg)'};color:${rx.status === 'Verified' ? 'var(--secondary-dark)' : '#b45309'};">
-                  ${rx.status}
-                </span>
-              </div>
-              <div style="font-size:0.8125rem;color:var(--slate-500);margin-top:2px;">
-                Prescribed by ${rx.doctorName} (${rx.doctorClinic}) • Dated: ${rx.prescriptionDate}
-              </div>
-              ${rx.verifiedBy ? `
-                <div style="font-size:0.75rem;color:var(--primary);font-weight:600;margin-top:4px;">
-                  <i class="fa-solid fa-certificate"></i> Verified by: ${rx.verifiedBy}
-                </div>
-              ` : ''}
-            </div>
-          </div>
-
-          <div style="display:flex;gap:10px;">
-            <a href="track-order.html?id=${rx.id}" class="btn-white" style="font-size:0.8125rem;padding:8px 14px;">
-              <i class="fa-solid fa-satellite-dish"></i> Status
-            </a>
-            ${rx.status === 'Verified' ? `
-              <a href="shop.html?filter=rx" class="btn-primary" style="font-size:0.8125rem;padding:8px 14px;">
-                <i class="fa-solid fa-cart-plus"></i> Order Refill
-              </a>
-            ` : ''}
-          </div>
-        </div>
-      `).join("");
-
-      // Orders List
-      const ordersContainer = document.getElementById("portal-orders-list");
-      ordersContainer.innerHTML = orders.map(order => `
-        <div class="rx-record-card">
-          <div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <strong style="color:var(--navy);font-size:1.05rem;">Order #${order.id}</strong>
-              <span class="order-status-pill">${order.orderStatus}</span>
-            </div>
-            <div style="font-size:0.8125rem;color:var(--slate-500);margin-top:4px;">
-              ${order.items.length} items • Total: $${order.total.toFixed(2)} • Placed: ${new Date(order.createdAt).toLocaleDateString()}
-            </div>
-          </div>
-          <div style="display:flex;gap:10px;">
-            <a href="track-order.html?id=${order.id}" class="btn-primary" style="font-size:0.8125rem;padding:8px 14px;">
-              <i class="fa-solid fa-truck"></i> Track Delivery
-            </a>
-            <a href="order-confirmation.html?id=${order.id}" class="btn-white" style="font-size:0.8125rem;padding:8px 14px;">
-              <i class="fa-solid fa-receipt"></i> Invoice
-            </a>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderWishlistItems() {
-      const store = window.PharmacyStore;
-      const wishlist = store.getWishlist();
-      const grid = document.getElementById("portal-wishlist-grid");
-
-      if (wishlist.length === 0) {
-        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--slate-400);">No items saved to your wishlist yet.</div>`;
+      if (orders.length === 0) {
+        container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--slate-400);">No orders found.</div>`;
         return;
       }
 
-      const products = store.getProducts().filter(p => wishlist.includes(p.id));
-      grid.innerHTML = products.map(p => window.PharmacyUI.createProductCard(p)).join("");
+      container.innerHTML = orders.map(ord => `
+        <div style="border:1px solid var(--slate-200);border-radius:16px;padding:20px;margin-bottom:16px;background:var(--slate-50);">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--slate-200);padding-bottom:12px;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+            <div>
+              <strong style="color:var(--navy);font-size:1.05rem;">Order #${ord.id}</strong>
+              <div style="font-size:0.75rem;color:var(--slate-500);">${new Date(ord.createdAt).toLocaleDateString()} &bull; ${ord.paymentMethod}</div>
+            </div>
+            <div style="text-align:right;">
+              <span class="order-status-pill"><i class="fa-solid fa-truck"></i> ${ord.orderStatus}</span>
+              <div style="font-size:1.05rem;font-weight:800;color:#0f766e;margin-top:4px;">${store.formatMoney(ord.total)}</div>
+            </div>
+          </div>
+          <div>
+            ${ord.items.map(it => `
+              <div style="font-size:0.84rem;color:var(--slate-600);padding:3px 0;">
+                &bull; <strong>${it.name}</strong> (${it.strength || ''}) &times; ${it.quantity} &mdash; ${store.formatMoney(it.price * it.quantity)}
+              </div>
+            `).join("")}
+          </div>
+          <div style="margin-top:14px;padding-top:10px;border-top:1px dashed var(--slate-200);display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.78rem;color:var(--slate-500);">Courier: ${ord.carrier}</span>
+            <a href="track-order.html?id=${ord.id}" style="font-size:0.8125rem;color:var(--primary);font-weight:700;">
+              Track Rider &rarr;
+            </a>
+          </div>
+        </div>
+      `).join("");
     }
 
-    function saveProfileDetails() {
+    function saveProfileChanges() {
       const store = window.PharmacyStore;
       if (!store) return;
+      const name = document.getElementById("prof-name").value;
+      const phone = document.getElementById("prof-phone").value;
+      const city = document.getElementById("prof-city").value;
+      const street = document.getElementById("prof-street").value;
 
       store.saveUser({
-        name: document.getElementById("prof-name").value.trim(),
-        dob: document.getElementById("prof-dob").value,
-        phone: document.getElementById("prof-phone").value.trim(),
-        email: document.getElementById("prof-email").value.trim(),
-        allergies: document.getElementById("prof-allergies").value.split(",").map(s => s.trim()).filter(Boolean),
-        chronicConditions: document.getElementById("prof-conditions").value.split(",").map(s => s.trim()).filter(Boolean),
-        insuranceProvider: document.getElementById("prof-insurance").value.trim(),
-        insurancePolicyNumber: document.getElementById("prof-policy").value.trim()
+        name,
+        phone,
+        city,
+        address: { street, city, country: "Pakistan" }
       });
+      store.showToast("Address and profile details updated!", "success");
     }
   </script>
 </body>

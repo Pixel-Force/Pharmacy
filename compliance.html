@@ -3,281 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pharmaceutical Compliance, Dispensing & Privacy Policy | CuraRx</title>
+  <title>DRAP Compliance & Pharmaceutical Standards | CuraRx Pharmacy Pakistan</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
 
   <style>
-    .compliance-content {
-      max-width: 900px;
-      margin: 40px auto 80px;
+    .compliance-card {
       background: #ffffff;
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-2xl);
-      padding: 48px;
-      line-height: 1.8;
-      color: var(--slate-700);
+      padding: 40px;
+      margin: 40px auto 80px;
+      max-width: 900px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
-    .compliance-content h2 {
+    .compliance-section-title {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--navy);
-      margin-top: 36px;
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 1.5px solid var(--slate-100);
+      margin: 32px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .compliance-content h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 20px;
-      margin-bottom: 8px;
-    }
-
-    .compliance-content ul {
-      margin-left: 24px;
-      margin-bottom: 20px;
-    }
-
-    .compliance-content li {
-      margin-bottom: 8px;
-    }
-
-    .callout-box {
-      background: var(--slate-50);
-      border-left: 4px solid var(--primary);
-      padding: 16px 20px;
-      border-radius: var(--radius-sm);
-      margin: 24px 0;
-      font-size: 0.9375rem;
-    }
-
-    .callout-alert {
-      background: #fee2e2;
-      border-left: 4px solid #ef4444;
-      color: #991b1b;
-      padding: 16px 20px;
-      border-radius: var(--radius-sm);
-      margin: 24px 0;
-      font-size: 0.9375rem;
+    .compliance-section-title i {
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
 
-    <!-- 1. SLIM, ELEGANT STICKY HEADER -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery in Pakistan Over Rs. 1,500</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> UAN: 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20have%20an%20inquiry" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Helpline</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="brand-logo">
         <div class="logo-symbol">
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
-      <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
+        <a href="track-order.html" class="header-nav-link">Track Order</a>
+        <a href="about.html" class="header-nav-link">About Us</a>
       </nav>
 
-      <!-- Slim Search Bar -->
-      <div class="search-wrapper">
-        <div class="search-input-group">
-          <input type="text" class="search-input global-search-input" placeholder="Search medicines, vitamins, brands...">
-          <button type="button" class="search-btn" title="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
-
         <a href="portal.html" class="header-action-btn" title="Patient Account">
           <i class="fa-regular fa-user"></i>
           <span>Account</span>
         </a>
-
-        <button class="header-action-btn btn-open-cart-drawer" title="Shopping Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span>Basket</span>
-          <span class="action-badge cart-count-badge" style="display:none;">0</span>
-        </button>
       </div>
     </div>
   </header>
 
-  <!-- Page Banner -->
-  <div style="background:linear-gradient(135deg, #091e2f 0%, #0f766e 100%);color:#ffffff;padding:50px 0;">
-    <div class="container" style="max-width:800px;text-align:center;">
-      <span class="section-tag" style="background:rgba(255,255,255,0.2);color:#ffffff;border-color:rgba(255,255,255,0.3);margin-bottom:12px;">
-        Pharmaceutical Law & Governance
-      </span>
-      <h1 style="font-family:var(--font-heading);font-size:2.4rem;font-weight:800;margin-bottom:10px;">
-        Pharmacy Dispensing & Compliance Policy
-      </h1>
-      <p style="font-size:1rem;color:#ccfbf1;">
-        Legal frameworks, prescription verification requirements, controlled substances restrictions, and patient privacy standards.
-      </p>
-    </div>
-  </div>
-
+  <!-- Main Content -->
   <main class="container">
-    <article class="compliance-content">
-      <div style="background:var(--primary-subtle);border:1px solid var(--primary-border);border-radius:var(--radius-lg);padding:20px;margin-bottom:30px;">
-        <strong style="color:var(--primary-dark);font-size:1.05rem;display:block;margin-bottom:4px;">
-          <i class="fa-solid fa-certificate"></i> Operating License & Regulatory College Registration
-        </strong>
-        <p style="margin:0;font-size:0.875rem;color:var(--navy-muted);">
-          CuraRx Pharmacy operates under state dispensary permit <strong>#RPH-942817-A</strong>, governed by the Board of Pharmacy and compliant with federal FDA (Food and Drug Administration) regulations and WHO Good Pharmacy Practice standards.
+    <div class="compliance-card">
+      <div style="text-align:center;margin-bottom:30px;">
+        <span class="wp-badge-pill"><i class="fa-solid fa-scale-balanced"></i> Regulatory Assurance</span>
+        <h1 style="font-family:var(--font-heading);font-size:2.2rem;font-weight:800;color:var(--navy);margin:14px 0 8px;">
+          DRAP Compliance & Quality Protocols
+        </h1>
+        <p style="color:var(--slate-500);font-size:0.95rem;">
+          How CuraRx adheres to national pharmaceutical laws and patient safety mandates across Pakistan.
         </p>
       </div>
 
-      <h2>1. Mandatory Prescription Verification Protocol</h2>
-      <p>
-        In strict compliance with international pharmaceutical statutes, <strong>no medication classified as a Prescription-Only Medicine (Rx / POM) will be dispensed, fulfilled, or shipped without prior verification by a licensed clinical pharmacist.</strong>
-      </p>
-      <ul>
-        <li><strong>Valid Prescriber:</strong> Prescriptions must be authored by a licensed physician, dentist, nurse practitioner, or veterinarian authorized to prescribe in the patient's jurisdiction.</li>
-        <li><strong>Prescription Legibility & Integrity:</strong> Prescriptions submitted via photo or scan must clearly depict the patient's full legal name, date of birth, prescriber's clinic name and license number, date of issue, medication name, strength, dosage instructions, quantity, and authorized refills.</li>
-        <li><strong>15-Minute Pharmacist Review:</strong> Every submitted prescription is evaluated by a Doctor of Pharmacy (PharmD) practitioner who conducts an algorithmic drug-drug interaction screen, duplicate therapy check, and allergy cross-reference against the patient's health profile.</li>
-      </ul>
-
-      <h2>2. Controlled Substances (Schedule II Narcotics) Prohibition</h2>
-      <div class="callout-alert">
-        <strong><i class="fa-solid fa-ban"></i> STRICT POLICY ON CONTROLLED NARCOTICS:</strong><br>
-        CuraRx does <strong>NOT</strong> sell, dispense, or mail-order Schedule II controlled substances (e.g. Oxycodone, Hydrocodone, Fentanyl, Morphine, Amphetamines/Adderall, Methylphenidate/Ritalin). Requests for Schedule II medications will be immediately declined and directed to physical clinical facilities.
+      <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:16px;padding:22px;margin-bottom:28px;">
+        <strong style="color:#0f766e;font-size:1.05rem;display:flex;align-items:center;gap:8px;">
+          <i class="fa-solid fa-shield-halved"></i> Drug Regulatory Authority of Pakistan (DRAP) Certification
+        </strong>
+        <p style="font-size:0.875rem;color:var(--slate-600);line-height:1.6;margin:6px 0 0;">
+          All therapeutic products, medical devices, and nutritional supplements cataloged and dispensed through CuraRx Pakistan are registered and approved by the Drug Regulatory Authority of Pakistan (DRAP) under the DRAP Act 2012 and Drugs Act 1976.
+        </p>
       </div>
 
-      <h2>3. Over-the-Counter (OTC) & Pseudoephedrine Regulations</h2>
-      <p>
-        Over-the-counter medications are sold in accordance with consumer safety laws and age requirements.
+      <!-- Section 1 -->
+      <h3 class="compliance-section-title">
+        <i class="fa-solid fa-boxes-stacked"></i> 1. Sourcing Exclusively From Authorized Principal Depots
+      </h3>
+      <p style="color:var(--slate-600);line-height:1.7;font-size:0.9375rem;">
+        CuraRx operates a closed, zero-counterfeit distribution pipeline. Every stock batch is procured directly from the manufacturer's central depots (e.g. Getz Pharma, GSK Pakistan, Abbott Laboratories, Martin Dow, and The Searle Company) with invoice validation, batch certificate of analysis, and manufacturer seal verification.
       </p>
-      <ul>
-        <li><strong>Pseudoephedrine Limits:</strong> Pursuant to Combat Methamphetamine Epidemic legislation, sales of nasal decongestants containing pseudoephedrine are restricted to a maximum of <strong>3.6 grams per transaction</strong> and 9.0 grams per 30-day period.</li>
-        <li><strong>Age Verification:</strong> Purchasers of cough syrups containing dextromethorphan or NSAID analgesics must be at least 18 years of age.</li>
-      </ul>
 
-      <h2>4. Cold-Chain Transportation & Biological Integrity</h2>
-      <p>
-        Temperature-sensitive pharmaceuticals (including insulins, GLP-1 receptor agonists, vaccines, and eye drops) require continuous thermal protection.
+      <!-- Section 2 -->
+      <h3 class="compliance-section-title">
+        <i class="fa-solid fa-snowflake"></i> 2. Cold-Chain Storage & Transport Protocol
+      </h3>
+      <p style="color:var(--slate-600);line-height:1.7;font-size:0.9375rem;">
+        In Pakistan's severe summer climate, temperature fluctuations above 25°C can rapidly degrade insulin, vaccines, inhalers, and eye drops. CuraRx operates temperature-monitored warehouse chillers calibrated between 2°C and 8°C. During dispatch, orders are placed in insulated thermal pouches packed with food-grade gel ice packs, ensuring full medication potency upon delivery.
       </p>
-      <ul>
-        <li><strong>Temperature Monitored:</strong> Maintained strictly between <strong>2°C and 8°C (36°F to 46°F)</strong> during all transit stages using calibrated digital dataloggers.</li>
-        <li><strong>Insulated Containers:</strong> Shipped in certified pharmaceutical insulated coolers with phase-change cold packs guaranteeing up to 48 hours of thermal stability.</li>
-      </ul>
 
-      <h2>5. Patient Health Data Privacy (HIPAA & GDPR)</h2>
-      <div class="callout-box">
-        <strong><i class="fa-solid fa-lock text-primary"></i> Confidentiality Commitment:</strong><br>
-        All patient health information (PHI), uploaded prescription images, clinical records, and consultation notes are encrypted at rest using AES-256 bit encryption and in transit using TLS 1.3. We strictly adhere to HIPAA (Health Insurance Portability and Accountability Act) and GDPR regulations. We never sell, lease, or monetize patient medical records.
+      <!-- Section 3 -->
+      <h3 class="compliance-section-title">
+        <i class="fa-solid fa-user-doctor"></i> 3. Licensed Pharmacists Supervision
+      </h3>
+      <p style="color:var(--slate-600);line-height:1.7;font-size:0.9375rem;">
+        In compliance with the Pharmacy Act 1967, every dispensing facility is supervised in-person by registered Doctor of Pharmacy (PharmD) practitioners holding Category 'A' licenses issued by the Pharmacy Council of Pakistan. Pharmacists perform mandatory pre-dispatch safety reviews for dosage and drug-drug interactions.
+      </p>
+
+      <!-- Section 4 -->
+      <h3 class="compliance-section-title">
+        <i class="fa-solid fa-hand-holding-dollar"></i> 4. Consumer Rights & Price Transparency
+      </h3>
+      <p style="color:var(--slate-600);line-height:1.7;font-size:0.9375rem;">
+        All pharmaceutical medicines are sold in strict compliance with the Maximum Retail Price (MRP) mandated by the Federal Government of Pakistan and DRAP. Customers receive itemized official fiscal receipts with batch numbers and expiry dates printed clearly on the invoice.
+      </p>
+
+      <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--slate-200);text-align:center;">
+        <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:16px;">
+          For regulatory inquiries or clinical compliance questions, contact our compliance officer:
+        </p>
+        <a href="mailto:compliance@curarx.pk" style="color:var(--primary);font-weight:700;font-size:0.95rem;">
+          <i class="fa-solid fa-envelope"></i> compliance@curarx.pk
+        </a>
       </div>
-
-      <h2>6. Returns, Cancellations & Environmentally Safe Disposal</h2>
-      <p>
-        For public health and safety reasons, <strong>once a prescription medication has left our pharmacy dispensing facility, it cannot be returned or restocked under pharmaceutical law</strong> (to prevent tampering, contamination, or thermal degradation).
-      </p>
-      <ul>
-        <li><strong>Damaged or Erroneous Dispensation:</strong> If you receive an incorrect product or a package with damaged tamper seals, notify our pharmacy within 24 hours for a full replacement and courier pickup.</li>
-        <li><strong>Medicine Take-Back Program:</strong> Unused or expired medications should never be flushed down toilets. CuraRx provides free prepaid safe disposal mail-back envelopes upon request to protect community water supplies.</li>
-      </ul>
-
-      <h2>7. Multi-Jurisdiction Regulatory Matrix</h2>
-      <div class="table-responsive" style="margin-top:16px;">
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th>Country / Region</th>
-              <th>Governing Agency</th>
-              <th>Rx Verification Requirement</th>
-              <th>Pseudoephedrine Threshold</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>United States</strong></td>
-              <td>FDA / DEA / State Boards</td>
-              <td>Mandatory licensed review</td>
-              <td>3.6g daily / 9g monthly</td>
-            </tr>
-            <tr>
-              <td><strong>United Kingdom</strong></td>
-              <td>MHRA / GPhC</td>
-              <td>Mandatory GPhC superintendent check</td>
-              <td>3.0g daily maximum</td>
-            </tr>
-            <tr>
-              <td><strong>Canada</strong></td>
-              <td>Health Canada / Provincial Colleges</td>
-              <td>Mandatory Part G & M compliance</td>
-              <td>3.2g daily limit</td>
-            </tr>
-            <tr>
-              <td><strong>Australia</strong></td>
-              <td>TGA / Pharmacy Board</td>
-              <td>Mandatory Schedule 4 verification</td>
-              <td>2.4g daily limit (Project STOP)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container footer-bottom">
-      <div>&copy; 2026 CuraRx Licensed Pharmacy & Wellness. All rights reserved.</div>
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
       <div>
-        <a href="compliance.html" style="margin-right:16px;">Privacy Policy</a>
-        <a href="compliance.html">Terms of Dispensing</a>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
       </div>
     </div>
   </footer>
 
-  <!-- Slide-Out Cart Drawer -->
-  <div class="cart-drawer-overlay"></div>
-  <div class="cart-drawer">
-    <div class="drawer-header">
-      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
-      <button class="btn-close-drawer"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="shipping-progress-box"></div>
-    <div class="drawer-items"></div>
-    <div class="drawer-footer">
-      <div class="drawer-summary-total">
-        <span>Total</span>
-        <span class="drawer-total-val">$0.00</span>
-      </div>
-      <a href="checkout.html" class="btn-checkout-drawer">Proceed to Checkout</a>
-    </div>
-  </div>
-
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
-      <a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-pills"></i><span>Shop</span></a>
-      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn"><i class="fa-solid fa-prescription"></i></a>
-      <a href="track-order.html" class="mobile-nav-link"><i class="fa-solid fa-truck"></i><span>Track</span></a>
-      <a href="portal.html" class="mobile-nav-link"><i class="fa-solid fa-user"></i><span>Account</span></a>
-    </div>
-  </div>
-
+  <!-- Scripts -->
   <script src="js/pharmacy-data.js"></script>
   <script src="js/pharmacy-store.js"></script>
   <script src="js/pharmacy-ui.js"></script>

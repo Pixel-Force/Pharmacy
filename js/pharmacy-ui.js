@@ -1,6 +1,7 @@
 /**
- * CuraRx Pharmacy - Master UI Components & Interactive Behaviors
- * Manages Header, Cart Drawer, Search Autocomplete, Quick View Modal, and Product Card rendering.
+ * CuraRx Pharmacy Pakistan - Master UI Components & Interactive Behaviors
+ * Localized for Pakistani Customers: PKR currency, Cash on Delivery, WhatsApp Ordering,
+ * and zero prescription upload gating.
  */
 
 (function () {
@@ -14,14 +15,13 @@
 
     listenToStoreChanges() {
       if (!window.PharmacyStore) return;
-      window.PharmacyStore.subscribe((event, data) => {
-        if (event === "cart_changed") {
-          this.updateHeaderBadges();
-          this.renderCartDrawerItems();
-        } else if (event === "wishlist_changed") {
-          this.updateHeaderBadges();
-          this.updateWishlistIcons();
-        }
+      window.PharmacyStore.on("cart_changed", () => {
+        this.updateHeaderBadges();
+        this.renderCartDrawerItems();
+      });
+      window.PharmacyStore.on("wishlist_changed", () => {
+        this.updateHeaderBadges();
+        this.updateWishlistIcons();
       });
     },
 
@@ -32,13 +32,11 @@
       const cartSummary = store.getCartSummary();
       const wishlist = store.getWishlist();
 
-      // Update cart count badges
       document.querySelectorAll(".cart-count-badge").forEach(el => {
         el.textContent = cartSummary.itemsCount;
         el.style.display = cartSummary.itemsCount > 0 ? "flex" : "none";
       });
 
-      // Update wishlist badges
       document.querySelectorAll(".wishlist-count-badge").forEach(el => {
         el.textContent = wishlist.length;
         el.style.display = wishlist.length > 0 ? "flex" : "none";
@@ -49,7 +47,6 @@
       const openBtns = document.querySelectorAll(".btn-open-cart-drawer");
       const closeBtn = document.querySelector(".btn-close-drawer");
       const overlay = document.querySelector(".cart-drawer-overlay");
-      const drawer = document.querySelector(".cart-drawer");
 
       openBtns.forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -68,22 +65,22 @@
     },
 
     openCartDrawer() {
-      const overlay = document.querySelector(".cart-drawer-overlay");
       const drawer = document.querySelector(".cart-drawer");
-      if (overlay && drawer) {
+      const overlay = document.querySelector(".cart-drawer-overlay");
+      if (drawer && overlay) {
         this.renderCartDrawerItems();
-        overlay.classList.add("active");
-        drawer.classList.add("active");
+        drawer.classList.add("open");
+        overlay.classList.add("open");
         document.body.style.overflow = "hidden";
       }
     },
 
     closeCartDrawer() {
-      const overlay = document.querySelector(".cart-drawer-overlay");
       const drawer = document.querySelector(".cart-drawer");
-      if (overlay && drawer) {
-        overlay.classList.remove("active");
-        drawer.classList.remove("active");
+      const overlay = document.querySelector(".cart-drawer-overlay");
+      if (drawer && overlay) {
+        drawer.classList.remove("open");
+        overlay.classList.remove("open");
         document.body.style.overflow = "";
       }
     },
@@ -92,21 +89,21 @@
       const store = window.PharmacyStore;
       if (!store) return;
 
+      const cart = store.getCart();
       const container = document.querySelector(".drawer-items");
       const footer = document.querySelector(".drawer-footer");
       const shippingBar = document.querySelector(".shipping-progress-box");
       if (!container) return;
 
-      const cart = store.getCart();
       const summary = store.getCartSummary();
 
       // Render shipping progress
       if (shippingBar) {
         if (summary.itemsCount === 0) {
           shippingBar.innerHTML = `
-            <div style="font-size:0.8125rem;color:var(--slate-600);">
+            <div style="font-size:0.8125rem;color:var(--slate-600);margin-bottom:6px;">
               <i class="fa-solid fa-truck-fast text-primary"></i> 
-              Add $${summary.freeShippingThreshold.toFixed(2)} to qualify for <strong>Free Express Delivery</strong>
+              Add ${store.formatMoney(summary.freeShippingThreshold)} to qualify for <strong>Free Delivery in Pakistan</strong>
             </div>
             <div class="shipping-progress-bar">
               <div class="shipping-progress-fill" style="width: 0%;"></div>
@@ -114,9 +111,9 @@
           `;
         } else if (summary.isFreeShipping) {
           shippingBar.innerHTML = `
-            <div style="font-size:0.8125rem;color:#065f46;font-weight:700;">
+            <div style="font-size:0.8125rem;color:#065f46;font-weight:700;margin-bottom:6px;">
               <i class="fa-solid fa-circle-check" style="color:#10b981;"></i> 
-              Congratulations! Your order qualifies for <strong>FREE Cold-Chain Delivery</strong>!
+              Mubarak! Your order qualifies for <strong>FREE Delivery</strong> across Pakistan!
             </div>
             <div class="shipping-progress-bar">
               <div class="shipping-progress-fill" style="width: 100%; background:#10b981;"></div>
@@ -124,9 +121,9 @@
           `;
         } else {
           shippingBar.innerHTML = `
-            <div style="font-size:0.8125rem;color:var(--navy);">
-              <i class="fa-solid fa-truck-medical text-primary"></i> 
-              Add <strong>$${summary.amountNeededForFreeShipping.toFixed(2)}</strong> more to get <strong>Free Delivery</strong>
+            <div style="font-size:0.8125rem;color:var(--navy);margin-bottom:6px;">
+              <i class="fa-solid fa-truck-fast text-primary"></i> 
+              Add <strong>${store.formatMoney(summary.amountNeededForFreeShipping)}</strong> more for <strong>Free Express Delivery</strong>
             </div>
             <div class="shipping-progress-bar">
               <div class="shipping-progress-fill" style="width: ${summary.freeShippingPercent}%;"></div>
@@ -139,13 +136,18 @@
         container.innerHTML = `
           <div style="text-align:center;padding:48px 16px;color:var(--slate-400);">
             <div style="width:72px;height:72px;background:var(--slate-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;color:var(--slate-400);">
-              <i class="fa-solid fa-prescription-bottle-medical"></i>
+              <i class="fa-solid fa-bag-shopping"></i>
             </div>
             <h4 style="font-size:1.1rem;color:var(--navy);margin-bottom:6px;">Your basket is empty</h4>
-            <p style="font-size:0.875rem;margin-bottom:20px;">Browse our catalog or upload a prescription to get started.</p>
-            <a href="shop.html" class="btn-primary" style="font-size:0.875rem;padding:10px 20px;">
-              <i class="fa-solid fa-magnifying-glass"></i> Explore Medicines
-            </a>
+            <p style="font-size:0.875rem;margin-bottom:20px;">Browse Pakistan's genuine DRAP-approved medicines or order via WhatsApp.</p>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+              <a href="shop.html" class="btn-primary" style="font-size:0.875rem;padding:10px 20px;">
+                <i class="fa-solid fa-pills"></i> Shop Medicines
+              </a>
+              <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-drawer" style="background:#25d366;color:#ffffff;padding:10px 18px;border-radius:9999px;font-weight:700;font-size:0.875rem;display:inline-flex;align-items:center;gap:6px;">
+                <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+              </a>
+            </div>
           </div>
         `;
         if (footer) footer.style.display = "none";
@@ -161,14 +163,8 @@
             <img src="${item.image}" alt="${item.name}" class="cart-item-thumb">
             <div class="cart-item-details">
               <a href="product-detail.html?id=${item.id}" class="cart-item-name">${item.name}</a>
-              ${item.prescriptionRequired ? `
-                <div class="cart-item-rx-alert">
-                  <i class="fa-solid fa-prescription"></i> Rx Prescription Required
-                </div>
-              ` : `
-                <div style="font-size:0.75rem;color:var(--slate-500);margin-bottom:4px;">${item.strength || item.brand}</div>
-              `}
-              <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+              <div style="font-size:0.75rem;color:var(--slate-500);margin-bottom:4px;">${item.strength || item.brand}</div>
+              <div class="cart-item-price">${store.formatMoney(item.price * item.quantity)}</div>
               <div class="cart-item-actions">
                 <div class="qty-control">
                   <button class="qty-btn btn-cart-dec" onclick="window.PharmacyUI.updateItemQty('${item.id}', ${item.quantity - 1})">-</button>
@@ -188,159 +184,140 @@
 
       // Update summary numbers
       const subtotalEl = document.querySelector(".drawer-subtotal-val");
-      const shippingEl = document.querySelector(".drawer-shipping-val");
       const totalEl = document.querySelector(".drawer-total-val");
-      const rxBanner = document.querySelector(".drawer-rx-warning");
 
-      if (subtotalEl) subtotalEl.textContent = `$${summary.subtotal.toFixed(2)}`;
-      if (shippingEl) shippingEl.textContent = summary.shippingFee === 0 ? "FREE" : `$${summary.shippingFee.toFixed(2)}`;
-      if (totalEl) totalEl.textContent = `$${summary.total.toFixed(2)}`;
-
-      if (rxBanner) {
-        if (summary.hasPrescriptionItems) {
-          rxBanner.style.display = "block";
-          rxBanner.innerHTML = `
-            <div style="background:var(--rx-bg);border:1px solid var(--rx-border);padding:10px 14px;border-radius:var(--radius-md);margin-bottom:12px;font-size:0.78rem;color:var(--rx-teal);display:flex;gap:8px;align-items:flex-start;">
-              <i class="fa-solid fa-shield-halved" style="font-size:16px;margin-top:2px;"></i>
-              <div>
-                <strong>Prescription verification required:</strong> You have ${summary.prescriptionItemsCount} Rx item(s) in your cart. You will be prompted to attach your script at checkout.
-              </div>
-            </div>
-          `;
-        } else {
-          rxBanner.style.display = "none";
-        }
-      }
+      if (subtotalEl) subtotalEl.textContent = store.formatMoney(summary.subtotal);
+      if (totalEl) totalEl.textContent = store.formatMoney(summary.total);
     },
 
     updateItemQty(productId, newQty) {
-      if (window.PharmacyStore) {
-        window.PharmacyStore.updateCartQuantity(productId, newQty);
-        this.renderCartDrawerItems();
-      }
+      const store = window.PharmacyStore;
+      if (store) store.updateCartQuantity(productId, newQty);
     },
 
     removeItem(productId) {
-      if (window.PharmacyStore) {
-        window.PharmacyStore.removeFromCart(productId);
-        this.renderCartDrawerItems();
-      }
+      const store = window.PharmacyStore;
+      if (store) store.removeFromCart(productId);
     },
 
-    // --- LIVE AUTOCOMPLETE SEARCH ENGINE ---
     bindLiveSearch() {
       const searchInputs = document.querySelectorAll(".global-search-input");
-      const categorySelects = document.querySelectorAll(".search-category-select");
-
       searchInputs.forEach(input => {
         const wrapper = input.closest(".search-wrapper");
         if (!wrapper) return;
 
-        let dropdown = wrapper.querySelector(".search-results-dropdown");
+        let dropdown = wrapper.querySelector(".search-autocomplete-dropdown");
         if (!dropdown) {
           dropdown = document.createElement("div");
-          dropdown.className = "search-results-dropdown";
+          dropdown.className = "search-autocomplete-dropdown";
+          dropdown.style.cssText = `
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.16);
+            max-height: 420px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+          `;
+          wrapper.style.position = "relative";
           wrapper.appendChild(dropdown);
         }
 
-        const handleSearch = () => {
-          const query = input.value.trim().toLowerCase();
-          const categorySelect = wrapper.querySelector(".search-category-select");
-          const selectedCat = categorySelect ? categorySelect.value : "all";
-
+        input.addEventListener("input", (e) => {
+          const query = e.target.value.trim().toLowerCase();
           if (query.length < 2) {
-            dropdown.classList.remove("active");
-            dropdown.innerHTML = "";
+            dropdown.style.display = "none";
             return;
           }
-
-          const store = window.PharmacyStore;
-          if (!store) return;
-
-          const products = store.getProducts();
-          const matches = products.filter(p => {
-            const matchName = p.name.toLowerCase().includes(query);
-            const matchGeneric = p.genericName && p.genericName.toLowerCase().includes(query);
-            const matchBrand = p.brand && p.brand.toLowerCase().includes(query);
-            const matchCategory = selectedCat === "all" || p.category === selectedCat;
-            return (matchName || matchGeneric || matchBrand) && matchCategory;
-          }).slice(0, 6);
-
-          if (matches.length === 0) {
-            dropdown.innerHTML = `
-              <div style="padding:16px;text-align:center;color:var(--slate-500);font-size:0.875rem;">
-                No medicines found for "${query}". Try searching by generic ingredient or brand.
-              </div>
-            `;
-            dropdown.classList.add("active");
-            return;
-          }
-
-          let itemsHtml = `
-            <div style="padding:8px 16px;background:var(--slate-50);font-size:0.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;border-bottom:1px solid var(--slate-200);">
-              Suggested Products & Medications (${matches.length})
-            </div>
-          `;
-
-          matches.forEach(p => {
-            itemsHtml += `
-              <a href="product-detail.html?id=${p.id}" class="search-result-item">
-                <img src="${p.image}" alt="${p.name}" class="search-result-thumb">
-                <div class="search-result-details">
-                  <div class="search-result-title">${p.name}</div>
-                  <div class="search-result-meta">
-                    <span>${p.genericName || p.brand}</span>
-                    <span>•</span>
-                    ${p.prescriptionRequired 
-                      ? `<span style="color:var(--rx-teal);font-weight:700;"><i class="fa-solid fa-prescription"></i> Rx</span>`
-                      : `<span style="color:#0284c7;">OTC</span>`}
-                  </div>
-                </div>
-                <div class="search-result-price">$${p.price.toFixed(2)}</div>
-              </a>
-            `;
-          });
-
-          itemsHtml += `
-            <div style="padding:10px 16px;background:#ffffff;text-align:center;border-top:1px solid var(--slate-100);">
-              <a href="shop.html?search=${encodeURIComponent(query)}" style="font-size:0.8125rem;color:var(--primary);font-weight:700;">
-                View all search results <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-          `;
-
-          dropdown.innerHTML = itemsHtml;
-          dropdown.classList.add("active");
-        };
-
-        input.addEventListener("input", handleSearch);
-        input.addEventListener("focus", () => {
-          if (input.value.trim().length >= 2) handleSearch();
+          this.renderSearchResults(query, dropdown);
         });
 
-        // Close dropdown when clicking outside
         document.addEventListener("click", (e) => {
           if (!wrapper.contains(e.target)) {
-            dropdown.classList.remove("active");
+            dropdown.style.display = "none";
+          }
+        });
+
+        input.addEventListener("focus", () => {
+          if (input.value.trim().length >= 2) {
+            this.renderSearchResults(input.value.trim().toLowerCase(), dropdown);
           }
         });
       });
     },
 
-    // --- PRODUCT CARD HTML GENERATOR ---
+    renderSearchResults(query, dropdown) {
+      const store = window.PharmacyStore;
+      if (!store) return;
+
+      const products = store.getProducts();
+      const matches = products.filter(p => 
+        p.name.toLowerCase().includes(query) ||
+        (p.genericName && p.genericName.toLowerCase().includes(query)) ||
+        (p.brand && p.brand.toLowerCase().includes(query)) ||
+        (p.category && p.category.toLowerCase().includes(query))
+      ).slice(0, 6);
+
+      if (matches.length === 0) {
+        dropdown.innerHTML = `
+          <div style="padding: 20px; text-align: center; color: var(--slate-500); font-size: 0.875rem;">
+            No medicines found matching "<strong>${query}</strong>".<br>
+            <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20am%20looking%20for%20${encodeURIComponent(query)}" target="_blank" style="color:#059669;font-weight:700;display:inline-block;margin-top:8px;">
+              <i class="fa-brands fa-whatsapp"></i> Ask Pharmacist on WhatsApp
+            </a>
+          </div>
+        `;
+        dropdown.style.display = "block";
+        return;
+      }
+
+      let html = `<div style="padding: 10px 14px; font-size: 0.75rem; font-weight: 700; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--slate-100);">Matching Genuine Medicines in Pakistan</div>`;
+      matches.forEach(m => {
+        html += `
+          <a href="product-detail.html?id=${m.id}" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--slate-100); text-decoration: none; color: inherit; transition: background 0.15s ease;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='transparent'">
+            <img src="${m.image}" alt="${m.name}" style="width: 44px; height: 44px; object-fit: cover; border-radius: 8px; border: 1px solid var(--slate-200); flex-shrink: 0;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 0.875rem; font-weight: 700; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${m.name}</div>
+              <div style="font-size: 0.75rem; color: var(--slate-500);">${m.brand} &bull; ${m.dosageForm || 'Pack'}</div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+              <div style="font-size: 0.875rem; font-weight: 800; color: #0d9488;">${store.formatMoney(m.price)}</div>
+              <span style="font-size: 0.68rem; color: #059669; font-weight: 700;">In Stock</span>
+            </div>
+          </a>
+        `;
+      });
+
+      html += `
+        <div style="padding: 10px 14px; text-align: center; background: var(--slate-50); border-bottom-left-radius: var(--radius-xl); border-bottom-right-radius: var(--radius-xl);">
+          <a href="shop.html?search=${encodeURIComponent(query)}" style="font-size: 0.8125rem; font-weight: 700; color: var(--primary); text-decoration: none;">
+            View all results for "${query}" &rarr;
+          </a>
+        </div>
+      `;
+
+      dropdown.innerHTML = html;
+      dropdown.style.display = "block";
+    },
+
     createProductCard(product) {
       const store = window.PharmacyStore;
       const isWishlisted = store ? store.isInWishlist(product.id) : false;
+      const priceFormatted = store ? store.formatMoney(product.price) : `Rs. ${product.price}`;
+      const originalPriceFormatted = product.originalPrice && store ? store.formatMoney(product.originalPrice) : '';
 
       return `
         <div class="product-card" data-id="${product.id}" data-category="${product.category}">
           <div class="product-media">
             <div class="product-badge-group">
-              ${product.prescriptionRequired ? `
-                <span class="badge-rx"><i class="fa-solid fa-prescription"></i> Rx Required</span>
-              ` : `
-                <span class="badge-otc">OTC Medicine</span>
-              `}
+              <span class="badge-otc" style="background:#ccfbf1;color:#0f766e;border:1px solid #99f6e4;">
+                <i class="fa-solid fa-shield-halved"></i> 100% Genuine
+              </span>
               ${product.originalPrice && product.originalPrice > product.price ? `
                 <span class="badge-discount">Save ${(100 - (product.price / product.originalPrice * 100)).toFixed(0)}%</span>
               ` : ''}
@@ -378,9 +355,9 @@
             <div class="product-footer">
               <div class="product-price-box">
                 ${product.originalPrice && product.originalPrice > product.price ? `
-                  <span class="original-price">$${product.originalPrice.toFixed(2)}</span>
+                  <span class="original-price">${originalPriceFormatted}</span>
                 ` : ''}
-                <span class="current-price">$${product.price.toFixed(2)}</span>
+                <span class="current-price" style="color:#0f766e;font-size:1.15rem;font-weight:800;">${priceFormatted}</span>
               </div>
 
               <div style="display:flex;gap:6px;">
@@ -410,14 +387,11 @@
       const store = window.PharmacyStore;
       if (!store) return;
       const added = store.toggleWishlist(productId);
-
       if (btnElement) {
-        if (added) {
-          btnElement.classList.add("active");
-          btnElement.innerHTML = '<i class="fa-solid fa-heart"></i>';
-        } else {
-          btnElement.classList.remove("active");
-          btnElement.innerHTML = '<i class="fa-regular fa-heart"></i>';
+        btnElement.classList.toggle("active", added);
+        const icon = btnElement.querySelector("i");
+        if (icon) {
+          icon.className = added ? "fa-solid fa-heart" : "fa-regular fa-heart";
         }
       }
     },
@@ -425,31 +399,19 @@
     updateWishlistIcons() {
       const store = window.PharmacyStore;
       if (!store) return;
-      const wishlist = store.getWishlist();
-
       document.querySelectorAll(".btn-wishlist").forEach(btn => {
         const card = btn.closest(".product-card");
         if (card) {
           const id = card.getAttribute("data-id");
-          if (wishlist.includes(id)) {
-            btn.classList.add("active");
-            btn.innerHTML = '<i class="fa-solid fa-heart"></i>';
-          } else {
-            btn.classList.remove("active");
-            btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
-          }
+          const isWish = store.isInWishlist(id);
+          btn.classList.toggle("active", isWish);
+          const icon = btn.querySelector("i");
+          if (icon) icon.className = isWish ? "fa-solid fa-heart" : "fa-regular fa-heart";
         }
       });
     }
   };
 
-  // Attach to window
   window.PharmacyUI = UI;
-
-  // Auto initialize on DOM ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => UI.init());
-  } else {
-    UI.init();
-  }
+  document.addEventListener("DOMContentLoaded", () => UI.init());
 })();

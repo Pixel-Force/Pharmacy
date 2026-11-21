@@ -2,9 +2,9 @@
   <defs>
     <!-- Gradients -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1329"/>
-      <stop offset="50%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#064e4b"/>
+      <stop offset="0%" stop-color="#052e2b"/>
+      <stop offset="45%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#022c22"/>
     </linearGradient>
 
     <linearGradient id="hero-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -16,6 +16,11 @@
     <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0d9488"/>
       <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <linearGradient id="whatsapp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#25d366"/>
+      <stop offset="100%" stop-color="#128c7e"/>
     </linearGradient>
 
     <!-- Drop Shadows -->
@@ -33,24 +38,25 @@
   <!-- Background -->
   <rect width="1200" height="700" fill="url(#bg-grad)"/>
 
-  <!-- Decorative Ambient Circles -->
-  <circle cx="200" cy="100" r="280" fill="#0d9488" opacity="0.15"/>
-  <circle cx="1050" cy="550" r="320" fill="#10b981" opacity="0.10"/>
+  <!-- Ambient Circles -->
+  <circle cx="180" cy="90" r="280" fill="#0d9488" opacity="0.16"/>
+  <circle cx="1060" cy="560" r="320" fill="#10b981" opacity="0.12"/>
 
   <!-- Brand Title Top -->
   <g transform="translate(60, 44)">
     <rect width="40" height="40" rx="10" fill="url(#primary-grad)"/>
     <text x="20" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">+</text>
     <text x="54" y="28" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="#ffffff">Cura<tspan fill="#2dd4bf">Rx</tspan></text>
-    <text x="144" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="13" fill="#94a3b8">| Premium Licensed Pharmacy WordPress Platform</text>
+    <rect x="145" y="10" width="76" height="22" rx="6" fill="#ccfbf1"/>
+    <text x="183" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f766e" text-anchor="middle">PAKISTAN</text>
+    <text x="235" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="13" fill="#94a3b8">| Pakistan's Trusted Online Pharmacy &amp; WhatsApp Ordering</text>
     
-    <rect x="980" y="4" width="160" height="30" rx="15" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="1"/>
-    <text x="1060" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#5eead4" text-anchor="middle">&#10003; LegitScript Verified</text>
+    <rect x="980" y="4" width="160" height="30" rx="15" fill="rgba(37,211,102,0.18)" stroke="#25d366" stroke-width="1"/>
+    <text x="1060" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#86efac" text-anchor="middle">&#10003; 100% DRAP Approved</text>
   </g>
 
   <!-- 1. DESKTOP BROWSER FRAME -->
   <g transform="translate(60, 95)" filter="url(#shadow-main)">
-    <!-- Window Shell -->
     <rect width="780" height="535" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
     
     <!-- Titlebar -->
@@ -58,77 +64,78 @@
     <circle cx="20" cy="20" r="4.5" fill="#ef4444"/>
     <circle cx="34" cy="20" r="4.5" fill="#f59e0b"/>
     <circle cx="48" cy="20" r="4.5" fill="#10b981"/>
-    <!-- URL Bar -->
     <rect x="130" y="8" width="520" height="24" rx="12" fill="#1e293b"/>
-    <text x="390" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle">https://curarx-pharmacy.com/</text>
+    <text x="390" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle">https://curarx.pk/ (Cash on Delivery in Pakistan)</text>
 
     <!-- Micro Top Bar -->
-    <rect x="0" y="40" width="780" height="20" fill="#0b1329"/>
-    <text x="20" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#2dd4bf">&#10003; LegitScript Certified &bull; Free Cold-Chain Delivery Over $45</text>
-    <text x="760" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="9" fill="#cbd5e1" text-anchor="end">24/7 Clinical Desk: 1-800-CURA-RX</text>
+    <rect x="0" y="40" width="780" height="20" fill="#062e24"/>
+    <text x="20" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#2dd4bf">&#10003; DRAP Certified &bull; Free Delivery in Pakistan Over Rs. 1,500 &bull; Cash on Delivery</text>
+    <text x="760" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="9" fill="#cbd5e1" text-anchor="end">UAN: 021-111-CURA-RX</text>
 
-    <!-- Header bar (Small & Slim 54px) -->
+    <!-- Header bar -->
     <rect x="0" y="60" width="780" height="52" fill="#ffffff" stroke="#f1f5f9" stroke-width="1"/>
     <text x="24" y="93" font-family="'Outfit', sans-serif" font-weight="800" font-size="18" fill="#0f172a">Cura<tspan fill="#0d9488">Rx</tspan></text>
+    <rect x="94" y="78" width="58" height="18" rx="4" fill="#ccfbf1"/>
+    <text x="123" y="91" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#0f766e" text-anchor="middle">PAKISTAN</text>
     
     <!-- Nav Items -->
-    <text x="120" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#0d9488">Shop</text>
-    <text x="165" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#475569">Upload Rx</text>
-    <text x="240" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#475569">Track</text>
-    <text x="290" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#475569">Services</text>
+    <text x="175" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#0d9488">Medicines</text>
+    <text x="250" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#475569">Pain &amp; Fever</text>
+    <text x="330" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#475569">Vitamins</text>
 
     <!-- Search pill -->
-    <rect x="360" y="72" width="220" height="28" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="380" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94a3b8">Search medicines...</text>
+    <rect x="400" y="72" width="170" height="28" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="415" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#94a3b8">Search Panadol, Surbex...</text>
     
     <!-- Buttons -->
-    <rect x="590" y="72" width="105" height="28" rx="14" fill="url(#primary-grad)"/>
-    <text x="642" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">+ Upload Script</text>
-    <rect x="705" y="72" width="60" height="28" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="735" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#0f172a" text-anchor="middle">Basket (2)</text>
+    <rect x="580" y="72" width="125" height="28" rx="14" fill="url(#whatsapp-grad)"/>
+    <text x="642" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">&#128172; WhatsApp Order</text>
+    <rect x="715" y="72" width="55" height="28" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="742" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#0f172a" text-anchor="middle">Cart</text>
 
     <!-- Luminous Medical WP Hero -->
     <rect x="0" y="112" width="780" height="185" fill="url(#hero-grad)"/>
     <line x1="0" y1="297" x2="780" y2="297" stroke="#e2e8f0" stroke-width="1"/>
 
     <!-- Left Hero in Browser -->
-    <rect x="24" y="126" width="195" height="18" rx="9" fill="#ccfbf1" stroke="#99f6e4" stroke-width="1"/>
-    <text x="121" y="139" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f766e" text-anchor="middle">&#9733; #1 Rated Online Pharmacy &bull; LegitScript</text>
+    <rect x="24" y="126" width="220" height="18" rx="9" fill="#ccfbf1" stroke="#99f6e4" stroke-width="1"/>
+    <text x="134" y="139" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f766e" text-anchor="middle">&#10003; DRAP Approved &bull; Karachi, Lahore, Islamabad</text>
     
-    <text x="24" y="170" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#0f172a">Your Health, <tspan fill="#0d9488">Our Priority.</tspan></text>
-    <text x="24" y="190" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#059669">Genuine Medicines Delivered In 24 Hours</text>
-    <text x="24" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b">15-Minute clinical review by licensed PharmD pharmacists with cold chain packaging.</text>
+    <text x="24" y="170" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#0f172a">Pakistan's Trusted <tspan fill="#0d9488">Online Pharmacy</tspan></text>
+    <text x="24" y="190" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#059669">100% Genuine Medicines Delivered In 2-4 Hours</text>
+    <text x="24" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b">Getz, GSK, Abbott, Searle &amp; Martin Dow. Cash on Delivery (COD) across Pakistan.</text>
     
-    <rect x="24" y="224" width="115" height="28" rx="14" fill="url(#primary-grad)"/>
-    <text x="81" y="242" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">Shop Medicines &rarr;</text>
-    <rect x="148" y="224" width="125" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="210" y="242" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#0f172a" text-anchor="middle">Upload Prescription</text>
+    <rect x="24" y="224" width="125" height="28" rx="14" fill="url(#primary-grad)"/>
+    <text x="86" y="242" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">Shop Medicines &rarr;</text>
+    
+    <rect x="158" y="224" width="135" height="28" rx="14" fill="url(#whatsapp-grad)"/>
+    <text x="225" y="242" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">Order on WhatsApp</text>
 
     <!-- Checklist -->
-    <text x="24" y="274" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#334155">&#10003; Free Delivery $45+   &#10003; 15-Min Review   &#10003; 100% Genuine</text>
+    <text x="24" y="274" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#334155">&#10003; Cash on Delivery   &#10003; Free Shipping Over Rs. 1,500   &#10003; 100% Genuine Batch</text>
 
-    <!-- Right Hero: Interactive Rx Desk Card -->
+    <!-- Right Hero: Pakistani Medicine Desk -->
     <g transform="translate(515, 124)" filter="url(#shadow-card)">
       <rect width="240" height="160" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-      <text x="14" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0f172a">Rapid Rx Refill Desk</text>
+      <text x="14" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0f172a">Fast Medicine Concierge</text>
       <rect x="155" y="12" width="74" height="16" rx="8" fill="#d1fae5"/>
-      <text x="192" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#059669" text-anchor="middle">&#9679; Online Now</text>
+      <text x="192" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#059669" text-anchor="middle">&#9679; Riders Active</text>
       
-      <!-- Dropzone -->
-      <rect x="14" y="36" width="212" height="52" rx="10" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="120" cy="54" r="10" fill="#ccfbf1"/>
-      <text x="120" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#0d9488" text-anchor="middle">&#8679;</text>
-      <text x="120" y="78" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a" text-anchor="middle">Snap &amp; Upload Script Photo</text>
+      <!-- WhatsApp Box -->
+      <rect x="14" y="36" width="212" height="52" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+      <circle cx="120" cy="52" r="10" fill="#25d366"/>
+      <text x="120" y="56" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">&#128172;</text>
+      <text x="120" y="76" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#065f46" text-anchor="middle">Text Medicine List: 0300-1234567</text>
 
-      <!-- 1-Click Samples -->
+      <!-- Pakistani Quick medicines -->
       <rect x="14" y="96" width="212" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-      <text x="22" y="112" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#0f766e">1-Click Demos: Atorvastatin &bull; Ventolin &bull; Amox</text>
+      <text x="22" y="112" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#0f766e">Panadol &bull; Surbex Z &bull; Augmentin &bull; Risek</text>
 
       <!-- Stats -->
       <line x1="14" y1="132" x2="226" y2="132" stroke="#f1f5f9" stroke-width="1"/>
-      <text x="45" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#0f172a" text-anchor="middle">15 Mins</text>
-      <text x="120" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#0f172a" text-anchor="middle">100% HIPAA</text>
-      <text x="195" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#0f172a" text-anchor="middle">HSA / FSA</text>
+      <text x="45" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8.5" fill="#0f172a" text-anchor="middle">2 - 4 Hours</text>
+      <text x="120" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8.5" fill="#0f172a" text-anchor="middle">COD Available</text>
+      <text x="195" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8.5" fill="#0f172a" text-anchor="middle">Jazz / Easy</text>
     </g>
 
     <!-- 4-Box Feature Strip inside Browser -->
@@ -138,161 +145,141 @@
     <g transform="translate(24, 305)">
       <rect width="170" height="32" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
       <circle cx="18" cy="16" r="10" fill="#ccfbf1"/>
-      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">Free Express Delivery</text>
-      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">Orders over $45</text>
+      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">Free Delivery in PK</text>
+      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">Orders over Rs. 1,500</text>
     </g>
     <g transform="translate(210, 305)">
       <rect width="170" height="32" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-      <circle cx="18" cy="16" r="10" fill="#e0f2fe"/>
-      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">15-Min Rx Review</text>
-      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">Licensed PharmD check</text>
+      <circle cx="18" cy="16" r="10" fill="#d1fae5"/>
+      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">Cash on Delivery</text>
+      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">Pay at your doorstep</text>
     </g>
     <g transform="translate(396, 305)">
       <rect width="170" height="32" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-      <circle cx="18" cy="16" r="10" fill="#d1fae5"/>
-      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">Cold-Chain Monitored</text>
-      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">2°C - 8°C thermal sensor</text>
+      <circle cx="18" cy="16" r="10" fill="#e0f2fe"/>
+      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">100% DRAP Approved</text>
+      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">Direct from depot</text>
     </g>
     <g transform="translate(582, 305)">
       <rect width="170" height="32" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
       <circle cx="18" cy="16" r="10" fill="#fef3c7"/>
-      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">Automated Refills</text>
-      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">Never miss a dose</text>
+      <text x="36" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">WhatsApp Helpline</text>
+      <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" fill="#64748b">0300-1234567</text>
     </g>
 
-    <!-- Tabbed Showcase inside Browser -->
+    <!-- Product Showcase in PKR -->
     <rect x="0" y="346" width="780" height="188" fill="#f8fafc"/>
-    <text x="24" y="368" font-family="'Outfit', sans-serif" font-weight="800" font-size="14" fill="#0f172a">Featured Medicines &amp; Supplies</text>
+    <text x="24" y="368" font-family="'Outfit', sans-serif" font-weight="800" font-size="14" fill="#0f172a">Popular Medicines in Pakistan</text>
 
-    <!-- WooCommerce Filter Tabs -->
-    <g transform="translate(260, 355)">
-      <rect x="0" y="0" width="85" height="18" rx="9" fill="#0f172a"/>
-      <text x="42" y="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#ffffff" text-anchor="middle">All Products</text>
-      <rect x="92" y="0" width="95" height="18" rx="9" fill="#ffffff" stroke="#cbd5e1"/>
-      <text x="139" y="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="8" fill="#475569" text-anchor="middle">Prescription Meds</text>
-      <rect x="194" y="0" width="85" height="18" rx="9" fill="#ffffff" stroke="#cbd5e1"/>
-      <text x="236" y="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="8" fill="#475569" text-anchor="middle">OTC Remedies</text>
-      <rect x="286" y="0" width="85" height="18" rx="9" fill="#ffffff" stroke="#cbd5e1"/>
-      <text x="328" y="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="8" fill="#475569" text-anchor="middle">Vitamins</text>
-    </g>
-
-    <!-- Product Card 1 -->
+    <!-- Product Card 1: Panadol Extra -->
     <g transform="translate(24, 382)" filter="url(#shadow-card)">
       <rect width="230" height="140" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
-      <rect x="8" y="8" width="70" height="16" rx="8" fill="#0f766e"/>
-      <text x="43" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7.5" fill="#ffffff" text-anchor="middle">Rx Required</text>
+      <rect x="8" y="8" width="75" height="16" rx="8" fill="#0f766e"/>
+      <text x="45" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7.5" fill="#ffffff" text-anchor="middle">100% Genuine</text>
       <circle cx="170" cy="45" r="28" fill="#f0fdfa"/>
-      <text x="14" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#0d9488">CHOLESTEROL</text>
-      <text x="14" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f172a">Atorvastatin 20mg</text>
-      <text x="14" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">30 Tablets &bull; Pfizer</text>
-      <text x="14" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#f59e0b">&#9733;&#9733;&#9733;&#9733;&#9733; (128)</text>
-      <text x="14" y="125" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#0f172a">$14.20</text>
+      <text x="14" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#0d9488">PAIN &amp; FEVER</text>
+      <text x="14" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f172a">Panadol Extra</text>
+      <text x="14" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">100 Tablets &bull; GSK Pakistan</text>
+      <text x="14" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#f59e0b">&#9733;&#9733;&#9733;&#9733;&#9733; (184)</text>
+      <text x="14" y="125" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#0f766e">Rs. 380</text>
       <rect x="180" y="108" width="38" height="22" rx="6" fill="url(#primary-grad)"/>
       <text x="199" y="123" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">+</text>
     </g>
 
-    <!-- Product Card 2 -->
+    <!-- Product Card 2: Surbex Z -->
     <g transform="translate(274, 382)" filter="url(#shadow-card)">
       <rect width="230" height="140" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
-      <rect x="8" y="8" width="70" height="16" rx="8" fill="#0f766e"/>
-      <text x="43" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7.5" fill="#ffffff" text-anchor="middle">Rx Required</text>
+      <rect x="8" y="8" width="75" height="16" rx="8" fill="#0f766e"/>
+      <text x="45" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7.5" fill="#ffffff" text-anchor="middle">Zinc + B-Comp</text>
       <circle cx="170" cy="45" r="28" fill="#f0fdfa"/>
-      <text x="14" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#0d9488">RESPIRATORY</text>
-      <text x="14" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f172a">Ventolin Inhaler</text>
-      <text x="14" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">200 Doses &bull; GSK</text>
-      <text x="14" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#f59e0b">&#9733;&#9733;&#9733;&#9733;&#9733; (214)</text>
-      <text x="14" y="125" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#0f172a">$28.00</text>
+      <text x="14" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#0d9488">VITAMINS</text>
+      <text x="14" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f172a">Surbex Z High Potency</text>
+      <text x="14" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">30 Tablets &bull; Abbott Pakistan</text>
+      <text x="14" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#f59e0b">&#9733;&#9733;&#9733;&#9733;&#9733; (240)</text>
+      <text x="14" y="125" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#0f766e">Rs. 495</text>
       <rect x="180" y="108" width="38" height="22" rx="6" fill="url(#primary-grad)"/>
       <text x="199" y="123" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">+</text>
     </g>
 
-    <!-- Product Card 3 (OTC) -->
+    <!-- Product Card 3: CaC-1000 Plus -->
     <g transform="translate(524, 382)" filter="url(#shadow-card)">
       <rect width="230" height="140" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
-      <rect x="8" y="8" width="70" height="16" rx="8" fill="#0284c7"/>
-      <text x="43" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7.5" fill="#ffffff" text-anchor="middle">OTC Medicine</text>
-      <circle cx="170" cy="45" r="28" fill="#f0f9ff"/>
-      <text x="14" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#0284c7">VITAMINS</text>
-      <text x="14" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f172a">Omega-3 Triple Purity</text>
-      <text x="14" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">120 Softgels &bull; Nordic</text>
-      <text x="14" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#f59e0b">&#9733;&#9733;&#9733;&#9733;&#9733; (89)</text>
-      <text x="14" y="125" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#0f172a">$24.90</text>
+      <rect x="8" y="8" width="75" height="16" rx="8" fill="#0f766e"/>
+      <text x="45" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7.5" fill="#ffffff" text-anchor="middle">Effervescent</text>
+      <circle cx="170" cy="45" r="28" fill="#fef3c7"/>
+      <text x="14" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#d97706">CALCIUM &amp; VIT C</text>
+      <text x="14" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#0f172a">CaC-1000 Plus Orange</text>
+      <text x="14" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">20 Tablets &bull; GSK Pakistan</text>
+      <text x="14" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#f59e0b">&#9733;&#9733;&#9733;&#9733;&#9733; (175)</text>
+      <text x="14" y="125" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#0f766e">Rs. 480</text>
       <rect x="180" y="108" width="38" height="22" rx="6" fill="url(#primary-grad)"/>
       <text x="199" y="123" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">+</text>
     </g>
 
   </g>
 
-  <!-- 2. MOBILE DEVICE OVERLAY (Showing Mobile Responsive Theme Experience) -->
+  <!-- 2. MOBILE DEVICE OVERLAY (WhatsApp Ordering in Pakistan) -->
   <g transform="translate(880, 150)" filter="url(#shadow-phone)">
-    <!-- Phone Bezel -->
     <rect width="255" height="490" rx="36" fill="#020617" stroke="#334155" stroke-width="4"/>
     <rect x="6" y="6" width="243" height="478" rx="32" fill="#ffffff"/>
     
-    <!-- Dynamic Island / Speaker notch -->
+    <!-- Notch -->
     <rect x="90" y="12" width="75" height="16" rx="8" fill="#020617"/>
     <circle cx="150" cy="20" r="3" fill="#1e293b"/>
 
-    <!-- Mobile Top Header -->
+    <!-- Mobile Header -->
     <rect x="6" y="34" width="243" height="44" fill="#ffffff" stroke="#f1f5f9" stroke-width="1"/>
     <text x="20" y="62" font-family="'Outfit', sans-serif" font-weight="800" font-size="16" fill="#0f172a">Cura<tspan fill="#0d9488">Rx</tspan></text>
-    <rect x="155" y="44" width="80" height="24" rx="12" fill="url(#primary-grad)"/>
-    <text x="195" y="60" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#ffffff" text-anchor="middle">+ Upload Rx</text>
+    <rect x="140" y="44" width="95" height="24" rx="12" fill="url(#whatsapp-grad)"/>
+    <text x="187" y="60" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#ffffff" text-anchor="middle">&#128172; WhatsApp</text>
 
     <!-- Mobile Hero -->
-    <rect x="6" y="78" width="243" height="150" fill="url(#hero-grad)"/>
-    <rect x="16" y="90" width="160" height="16" rx="8" fill="#ccfbf1"/>
-    <text x="96" y="101" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#0f766e" text-anchor="middle">&#10003; 15-Min Pharmacist Check</text>
-    <text x="16" y="130" font-family="'Outfit', sans-serif" font-weight="800" font-size="18" fill="#0f172a">Your Health, <tspan fill="#0d9488">Simplified.</tspan></text>
-    <text x="16" y="150" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b">Doorstep delivery for all prescription and OTC essentials.</text>
+    <rect x="6" y="78" width="243" height="145" fill="url(#hero-grad)"/>
+    <rect x="16" y="90" width="165" height="16" rx="8" fill="#ccfbf1"/>
+    <text x="98" y="101" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#0f766e" text-anchor="middle">&#10003; Same-Day Express in Pakistan</text>
+    <text x="16" y="126" font-family="'Outfit', sans-serif" font-weight="800" font-size="16" fill="#0f172a">Genuine Medicines</text>
+    <text x="16" y="142" font-family="'Outfit', sans-serif" font-weight="800" font-size="14" fill="#059669">Delivered in 2-4 Hours</text>
     
-    <rect x="16" y="165" width="223" height="52" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-    <circle cx="40" cy="191" r="14" fill="#f0fdfa"/>
-    <text x="40" y="196" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#0d9488" text-anchor="middle">&#128247;</text>
-    <text x="65" y="186" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#0f172a">Tap to Snap Prescription</text>
-    <text x="65" y="199" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#64748b">Camera &bull; Gallery &bull; PDF</text>
+    <rect x="16" y="156" width="223" height="52" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+    <circle cx="40" cy="182" r="14" fill="#25d366"/>
+    <text x="40" y="187" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">&#128172;</text>
+    <text x="65" y="177" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#065f46">WhatsApp Medicine Order</text>
+    <text x="65" y="190" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#475569">Send names &bull; Cash on Delivery</text>
 
     <!-- Mobile Products -->
-    <rect x="6" y="235" width="243" height="205" fill="#f8fafc"/>
-    <text x="16" y="254" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0f172a">Essential Medications</text>
+    <rect x="6" y="230" width="243" height="210" fill="#f8fafc"/>
+    <text x="16" y="248" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0f172a">Popular in Pakistan</text>
 
-    <g transform="translate(16, 264)">
-      <rect width="223" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-      <circle cx="36" cy="34" r="18" fill="#ccfbf1"/>
-      <text x="62" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#0f172a">Lipitor (Atorvastatin)</text>
-      <text x="62" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#64748b">30 Tablets &bull; Daily Refill</text>
-      <text x="62" y="54" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0d9488">$14.20</text>
-      <rect x="180" y="36" width="30" height="22" rx="6" fill="url(#primary-grad)"/>
-      <text x="195" y="51" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">+</text>
+    <g transform="translate(16, 258)">
+      <rect width="223" height="66" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+      <circle cx="36" cy="33" r="18" fill="#ccfbf1"/>
+      <text x="62" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#0f172a">Panadol Extra 100s</text>
+      <text x="62" y="37" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#64748b">GSK Pakistan &bull; Paracetamol</text>
+      <text x="62" y="52" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0f766e">Rs. 380</text>
+      <rect x="180" y="33" width="30" height="22" rx="6" fill="url(#primary-grad)"/>
+      <text x="195" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">+</text>
     </g>
 
-    <g transform="translate(16, 340)">
-      <rect width="223" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-      <circle cx="36" cy="34" r="18" fill="#e0f2fe"/>
-      <text x="62" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#0f172a">Ventolin HFA Inhaler</text>
-      <text x="62" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#64748b">Asthma Relief &bull; 200 Actuations</text>
-      <text x="62" y="54" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0d9488">$28.00</text>
-      <rect x="180" y="36" width="30" height="22" rx="6" fill="url(#primary-grad)"/>
-      <text x="195" y="51" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">+</text>
+    <g transform="translate(16, 332)">
+      <rect width="223" height="66" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+      <circle cx="36" cy="33" r="18" fill="#fef3c7"/>
+      <text x="62" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#0f172a">Surbex Z Multivitamins</text>
+      <text x="62" y="37" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#64748b">Abbott Pakistan &bull; Zinc &amp; Vit B</text>
+      <text x="62" y="52" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#0f766e">Rs. 495</text>
+      <rect x="180" y="33" width="30" height="22" rx="6" fill="url(#primary-grad)"/>
+      <text x="195" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">+</text>
     </g>
 
     <!-- Mobile Bottom App Nav -->
     <rect x="6" y="440" width="243" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="35" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#0d9488" text-anchor="middle">&#8962;</text>
-    <text x="35" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#0d9488" text-anchor="middle">Home</text>
+    <text x="45" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#0d9488" text-anchor="middle">&#8962;</text>
+    <text x="45" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#0d9488" text-anchor="middle">Home</text>
     
-    <text x="85" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">&#128138;</text>
-    <text x="85" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="7" fill="#94a3b8" text-anchor="middle">Shop</text>
+    <text x="120" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">&#128138;</text>
+    <text x="120" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="7" fill="#94a3b8" text-anchor="middle">Medicines</text>
 
-    <!-- Center Floating Action Upload Button -->
-    <circle cx="127" cy="455" r="16" fill="url(#primary-grad)"/>
-    <text x="127" y="461" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle">&#8478;</text>
-
-    <text x="170" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">&#128666;</text>
-    <text x="170" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="7" fill="#94a3b8" text-anchor="middle">Track</text>
-
-    <text x="215" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">&#128100;</text>
-    <text x="215" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="7" fill="#94a3b8" text-anchor="middle">Account</text>
+    <text x="195" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">&#128666;</text>
+    <text x="195" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="7" fill="#94a3b8" text-anchor="middle">Track</text>
   </g>
 
 </svg>

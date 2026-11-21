@@ -2908,3 +2908,89 @@ button, input, select, textarea {
   .wp-newsletter-inner { flex-direction: column; align-items: flex-start; }
   .wp-newsletter-form { width: 100%; flex-direction: column; }
 }
+
+
+/* ===================================================================
+   PAKISTAN LOCALIZATION & WHATSAPP ORDERING STYLES
+   =================================================================== */
+
+.btn-whatsapp-header {
+  background: #25d366 !important;
+  color: #ffffff !important;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-whatsapp-header:hover {
+  background: #1eb857 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-hero {
+  background: #25d366;
+  color: #ffffff !important;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-whatsapp-hero:hover {
+  background: #1eb857;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(37, 211, 102, 0.45);
+}
+
+/* Floating WhatsApp Corner Action */
+.floating-whatsapp-pill {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  background: #25d366;
+  color: #ffffff !important;
+  border-radius: 9999px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.floating-whatsapp-pill:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5);
+}
+
+.pakistan-city-pill {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

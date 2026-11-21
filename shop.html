@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medicine Catalog & Pharmacy Shop | CuraRx Pharmacy</title>
-  <meta name="description" content="Browse our complete pharmaceutical and healthcare catalog. Prescription medicines, OTC treatments, vitamins, medical supplies, and personal care.">
+  <title>Medicines Catalog & Healthcare Store | CuraRx Pharmacy Pakistan</title>
+  <meta name="description" content="Browse authentic DRAP-approved medicines, health devices, and vitamins in Pakistan. Panadol, Augmentin, Surbex Z, Risek, Accu-Chek, and Omron. Cash on Delivery across Pakistan.">
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
@@ -13,12 +18,11 @@
   <style>
     .shop-layout {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 290px 1fr;
       gap: 32px;
-      padding: 40px 0 80px;
+      padding: 36px 0 80px;
     }
 
-    /* Sidebar Filters */
     .filter-sidebar {
       background: #ffffff;
       border: 1px solid var(--slate-200);
@@ -26,7 +30,8 @@
       padding: 24px;
       height: fit-content;
       position: sticky;
-      top: 90px;
+      top: 80px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .filter-group {
@@ -43,7 +48,7 @@
 
     .filter-title {
       font-family: var(--font-heading);
-      font-size: 0.9375rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 12px;
@@ -57,7 +62,7 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 8px;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--slate-600);
       cursor: pointer;
     }
@@ -74,22 +79,6 @@
       color: var(--navy);
     }
 
-    .price-range-inputs {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .price-input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-sm);
-      font-size: 0.8125rem;
-    }
-
-    /* Shop Top Control Bar */
     .shop-controls {
       background-color: #ffffff;
       border: 1px solid var(--slate-200);
@@ -103,18 +92,6 @@
       gap: 16px;
     }
 
-    .shop-count {
-      font-size: 0.9375rem;
-      color: var(--slate-600);
-      font-weight: 500;
-    }
-
-    .shop-sort-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .shop-sort-select {
       padding: 8px 12px;
       border: 1px solid var(--slate-200);
@@ -123,27 +100,6 @@
       color: var(--navy);
       background-color: var(--slate-50);
       outline: none;
-      cursor: pointer;
-    }
-
-    .active-filter-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .filter-chip {
-      background: var(--primary-subtle);
-      border: 1px solid var(--primary-border);
-      color: var(--primary);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       cursor: pointer;
     }
 
@@ -159,7 +115,25 @@
 </head>
 <body>
 
-  <!-- Main Header (Small & Sleek) -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery Over Rs. 1,500</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span style="color:#2dd4bf;"><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery (COD)</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</a>
+        <a href="track-order.html"><i class="fa-solid fa-truck"></i> Track Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
@@ -167,21 +141,22 @@
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
       <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link active"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link active"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="shop.html?category=pain-fever" class="header-nav-link">Pain & Fever</a>
+        <a href="shop.html?category=vitamins-nutrition" class="header-nav-link">Vitamins</a>
+        <a href="shop.html?category=devices-monitors" class="header-nav-link">Devices</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
       </nav>
 
       <div class="search-wrapper">
         <div class="search-input-group">
-          <input type="text" id="shop-search-input" class="search-input global-search-input" placeholder="Search medicines...">
+          <input type="text" id="shop-search-input" class="search-input global-search-input" placeholder="Search Panadol, Surbex Z, Augmentin, Abbott...">
           <button type="button" class="search-btn" title="Search" onclick="applyShopFilters()">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -189,8 +164,8 @@
       </div>
 
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
         <a href="portal.html" class="header-action-btn" title="Patient Account">
           <i class="fa-regular fa-user"></i>
@@ -205,12 +180,12 @@
     </div>
   </header>
 
-  <!-- Page Breadcrumb -->
+  <!-- Breadcrumb -->
   <div style="background-color:var(--slate-50);border-bottom:1px solid var(--slate-200);padding:14px 0;">
     <div class="container" style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--slate-500);">
       <a href="index.html" style="color:var(--navy);font-weight:600;"><i class="fa-solid fa-house"></i> Home</a>
       <i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i>
-      <span style="color:var(--primary);font-weight:700;">Pharmacy Catalog</span>
+      <span style="color:var(--primary);font-weight:700;">Pakistani Medicines & Healthcare Catalog</span>
     </div>
   </div>
 
@@ -220,34 +195,64 @@
       <!-- 1. Filter Sidebar -->
       <aside class="filter-sidebar">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
-          <h3 style="font-size:1.1rem;font-weight:800;color:var(--navy);">Filters</h3>
+          <h3 style="font-size:1.1rem;font-weight:800;color:var(--navy);">Filter Products</h3>
           <button onclick="resetFilters()" style="background:none;border:none;color:var(--primary);font-size:0.8125rem;font-weight:700;cursor:pointer;">
             Clear All
           </button>
         </div>
 
-        <!-- Prescription Requirement -->
+        <!-- Category -->
         <div class="filter-group">
-          <div class="filter-title">Prescription Type</div>
+          <div class="filter-title">Department</div>
+          <div id="category-filter-list">
+            <!-- Injected by script -->
+          </div>
+        </div>
+
+        <!-- Top Pharmaceutical Brands in Pakistan -->
+        <div class="filter-group">
+          <div class="filter-title">Manufacturer / Brand</div>
           <label class="filter-option">
-            <input type="radio" name="rxFilter" value="all" checked onchange="applyShopFilters()">
-            <span>All Medications</span>
+            <input type="checkbox" class="brand-checkbox" value="GSK" onchange="applyShopFilters()">
+            <span>GSK Pakistan</span>
           </label>
           <label class="filter-option">
-            <input type="radio" name="rxFilter" value="rx-only" onchange="applyShopFilters()">
-            <span><i class="fa-solid fa-prescription text-primary"></i> Prescription Only (Rx)</span>
+            <input type="checkbox" class="brand-checkbox" value="Abbott" onchange="applyShopFilters()">
+            <span>Abbott Laboratories</span>
           </label>
           <label class="filter-option">
-            <input type="radio" name="rxFilter" value="otc-only" onchange="applyShopFilters()">
-            <span><i class="fa-solid fa-pills" style="color:#0284c7;"></i> Over-The-Counter (OTC)</span>
+            <input type="checkbox" class="brand-checkbox" value="Getz" onchange="applyShopFilters()">
+            <span>Getz Pharma</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="brand-checkbox" value="Reckitt" onchange="applyShopFilters()">
+            <span>Reckitt Benckiser</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="brand-checkbox" value="Searle" onchange="applyShopFilters()">
+            <span>The Searle Company</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="brand-checkbox" value="Martin Dow" onchange="applyShopFilters()">
+            <span>Martin Dow</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="brand-checkbox" value="Roche" onchange="applyShopFilters()">
+            <span>Roche Diagnostics</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="brand-checkbox" value="Omron" onchange="applyShopFilters()">
+            <span>Omron Healthcare</span>
           </label>
         </div>
 
-        <!-- Category -->
+        <!-- Price Range in Rs. -->
         <div class="filter-group">
-          <div class="filter-title">Category</div>
-          <div id="category-filter-list">
-            <!-- Injected by script -->
+          <div class="filter-title">Max Price (PKR)</div>
+          <input type="range" id="price-range" min="100" max="10000" value="10000" step="100" style="width:100%;accent-color:var(--primary);" oninput="document.getElementById('price-val').textContent = 'Rs. ' + Number(this.value).toLocaleString(); applyShopFilters();">
+          <div style="display:flex;justify-content:space-between;font-size:0.8125rem;color:var(--slate-500);margin-top:6px;">
+            <span>Rs. 100</span>
+            <strong id="price-val" style="color:var(--primary);">Rs. 10,000</strong>
           </div>
         </div>
 
@@ -264,30 +269,20 @@
           </label>
           <label class="filter-option">
             <input type="checkbox" class="dosage-checkbox" value="Suspension" onchange="applyShopFilters()">
-            <span>Liquid / Suspension</span>
+            <span>Syrup / Suspension</span>
           </label>
           <label class="filter-option">
             <input type="checkbox" class="dosage-checkbox" value="Inhaler" onchange="applyShopFilters()">
             <span>Inhalers</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="dosage-checkbox" value="Cream" onchange="applyShopFilters()">
-            <span>Creams & Ointments</span>
+            <input type="checkbox" class="dosage-checkbox" value="Ointment" onchange="applyShopFilters()">
+            <span>Ointments & Emulgels</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="dosage-checkbox" value="Device" onchange="applyShopFilters()">
-            <span>Medical Devices & Kits</span>
+            <input type="checkbox" class="dosage-checkbox" value="Meter" onchange="applyShopFilters()">
+            <span>Medical Devices & Monitors</span>
           </label>
-        </div>
-
-        <!-- Price Range -->
-        <div class="filter-group">
-          <div class="filter-title">Max Price ($)</div>
-          <input type="range" id="price-range" min="5" max="100" value="100" step="5" style="width:100%;accent-color:var(--primary);" oninput="document.getElementById('price-val').textContent = '$' + this.value; applyShopFilters();">
-          <div style="display:flex;justify-content:space-between;font-size:0.8125rem;color:var(--slate-500);margin-top:6px;">
-            <span>$5.00</span>
-            <strong id="price-val" style="color:var(--primary);">$100.00</strong>
-          </div>
         </div>
 
         <!-- In-Stock Only Toggle -->
@@ -296,6 +291,16 @@
             <input type="checkbox" id="instock-only" checked onchange="applyShopFilters()">
             <span>In Stock Only</span>
           </label>
+        </div>
+
+        <!-- WhatsApp Support Box in Sidebar -->
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:14px;padding:16px;text-align:center;">
+          <i class="fa-brands fa-whatsapp text-success" style="font-size:28px;margin-bottom:8px;"></i>
+          <h5 style="font-size:0.9rem;font-weight:800;color:var(--navy);margin-bottom:4px;">Can't find a medicine?</h5>
+          <p style="font-size:0.78rem;color:var(--slate-600);margin-bottom:12px;">WhatsApp your prescription or medicine name to our pharmacist.</p>
+          <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20am%20looking%20for%20a%20medicine" target="_blank" class="btn-whatsapp-header" style="width:100%;justify-content:center;">
+            Chat on WhatsApp
+          </a>
         </div>
       </aside>
 
@@ -320,21 +325,26 @@
         </div>
 
         <!-- Active Filter Chips -->
-        <div class="active-filter-chips" id="active-chips-box"></div>
+        <div class="active-filter-chips" id="active-chips-container"></div>
 
-        <!-- Products Grid Container -->
+        <!-- Products Grid -->
         <div class="products-grid" id="shop-products-grid">
-          <!-- Injected dynamically -->
+          <!-- Injected by JavaScript -->
         </div>
 
-        <!-- Empty Results State -->
+        <!-- No Results Box -->
         <div id="no-results" style="display:none;text-align:center;padding:60px 20px;background:#ffffff;border:1px solid var(--slate-200);border-radius:var(--radius-xl);">
           <div style="width:72px;height:72px;background:var(--slate-100);color:var(--slate-400);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;">
-            <i class="fa-solid fa-prescription-bottle"></i>
+            <i class="fa-solid fa-pills"></i>
           </div>
           <h3 style="font-size:1.25rem;color:var(--navy);margin-bottom:8px;">No medications found</h3>
-          <p style="font-size:0.9375rem;color:var(--slate-500);margin-bottom:20px;">Try adjusting your search terms, clearing filters, or browsing by category.</p>
-          <button class="btn-primary" onclick="resetFilters()">Reset All Filters</button>
+          <p style="font-size:0.9375rem;color:var(--slate-500);margin-bottom:20px;">Try adjusting your search terms or ask our pharmacist on WhatsApp.</p>
+          <div style="display:flex;gap:12px;justify-content:center;">
+            <button class="btn-primary" onclick="resetFilters()">Reset All Filters</button>
+            <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20am%20looking%20for%20a%20medicine" target="_blank" class="btn-whatsapp-hero" style="padding:10px 20px;font-size:0.875rem;">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Help
+            </a>
+          </div>
         </div>
       </section>
     </div>
@@ -344,63 +354,39 @@
   <div class="cart-drawer-overlay"></div>
   <div class="cart-drawer">
     <div class="drawer-header">
-      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Prescription Basket</h3>
+      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
       <button class="btn-close-drawer" title="Close"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="shipping-progress-box"></div>
     <div class="drawer-items"></div>
     <div class="drawer-footer">
-      <div class="drawer-rx-warning" style="display:none;"></div>
       <div class="drawer-summary-row">
         <span>Subtotal</span>
-        <span class="drawer-subtotal-val">$0.00</span>
-      </div>
-      <div class="drawer-summary-row">
-        <span>Estimated Delivery</span>
-        <span class="drawer-shipping-val">Calculated at checkout</span>
+        <span class="drawer-subtotal-val">Rs. 0</span>
       </div>
       <div class="drawer-summary-total">
-        <span>Estimated Total</span>
-        <span class="drawer-total-val">$0.00</span>
+        <span>Total (Cash on Delivery)</span>
+        <span class="drawer-total-val">Rs. 0</span>
       </div>
       <a href="checkout.html" class="btn-checkout-drawer">
-        <i class="fa-solid fa-lock"></i> Proceed to Checkout
+        <i class="fa-solid fa-lock"></i> Proceed to Checkout (COD)
       </a>
     </div>
   </div>
 
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-      </a>
-      <a href="shop.html" class="mobile-nav-link active">
-        <i class="fa-solid fa-pills"></i>
-        <span>Shop</span>
-      </a>
-      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn">
-        <i class="fa-solid fa-prescription"></i>
-      </a>
-      <a href="track-order.html" class="mobile-nav-link">
-        <i class="fa-solid fa-truck"></i>
-        <span>Track</span>
-      </a>
-      <a href="portal.html" class="mobile-nav-link">
-        <i class="fa-solid fa-user"></i>
-        <span>Account</span>
-      </a>
-    </div>
-  </div>
+  <!-- Floating WhatsApp Pill -->
+  <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="floating-whatsapp-pill" title="Order via WhatsApp">
+    <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i>
+    <span>Order on WhatsApp</span>
+  </a>
 
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container footer-bottom">
-      <div>&copy; 2026 CuraRx Licensed Pharmacy & Wellness. All rights reserved.</div>
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
       <div>
-        <a href="compliance.html" style="margin-right:16px;">Privacy Policy</a>
-        <a href="compliance.html">Terms of Dispensing</a>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
       </div>
     </div>
   </footer>
@@ -423,11 +409,10 @@
         `).join("");
       }
 
-      // 2. Parse URL params (e.g. ?category=prescription or ?search=paracetamol)
+      // 2. Parse URL params
       const urlParams = new URLSearchParams(window.location.search);
       const catParam = urlParams.get("category");
       const searchParam = urlParams.get("search");
-      const filterParam = urlParams.get("filter");
 
       if (catParam) {
         const checkbox = document.querySelector(`.category-checkbox[value="${catParam}"]`);
@@ -435,12 +420,8 @@
       }
 
       if (searchParam) {
-        document.getElementById("shop-search-input").value = searchParam;
-      }
-
-      if (filterParam === "rx") {
-        const rxRadio = document.querySelector(`input[name="rxFilter"][value="rx-only"]`);
-        if (rxRadio) rxRadio.checked = true;
+        const searchInput = document.getElementById("shop-search-input");
+        if (searchInput) searchInput.value = searchParam;
       }
 
       applyShopFilters();
@@ -450,47 +431,52 @@
       const store = window.PharmacyStore;
       if (!store) return;
 
-      const products = store.getProducts();
-      const searchQuery = (document.getElementById("shop-search-input").value || "").trim().toLowerCase();
-      const rxFilter = document.querySelector('input[name="rxFilter"]:checked').value;
-      const selectedCats = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(el => el.value);
-      const selectedForms = Array.from(document.querySelectorAll('.dosage-checkbox:checked')).map(el => el.value);
-      const maxPrice = parseFloat(document.getElementById("price-range").value);
-      const inStockOnly = document.getElementById("instock-only").checked;
-      const sortBy = document.getElementById("shop-sort").value;
+      const allProducts = store.getProducts();
+      let filtered = [...allProducts];
 
-      let filtered = products.filter(p => {
-        // Search
-        if (searchQuery) {
-          const matchName = p.name.toLowerCase().includes(searchQuery);
-          const matchGeneric = p.genericName && p.genericName.toLowerCase().includes(searchQuery);
-          const matchBrand = p.brand && p.brand.toLowerCase().includes(searchQuery);
-          if (!matchName && !matchGeneric && !matchBrand) return false;
-        }
+      // Search Filter
+      const searchInput = document.getElementById("shop-search-input");
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
+      if (query) {
+        filtered = filtered.filter(p => 
+          p.name.toLowerCase().includes(query) ||
+          (p.genericName && p.genericName.toLowerCase().includes(query)) ||
+          (p.brand && p.brand.toLowerCase().includes(query))
+        );
+      }
 
-        // Rx filter
-        if (rxFilter === "rx-only" && !p.prescriptionRequired) return false;
-        if (rxFilter === "otc-only" && p.prescriptionRequired) return false;
+      // Category Filters
+      const selectedCats = Array.from(document.querySelectorAll(".category-checkbox:checked")).map(cb => cb.value);
+      if (selectedCats.length > 0) {
+        filtered = filtered.filter(p => selectedCats.includes(p.category));
+      }
 
-        // Categories
-        if (selectedCats.length > 0 && !selectedCats.includes(p.category)) return false;
+      // Brand Filters
+      const selectedBrands = Array.from(document.querySelectorAll(".brand-checkbox:checked")).map(cb => cb.value.toLowerCase());
+      if (selectedBrands.length > 0) {
+        filtered = filtered.filter(p => selectedBrands.some(b => p.brand.toLowerCase().includes(b)));
+      }
 
-        // Dosage forms
-        if (selectedForms.length > 0) {
-          const matchForm = selectedForms.some(f => p.dosageForm && p.dosageForm.toLowerCase().includes(f.toLowerCase()));
-          if (!matchForm) return false;
-        }
+      // Dosage Form Filter
+      const selectedForms = Array.from(document.querySelectorAll(".dosage-checkbox:checked")).map(cb => cb.value.toLowerCase());
+      if (selectedForms.length > 0) {
+        filtered = filtered.filter(p => selectedForms.some(f => (p.dosageForm || "").toLowerCase().includes(f)));
+      }
 
-        // Price
-        if (p.price > maxPrice) return false;
+      // Price Range Filter
+      const priceRange = document.getElementById("price-range");
+      const maxPrice = priceRange ? parseFloat(priceRange.value) : 10000;
+      filtered = filtered.filter(p => p.price <= maxPrice);
 
-        // In stock
-        if (inStockOnly && !p.inStock) return false;
-
-        return true;
-      });
+      // In Stock Filter
+      const inStockOnly = document.getElementById("instock-only");
+      if (inStockOnly && inStockOnly.checked) {
+        filtered = filtered.filter(p => p.inStock);
+      }
 
       // Sorting
+      const sortSelect = document.getElementById("shop-sort");
+      const sortBy = sortSelect ? sortSelect.value : "featured";
       if (sortBy === "price-asc") {
         filtered.sort((a, b) => a.price - b.price);
       } else if (sortBy === "price-desc") {
@@ -506,48 +492,28 @@
       const noResults = document.getElementById("no-results");
       const countLabel = document.getElementById("products-count-label");
 
-      countLabel.textContent = filtered.length;
+      if (countLabel) countLabel.textContent = filtered.length;
 
       if (filtered.length === 0) {
-        grid.style.display = "none";
-        noResults.style.display = "block";
+        if (grid) grid.innerHTML = "";
+        if (noResults) noResults.style.display = "block";
       } else {
-        grid.style.display = "grid";
-        noResults.style.display = "none";
-        grid.innerHTML = filtered.map(p => window.PharmacyUI.createProductCard(p)).join("");
+        if (noResults) noResults.style.display = "none";
+        if (grid) {
+          grid.innerHTML = filtered.map(p => window.PharmacyUI.createProductCard(p)).join("");
+        }
       }
-
-      renderChips(searchQuery, rxFilter, selectedCats, selectedForms, maxPrice);
-    }
-
-    function renderChips(search, rx, cats, forms, maxPrice) {
-      const chipsBox = document.getElementById("active-chips-box");
-      if (!chipsBox) return;
-
-      let chips = [];
-      if (search) chips.push(`Search: "${search}"`);
-      if (rx === "rx-only") chips.push("Prescription Only");
-      if (rx === "otc-only") chips.push("OTC Only");
-      cats.forEach(c => chips.push(`Category: ${c}`));
-      forms.forEach(f => chips.push(`Form: ${f}`));
-      if (maxPrice < 100) chips.push(`Under $${maxPrice}`);
-
-      chipsBox.innerHTML = chips.map(c => `
-        <span class="filter-chip">
-          ${c} <i class="fa-solid fa-xmark"></i>
-        </span>
-      `).join("");
     }
 
     function resetFilters() {
-      document.getElementById("shop-search-input").value = "";
-      document.querySelector('input[name="rxFilter"][value="all"]').checked = true;
-      document.querySelectorAll('.category-checkbox').forEach(c => c.checked = false);
-      document.querySelectorAll('.dosage-checkbox').forEach(c => c.checked = false);
-      document.getElementById("price-range").value = 100;
-      document.getElementById("price-val").textContent = "$100.00";
-      document.getElementById("instock-only").checked = true;
-      document.getElementById("shop-sort").value = "featured";
+      document.querySelectorAll(".category-checkbox, .brand-checkbox, .dosage-checkbox").forEach(cb => cb.checked = false);
+      const searchInput = document.getElementById("shop-search-input");
+      if (searchInput) searchInput.value = "";
+      const priceRange = document.getElementById("price-range");
+      if (priceRange) {
+        priceRange.value = 10000;
+        document.getElementById("price-val").textContent = "Rs. 10,000";
+      }
       applyShopFilters();
     }
   </script>

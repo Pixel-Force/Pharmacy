@@ -3,812 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Prescription | Licensed Pharmacist Verification | CuraRx</title>
-  <meta name="description" content="Upload your doctor's prescription for quick, verified dispensing. Reviewed and approved within 15 minutes by a licensed clinical pharmacist.">
+  <title>Quick Medicine Ordering | CuraRx Pharmacy Pakistan</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
 
   <style>
-    .wizard-container {
-      max-width: 840px;
-      margin: 40px auto 80px;
+    .order-assistant-card {
+      max-width: 720px;
+      margin: 50px auto 80px;
       background: #ffffff;
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-
-    .wizard-header {
-      background: linear-gradient(135deg, #0f172a 0%, #0f766e 100%);
-      color: #ffffff;
-      padding: 36px 36px 30px;
+      padding: 44px;
       text-align: center;
-    }
-
-    .wizard-header h1 {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .wizard-header p {
-      color: #ccfbf1;
-      font-size: 0.9375rem;
-      max-width: 580px;
-      margin: 0 auto;
-    }
-
-    /* Step indicator */
-    .steps-nav {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background: var(--slate-50);
-      border-bottom: 1px solid var(--slate-200);
-    }
-
-    .step-item {
-      padding: 16px;
-      text-align: center;
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--slate-400);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s;
-    }
-
-    .step-item.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-      background: #ffffff;
-    }
-
-    .step-item.completed {
-      color: var(--secondary-dark);
-    }
-
-    .step-circle {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--slate-200);
-      color: var(--slate-600);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-    }
-
-    .step-item.active .step-circle {
-      background: var(--primary);
-      color: #ffffff;
-    }
-
-    .step-item.completed .step-circle {
-      background: var(--success);
-      color: #ffffff;
-    }
-
-    .wizard-body {
-      padding: 36px;
-    }
-
-    .wizard-step-pane {
-      display: none;
-    }
-
-    .wizard-step-pane.active {
-      display: block;
-    }
-
-    /* Drag & Drop Area */
-    .dropzone-box {
-      border: 2px dashed var(--slate-300);
-      border-radius: var(--radius-xl);
-      background-color: var(--slate-50);
-      padding: 48px 24px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      position: relative;
-    }
-
-    .dropzone-box:hover,
-    .dropzone-box.dragover {
-      border-color: var(--primary);
-      background-color: var(--primary-subtle);
-    }
-
-    .dropzone-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: #ffffff;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 26px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .dropzone-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .dropzone-desc {
-      font-size: 0.875rem;
-      color: var(--slate-500);
-      margin-bottom: 16px;
-    }
-
-    .btn-choose-file {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--primary);
-      color: #ffffff;
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      font-size: 0.875rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-    }
-
-    /* Prescription Preview Card */
-    .file-preview-card {
-      display: none;
-      align-items: center;
-      gap: 16px;
-      background: #ffffff;
-      border: 1px solid var(--primary-border);
-      border-radius: var(--radius-lg);
-      padding: 14px 20px;
-      margin-top: 20px;
-    }
-
-    .file-preview-card.active {
-      display: flex;
-    }
-
-    .preview-thumb {
-      width: 50px;
-      height: 50px;
-      border-radius: var(--radius-sm);
-      object-fit: cover;
-      background: var(--slate-100);
-    }
-
-    /* Form Fields */
-    .form-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-label {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .form-input, .form-select, .form-textarea {
-      padding: 12px 14px;
-      border: 1.5px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      font-size: 0.9375rem;
-      color: var(--navy);
-      background-color: var(--slate-50);
-      outline: none;
-      transition: all 0.2s;
-    }
-
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--primary);
-      background-color: #ffffff;
-      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
-    }
-
-    .form-hint {
-      font-size: 0.75rem;
-      color: var(--slate-500);
-    }
-
-    .radio-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .radio-card {
-      border: 1.5px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .radio-card:hover, .radio-card.selected {
-      border-color: var(--primary);
-      background-color: var(--primary-subtle);
-    }
-
-    .wizard-footer {
-      padding: 24px 36px;
-      border-top: 1px solid var(--slate-200);
-      background-color: var(--slate-50);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    @media (max-width: 650px) {
-      .form-grid-2, .radio-card-grid {
-        grid-template-columns: 1fr;
-      }
-      .wizard-body {
-        padding: 20px;
-      }
-      .wizard-footer {
-        padding: 16px 20px;
-      }
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
   </style>
 </head>
 <body>
 
-    <!-- 1. SLIM, ELEGANT STICKY HEADER -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery in Pakistan Over Rs. 1,500</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> UAN: 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Helpline</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
-      <!-- Logo -->
       <a href="index.html" class="brand-logo">
         <div class="logo-symbol">
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
-      <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
+        <a href="track-order.html" class="header-nav-link">Track Order</a>
       </nav>
 
-      <!-- Slim Search Bar -->
-      <div class="search-wrapper">
-        <div class="search-input-group">
-          <input type="text" class="search-input global-search-input" placeholder="Search medicines, vitamins, brands...">
-          <button type="button" class="search-btn" title="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
-
         <a href="portal.html" class="header-action-btn" title="Patient Account">
           <i class="fa-regular fa-user"></i>
           <span>Account</span>
         </a>
-
-        <button class="header-action-btn btn-open-cart-drawer" title="Shopping Cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span>Basket</span>
-          <span class="action-badge cart-count-badge" style="display:none;">0</span>
-        </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Wizard Card -->
+  <!-- Quick Order Concierge Body -->
   <main class="container">
-    <div class="wizard-container">
-      <div class="wizard-header">
-        <span class="section-tag" style="background:rgba(255,255,255,0.2);color:#ffffff;border-color:rgba(255,255,255,0.3);margin-bottom:12px;">
-          <i class="fa-solid fa-prescription"></i> Rapid Rx Verification Desk
-        </span>
-        <h1>Upload Your Prescription</h1>
-        <p>
-          Submit your doctor's written prescription or hospital discharge script. Our licensed clinical pharmacist will review, interaction-screen, and approve it within 15 minutes.
-        </p>
+    <div class="order-assistant-card">
+      <div style="width:76px;height:76px;background:#dcfce7;color:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      
+      <span class="wp-badge-pill" style="margin-bottom:12px;">
+        <i class="fa-solid fa-bolt"></i> Fast 2-Minute Ordering
+      </span>
+
+      <h1 style="font-family:var(--font-heading);font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:12px;">
+        Order Any Medicine Without Hassle
+      </h1>
+      
+      <p style="color:var(--slate-600);font-size:1.05rem;line-height:1.6;max-width:540px;margin:0 auto 28px;">
+        You don't need to fill out complex forms or upload files! Simply send your medicine names or requirements directly to our licensed pharmacist on WhatsApp or browse our online store.
+      </p>
+
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:24px;margin-bottom:32px;text-align:left;">
+        <h4 style="font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:12px;">
+          <i class="fa-solid fa-check-double text-primary"></i> Why Order via WhatsApp with CuraRx?
+        </h4>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.875rem;color:var(--slate-600);line-height:1.8;">
+          <li><i class="fa-solid fa-circle-check text-success" style="margin-right:8px;"></i> Instant confirmation from a PharmD clinical pharmacist.</li>
+          <li><i class="fa-solid fa-circle-check text-success" style="margin-right:8px;"></i> Cash on Delivery (COD) across Pakistan.</li>
+          <li><i class="fa-solid fa-circle-check text-success" style="margin-right:8px;"></i> Same-day express delivery in Karachi, Lahore, and Islamabad / Rawalpindi.</li>
+          <li><i class="fa-solid fa-circle-check text-success" style="margin-right:8px;"></i> 100% genuine DRAP-approved medicines from Getz, GSK, Abbott & Searle.</li>
+        </ul>
       </div>
 
-      <!-- Steps Header -->
-      <div class="steps-nav">
-        <div class="step-item active" id="step-nav-1">
-          <div class="step-circle">1</div>
-          <span>Upload File</span>
-        </div>
-        <div class="step-item" id="step-nav-2">
-          <div class="step-circle">2</div>
-          <span>Patient & Doctor</span>
-        </div>
-        <div class="step-item" id="step-nav-3">
-          <div class="step-circle">3</div>
-          <span>Fulfillment & Review</span>
-        </div>
-      </div>
-
-      <div class="wizard-body">
-        <!-- =================== STEP 1: UPLOAD FILE =================== -->
-        <div class="wizard-step-pane active" id="step-pane-1">
-          <h3 style="font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
-            Step 1: Attach Prescription Document
-          </h3>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            Please ensure patient name, prescriber's clinic name, signature, and medication dosage are legible.
-          </p>
-
-          <input type="file" id="rx-file-input" accept="image/*,.pdf" style="display:none;" onchange="handleFileSelected(event)">
-
-          <div class="dropzone-box" id="rx-dropzone" onclick="document.getElementById('rx-file-input').click()">
-            <div class="dropzone-icon">
-              <i class="fa-solid fa-camera"></i>
-            </div>
-            <div class="dropzone-title">Click to upload or drag & drop file</div>
-            <div class="dropzone-desc">Accepts JPG, PNG, WEBP, or scanned PDF up to 15MB</div>
-            <button type="button" class="btn-choose-file">
-              <i class="fa-solid fa-folder-open"></i> Browse Document
-            </button>
-          </div>
-
-          <!-- Quick Test Samples Selector -->
-          <div style="margin-top:16px;background:var(--slate-50);padding:14px;border-radius:var(--radius-md);border:1px solid var(--slate-200);font-size:0.8125rem;">
-            <strong style="color:var(--navy);"><i class="fa-solid fa-vial"></i> Quick Test Sample Script:</strong>
-            <span style="color:var(--slate-500);margin-left:6px;">Select a sample script to test the verification pipeline:</span>
-            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
-              <button type="button" class="quick-tag" onclick="loadSampleScript('cardio')">
-                <i class="fa-solid fa-heart-pulse"></i> Cardiology Script (Atorvastatin)
-              </button>
-              <button type="button" class="quick-tag" onclick="loadSampleScript('respiratory')">
-                <i class="fa-solid fa-lungs"></i> Respiratory Script (Ventolin)
-              </button>
-              <button type="button" class="quick-tag" onclick="loadSampleScript('antibiotic')">
-                <i class="fa-solid fa-shield-virus"></i> Antibiotic Script (Amoxicillin)
-              </button>
-            </div>
-          </div>
-
-          <!-- File Preview Banner -->
-          <div class="file-preview-card" id="file-preview-card">
-            <img id="preview-img" src="" alt="Script" class="preview-thumb">
-            <div style="flex:1;">
-              <strong id="preview-filename" style="font-size:0.9375rem;color:var(--navy);display:block;">prescription.jpg</strong>
-              <span id="preview-size" style="font-size:0.75rem;color:var(--slate-500);">Verified Document Ready</span>
-            </div>
-            <button type="button" onclick="clearSelectedFile()" style="background:none;border:none;color:var(--danger);cursor:pointer;font-weight:700;font-size:0.8125rem;">
-              <i class="fa-solid fa-trash-can"></i> Remove
-            </button>
-          </div>
-
-          <!-- Security Notice -->
-          <div style="margin-top:24px;display:flex;gap:10px;align-items:center;font-size:0.8125rem;color:var(--slate-500);">
-            <i class="fa-solid fa-lock" style="color:var(--primary);"></i>
-            <span>Encrypted with 256-bit SSL. Strictly HIPAA compliant and accessible only by licensed pharmacists.</span>
-          </div>
-        </div>
-
-        <!-- =================== STEP 2: PATIENT & DOCTOR INFO =================== -->
-        <div class="wizard-step-pane" id="step-pane-2">
-          <h3 style="font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
-            Step 2: Patient & Prescriber Details
-          </h3>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            This information must match the details written on the physical prescription.
-          </p>
-
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label class="form-label">Patient Full Legal Name *</label>
-              <input type="text" id="patient-name" class="form-input" placeholder="e.g., Alexander Reed" value="Alexander Reed" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Patient Date of Birth *</label>
-              <input type="date" id="patient-dob" class="form-input" value="1988-06-14" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label class="form-label">Contact Phone Number *</label>
-              <input type="tel" id="patient-phone" class="form-input" placeholder="+1 (555) 000-0000" value="+1 (555) 382-9014" required>
-              <span class="form-hint">Our pharmacist may call for clinical verification.</span>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Known Drug Allergies</label>
-              <input type="text" id="patient-allergies" class="form-input" placeholder="e.g., Penicillin, Sulfa, Aspirin (or None)" value="Penicillin (Mild)">
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label class="form-label">Prescribing Doctor's Name *</label>
-              <input type="text" id="doctor-name" class="form-input" placeholder="e.g., Dr. Jonathan Hayes, MD" value="Dr. Jonathan Hayes, MD" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Hospital / Clinic / Practice Name *</label>
-              <input type="text" id="doctor-clinic" class="form-input" placeholder="e.g., St. Jude Medical Group" value="St. Jude Cardiovascular Care" required>
-            </div>
-          </div>
-
-          <div class="form-group" style="margin-bottom:20px;">
-            <label class="form-label">Prescription Date *</label>
-            <input type="date" id="prescription-date" class="form-input" value="2026-11-20" required>
-            <span class="form-hint">Prescriptions older than legal validity limits (typically 6-12 months) cannot be dispensed.</span>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Notes for Pharmacist (Optional)</label>
-            <textarea id="patient-notes" class="form-textarea" rows="2" placeholder="Mention any specific generic preferences, special delivery instructions, or medical questions..."></textarea>
-          </div>
-        </div>
-
-        <!-- =================== STEP 3: FULFILLMENT & REVIEW =================== -->
-        <div class="wizard-step-pane" id="step-pane-3">
-          <h3 style="font-size:1.25rem;font-weight:800;color:var(--navy);margin-bottom:8px;">
-            Step 3: Fulfillment & Safety Options
-          </h3>
-          <p style="font-size:0.875rem;color:var(--slate-500);margin-bottom:24px;">
-            Choose how you would like to receive your medications once approved.
-          </p>
-
-          <label class="form-label" style="margin-bottom:12px;display:block;">Fulfillment Preference</label>
-          <div class="radio-card-grid">
-            <div class="radio-card selected" id="card-delivery" onclick="selectFulfillment('delivery')">
-              <input type="radio" name="fulfillment" id="radio-delivery" checked style="accent-color:var(--primary);margin-top:2px;">
-              <div>
-                <strong style="color:var(--navy);font-size:0.9375rem;display:block;margin-bottom:2px;">
-                  <i class="fa-solid fa-truck-fast text-primary"></i> Home Cold-Chain Delivery
-                </strong>
-                <p style="font-size:0.8125rem;color:var(--slate-500);margin:0;">
-                  Delivered in insulated, tamper-evident cooling packs. Free on orders $45+.
-                </p>
-              </div>
-            </div>
-
-            <div class="radio-card" id="card-pickup" onclick="selectFulfillment('pickup')">
-              <input type="radio" name="fulfillment" id="radio-pickup" style="accent-color:var(--primary);margin-top:2px;">
-              <div>
-                <strong style="color:var(--navy);font-size:0.9375rem;display:block;margin-bottom:2px;">
-                  <i class="fa-solid fa-shop text-primary"></i> In-Store Pharmacy Counter Pickup
-                </strong>
-                <p style="font-size:0.8125rem;color:var(--slate-500);margin:0;">
-                  Ready within 2 hours at our Downtown Medical Center branch. Zero fee.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pharmacist Consultation Opt-In -->
-          <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:18px;margin-bottom:24px;">
-            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
-              <input type="checkbox" id="request-callback" checked style="accent-color:var(--primary);width:18px;height:18px;margin-top:3px;">
-              <div>
-                <strong style="color:var(--navy);font-size:0.9375rem;">Request Free 1-on-1 Pharmacist Consultation</strong>
-                <p style="font-size:0.8125rem;color:var(--slate-500);margin:2px 0 0;">
-                  Our licensed clinical pharmacist will phone you to explain administration timing, food interactions, and answer any treatment concerns.
-                </p>
-              </div>
-            </label>
-          </div>
-
-          <!-- Legal Certification Checkbox -->
-          <div style="background:var(--primary-subtle);border:1.5px solid var(--primary-border);border-radius:var(--radius-lg);padding:18px;margin-bottom:20px;">
-            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
-              <input type="checkbox" id="legal-agreement" required style="accent-color:var(--primary);width:18px;height:18px;margin-top:3px;">
-              <div style="font-size:0.8125rem;color:var(--navy-muted);line-height:1.5;">
-                <strong style="color:var(--navy);">Pharmaceutical Compliance & Authenticity Certification:</strong><br>
-                I certify under penalty of perjury that this prescription is authentic, legally issued by a licensed healthcare provider, and intended strictly for the treatment of the designated patient. I acknowledge that prescription medicines will only be dispensed after verification by a licensed pharmacist.
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- =================== STEP 4: SUCCESS MODAL / PANE =================== -->
-        <div class="wizard-step-pane" id="step-pane-success">
-          <div style="text-align:center;padding:20px 0;">
-            <div style="width:80px;height:80px;background:var(--success-bg);color:var(--secondary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">
-              <i class="fa-solid fa-shield-check"></i>
-            </div>
-            <span class="section-tag"><i class="fa-solid fa-clock"></i> In Verification Queue</span>
-            <h2 style="font-family:var(--font-heading);font-size:1.85rem;color:var(--navy);margin:10px 0;">
-              Prescription Successfully Submitted!
-            </h2>
-            <p style="font-size:0.9375rem;color:var(--slate-600);max-width:540px;margin:0 auto 24px;">
-              Your prescription has been securely transmitted to our licensed dispensary queue. Our supervising pharmacist is currently conducting interaction and dosage checks.
-            </p>
-
-            <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:24px;max-width:500px;margin:0 auto 30px;text-align:left;">
-              <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:0.875rem;">
-                <span style="color:var(--slate-500);">Prescription Ref ID:</span>
-                <strong id="success-rx-id" style="color:var(--primary);font-size:1rem;">RX-2026-XXXX</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:0.875rem;">
-                <span style="color:var(--slate-500);">Assigned Pharmacist:</span>
-                <strong style="color:var(--navy);">Dr. Eleanor Vance, PharmD</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:0.875rem;">
-                <span style="color:var(--slate-500);">Estimated Verification:</span>
-                <strong style="color:var(--success);"><i class="fa-regular fa-clock"></i> ~15 Minutes</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;font-size:0.875rem;">
-                <span style="color:var(--slate-500);">Fulfillment Choice:</span>
-                <strong id="success-fulfillment" style="color:var(--navy);">Home Delivery</strong>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-              <a href="portal.html" class="btn-primary">
-                <i class="fa-solid fa-folder-open"></i> View in Patient Portal
-              </a>
-              <a href="shop.html" class="btn-white">
-                <i class="fa-solid fa-cart-plus"></i> Continue Shopping
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation Footer -->
-      <div class="wizard-footer" id="wizard-nav-footer">
-        <button type="button" class="btn-white" id="btn-prev" onclick="goToStep(currentStep - 1)" style="display:none;">
-          <i class="fa-solid fa-arrow-left"></i> Previous Step
-        </button>
-        <div style="margin-left:auto;">
-          <button type="button" class="btn-primary" id="btn-next" onclick="handleNextStep()">
-            Continue <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-hero" style="padding:14px 32px;font-size:1.05rem;">
+          <i class="fa-brands fa-whatsapp"></i> Chat & Order on WhatsApp
+        </a>
+        <a href="shop.html" class="btn-primary" style="padding:14px 28px;font-size:1rem;">
+          <i class="fa-solid fa-pills"></i> Browse Online Store
+        </a>
       </div>
     </div>
   </main>
 
-  <!-- Slide-Out Cart Drawer -->
-  <div class="cart-drawer-overlay"></div>
-  <div class="cart-drawer">
-    <div class="drawer-header">
-      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Prescription Basket</h3>
-      <button class="btn-close-drawer" title="Close"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="shipping-progress-box"></div>
-    <div class="drawer-items"></div>
-    <div class="drawer-footer">
-      <div class="drawer-rx-warning" style="display:none;"></div>
-      <div class="drawer-summary-row">
-        <span>Subtotal</span>
-        <span class="drawer-subtotal-val">$0.00</span>
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
+      <div>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
       </div>
-      <div class="drawer-summary-total">
-        <span>Estimated Total</span>
-        <span class="drawer-total-val">$0.00</span>
-      </div>
-      <a href="checkout.html" class="btn-checkout-drawer">Proceed to Checkout</a>
     </div>
-  </div>
-
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-      </a>
-      <a href="shop.html" class="mobile-nav-link">
-        <i class="fa-solid fa-pills"></i>
-        <span>Shop</span>
-      </a>
-      <a href="upload-prescription.html" class="mobile-nav-link active mobile-upload-btn">
-        <i class="fa-solid fa-prescription"></i>
-      </a>
-      <a href="track-order.html" class="mobile-nav-link">
-        <i class="fa-solid fa-truck"></i>
-        <span>Track</span>
-      </a>
-      <a href="portal.html" class="mobile-nav-link">
-        <i class="fa-solid fa-user"></i>
-        <span>Account</span>
-      </a>
-    </div>
-  </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="js/pharmacy-data.js"></script>
   <script src="js/pharmacy-store.js"></script>
   <script src="js/pharmacy-ui.js"></script>
-
-  <script>
-    let currentStep = 1;
-    let selectedFile = null;
-    let selectedFulfillmentMode = "delivery";
-
-    const SAMPLE_SCRIPTS = {
-      cardio: {
-        fileName: "cardio_script_hayes_clinic.pdf",
-        fileUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80",
-        doctor: "Dr. Jonathan Hayes, MD",
-        clinic: "St. Jude Cardiovascular Care",
-        notes: "Atorvastatin 20mg once daily + Lisinopril 10mg morning."
-      },
-      respiratory: {
-        fileName: "asthma_script_foster_resp.jpg",
-        fileUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=800&auto=format&fit=crop&q=80",
-        doctor: "Dr. Kimberly Foster, MD",
-        clinic: "Metro Allergy & Respiratory Care",
-        notes: "Ventolin (Salbutamol) Inhaler 100mcg - 2 puffs PRN."
-      },
-      antibiotic: {
-        fileName: "dental_oral_infection_script.png",
-        fileUrl: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=800&auto=format&fit=crop&q=80",
-        doctor: "Dr. Alan Vance, DDS",
-        clinic: "Metropolitan Dental Surgery",
-        notes: "Amoxicillin 500mg capsules TDS for 7 days."
-      }
-    };
-
-    function loadSampleScript(key) {
-      const sample = SAMPLE_SCRIPTS[key];
-      if (!sample) return;
-
-      selectedFile = {
-        name: sample.fileName,
-        url: sample.fileUrl
-      };
-
-      document.getElementById("preview-img").src = sample.fileUrl;
-      document.getElementById("preview-filename").textContent = sample.fileName;
-      document.getElementById("file-preview-card").classList.add("active");
-
-      document.getElementById("doctor-name").value = sample.doctor;
-      document.getElementById("doctor-clinic").value = sample.clinic;
-      document.getElementById("patient-notes").value = sample.notes;
-
-      if (window.PharmacyStore) {
-        window.PharmacyStore.showToast(`Loaded sample script: ${sample.fileName}`, "info");
-      }
-    }
-
-    function handleFileSelected(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        selectedFile = {
-          name: file.name,
-          url: e.target.result
-        };
-        document.getElementById("preview-img").src = e.target.result;
-        document.getElementById("preview-filename").textContent = file.name;
-        document.getElementById("preview-size").textContent = `${(file.size / 1024).toFixed(1)} KB • Attached`;
-        document.getElementById("file-preview-card").classList.add("active");
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function clearSelectedFile() {
-      selectedFile = null;
-      document.getElementById("rx-file-input").value = "";
-      document.getElementById("file-preview-card").classList.remove("active");
-    }
-
-    function selectFulfillment(mode) {
-      selectedFulfillmentMode = mode;
-      document.getElementById("card-delivery").classList.toggle("selected", mode === "delivery");
-      document.getElementById("card-pickup").classList.toggle("selected", mode === "pickup");
-      document.getElementById("radio-delivery").checked = mode === "delivery";
-      document.getElementById("radio-pickup").checked = mode === "pickup";
-    }
-
-    function goToStep(step) {
-      currentStep = step;
-
-      // Update panes
-      document.querySelectorAll(".wizard-step-pane").forEach(p => p.classList.remove("active"));
-      const targetPane = document.getElementById(`step-pane-${step}`);
-      if (targetPane) targetPane.classList.add("active");
-
-      // Update nav headers
-      document.querySelectorAll(".step-item").forEach((item, idx) => {
-        const itemStep = idx + 1;
-        item.classList.remove("active", "completed");
-        if (itemStep === step) {
-          item.classList.add("active");
-        } else if (itemStep < step) {
-          item.classList.add("completed");
-        }
-      });
-
-      // Update buttons
-      const btnPrev = document.getElementById("btn-prev");
-      const btnNext = document.getElementById("btn-next");
-
-      btnPrev.style.display = step > 1 && step < 4 ? "inline-flex" : "none";
-
-      if (step === 3) {
-        btnNext.innerHTML = '<i class="fa-solid fa-shield-check"></i> Submit for Pharmacist Review';
-      } else {
-        btnNext.innerHTML = 'Continue <i class="fa-solid fa-arrow-right"></i>';
-      }
-    }
-
-    function handleNextStep() {
-      if (currentStep === 1) {
-        if (!selectedFile) {
-          // auto pick cardio sample for ease
-          loadSampleScript('cardio');
-        }
-        goToStep(2);
-      } else if (currentStep === 2) {
-        const pName = document.getElementById("patient-name").value.trim();
-        const dName = document.getElementById("doctor-name").value.trim();
-        if (!pName || !dName) {
-          alert("Please fill in the patient legal name and prescribing doctor name.");
-          return;
-        }
-        goToStep(3);
-      } else if (currentStep === 3) {
-        const agreed = document.getElementById("legal-agreement").checked;
-        if (!agreed) {
-          alert("Please agree to the pharmaceutical compliance certification before submitting.");
-          return;
-        }
-
-        // Submit to store!
-        const store = window.PharmacyStore;
-        if (!store) return;
-
-        const record = store.savePrescription({
-          patientName: document.getElementById("patient-name").value.trim(),
-          patientDob: document.getElementById("patient-dob").value,
-          patientPhone: document.getElementById("patient-phone").value.trim(),
-          allergies: document.getElementById("patient-allergies").value.trim(),
-          doctorName: document.getElementById("doctor-name").value.trim(),
-          doctorClinic: document.getElementById("doctor-clinic").value.trim(),
-          prescriptionDate: document.getElementById("prescription-date").value,
-          notes: document.getElementById("patient-notes").value.trim(),
-          fileName: selectedFile ? selectedFile.name : "uploaded_script.pdf",
-          fileUrl: selectedFile ? selectedFile.url : "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80",
-          deliveryPreference: selectedFulfillmentMode === "delivery" ? "Home Cold-Chain Delivery" : "In-Store Pickup",
-          requiresCallback: document.getElementById("request-callback").checked
-        });
-
-        // Show Success Step
-        document.getElementById("success-rx-id").textContent = record.id;
-        document.getElementById("success-fulfillment").textContent = record.deliveryPreference;
-        document.getElementById("wizard-nav-footer").style.display = "none";
-        goToStep("success");
-      }
-    }
-  </script>
 </body>
 </html>

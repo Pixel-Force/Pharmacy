@@ -1,8 +1,8 @@
-# CuraRx Pharmacy — Professional & Online Pharmacy Platform
+# CuraRx Pakistan — Licensed Online Pharmacy & Healthcare Store
 
-![CuraRx Pharmacy Platform Showcase](images/pharmacy-mockup.svg)
+![CuraRx Pakistan Online Pharmacy Platform Showcase](images/pharmacy-mockup.svg)
 
-> **CuraRx Licensed Online Pharmacy & Wellness** is a modern, responsive, clinical-grade e-commerce website and administrative management suite designed for licensed pharmacy businesses, combining consumer convenience with pharmaceutical dispensing safety.
+> **CuraRx Pakistan** is a modern, high-converting, clinical-grade e-commerce pharmacy platform and administrative management suite tailored specifically for **Pakistani consumers and healthcare markets**. Fully compliant with DRAP (Drug Regulatory Authority of Pakistan), featuring PKR pricing, nationwide Cash on Delivery (COD), JazzCash, Easypaisa, Raast, instant WhatsApp ordering, and zero prescription upload barriers.
 
 ---
 
@@ -13,71 +13,86 @@
 
 ---
 
-## 🏥 Key Capabilities & Modules
+## 🇵🇰 Key Features Built for Pakistani Customers
 
-### 1. 🔍 Medicine Search & Autocomplete
-- **Live Search Autocomplete**: As users type in the header or search bars, matching medicines, active generic ingredients, and brands appear in a live dropdown with thumbnails, prices, and Rx requirements.
-- **Drug Finder Bar**: Instant lookup by medicine commercial name, active compound, department, and dosage form (Tablets, Capsules, Liquids, Inhalers, Medical Devices).
+### 1. 💰 Pakistani Rupee (PKR / Rs.) Pricing & Local Catalog
+- **Top 32+ Authentic Pakistani Medicines & Brands**: Panadol Extra, Augmentin 625mg, Arinac Forte, Risek 20mg & 40mg, Surbex Z, CaC-1000 Plus, Disprin, Brufen, Rigix, Softin, Entamizole, Flagyl, Loprin 75mg, Lipiget 20mg, Glucophage 850mg, Ventolin Evohaler, Evion 400mg, Neurobion, Accu-Chek Instant Glucometer, Omron M2 Blood Pressure Monitor, Cerelac, Pampers, Dettol, Polyfax, Voltral Emulgel, Hydryllin, Sensodyne, and more.
+- **Top Manufacturers**: Getz Pharma, GSK Pakistan, Abbott Laboratories Pakistan, Martin Dow, The Searle Company, Reckitt Benckiser, Sanofi Pakistan, Roche Diagnostics, and Omron Healthcare.
+- **Realistic Local Market Pricing**: e.g. Panadol Extra Rs. 380, Surbex Z Rs. 495, CaC-1000 Rs. 480, Augmentin Rs. 445, Risek 20mg Rs. 320.
 
-### 2. 📋 3-Step Interactive Prescription Upload Wizard
-Located at [`upload-prescription.html`](upload-prescription.html):
-- **Step 1: Document Upload**: Drag-and-drop prescription scans, photos, or PDFs. Includes 3 built-in sample scripts (Cardiology, Respiratory, Antibiotic) for instant demonstration.
-- **Step 2: Patient & Prescriber Coordinates**: Patient legal name, DOB, phone, drug allergies, prescriber's clinic name, and prescription date.
-- **Step 3: Fulfillment & Consultation Options**: Select Home Cold-Chain Delivery vs In-Store Pickup; request a free 1-on-1 pharmacist consultation; confirm legal authenticity certification.
-- **Instant Tracking ID**: Generates an audit tracking number (e.g., `RX-2026-9812`) routed directly to the pharmacist verification desk.
+### 2. 📲 Instant WhatsApp Ordering (No Script Upload Required)
+- **Zero Friction**: Removed mandatory prescription upload gating and complex scripts. Customers can directly order online with 1-click or tap **"Order on WhatsApp"** (`+92 300 1234567`).
+- **Instant Medicine Order Concierge ([`upload-prescription.html`](upload-prescription.html))**: Converted into an instant WhatsApp concierge ordering assistant where users can simply send their medicine names, voice note, or doctor slip over WhatsApp for instant pharmacist fulfillment.
 
-### 3. 🛍️ E-Commerce Catalog & Drug Monographs
-- **Faceted Filters ([`shop.html`](shop.html))**: Filter by **Prescription Type** (All, Rx Only, OTC Only), **Category**, **Dosage Form**, **Price Range Slider**, and **In-Stock Only** with active filter chips.
-- **Clinical Monograph ([`product-detail.html`](product-detail.html))**: Detailed drug information with Rx alert boxes, batch numbers, expiry dates, and tabbed clinical monographs:
-  1. *Indications & Description*
-  2. *Dosage & Administration*
-  3. *Active Ingredients & Composition*
-  4. *Precautions & Side Effects*
-  5. *Storage & Handling Guidelines*
+### 3. 💵 Seamless Pakistani Payment Methods
+- **Cash on Delivery (COD)**: Default and recommended method nationwide across all major cities and towns.
+- **JazzCash Mobile Wallet**: Fast checkout with Pakistan's leading mobile account.
+- **Easypaisa**: Instant digital wallet payments.
+- **Raast & Bank Transfer / Debit Cards**: Instant settlement via State Bank of Pakistan's Raast ID or PayPak/Visa/MasterCard.
 
-### 4. 🛒 Prescription Basket & Verification Manager
-Located at [`cart.html`](cart.html) & Slide-Out Cart Drawer:
-- **Prescription Warning Banners**: Automatically detects Rx items in the basket and prompts the user to link a verified prescription.
-- **Free Cold-Chain Delivery Meter**: Real-time progress bar towards free shipping threshold ($45.00).
-- **Promo Coupon Codes**: Supports instant discounts (e.g. `HEALTH10` or `RX10`).
+### 4. 🚚 Nationwide Cold-Chain Delivery Network
+- **Karachi Hub**: Express 2 to 4-hour doorstep delivery.
+- **Lahore & Islamabad / Rawalpindi**: Same-day express delivery.
+- **Faisalabad, Multan, Peshawar, Quetta, Sialkot, Hyderabad & Nationwide**: 24 to 48-hour delivery via tracked courier network (TCS / Leopards / Trax).
+- **Free Delivery**: Free shipping on orders above **Rs. 1,500** (standard delivery Rs. 150).
 
-### 5. 💳 Clinical Checkout & Payment
-Located at [`checkout.html`](checkout.html):
-- **Delivery vs Pickup**: Morning/Afternoon courier delivery windows or in-store pickup counter locations.
-- **Prescription Attachment Badge**: Displays the verified prescription reference linked to the order.
-- **Payment Options**: Credit/Debit Card, Health Insurance Direct Co-Pay, and Cash on Delivery / Pay at Pickup.
-- **Legal Regulatory Certification**: Mandatory age (18+) and therapeutic use declaration.
-
-### 6. 🚚 Real-Time Order Tracking & Cold-Chain Telemetry
-Located at [`track-order.html`](track-order.html):
-- **5-Phase Progress Pipeline**: `Placed` ➔ `Pharmacist Reviewing` ➔ `Prescription Approved` ➔ `Dispensing & Sealed` ➔ `Out for Delivery` ➔ `Delivered`.
-- **Live Cold-Chain Sensor**: Temperature telemetry display (4.2°C, optimal range: 2°C – 8°C) for insulin and biological integrity.
-- **Chain of Custody Logs**: Timestamped audit trail with pharmacist review notes.
-
-### 7. 👤 Patient Account & Health Portal
-Located at [`portal.html`](portal.html):
-- **My Prescriptions**: Active prescriptions viewer, remaining refill counters, and 1-click refill orders.
-- **Order History**: Review past orders, invoices, and active tracking.
-- **Health & Allergy Profile**: Manage known drug allergies and chronic conditions used for pharmacist safety screenings.
-- **Saved Wishlist**: Manage saved medications and devices.
-
-### 8. 👨‍⚕️ Complete Pharmacist & Admin Dashboard
-Located at [`admin/index.html`](admin/index.html):
-- **KPI Metrics**: Real-time counters for Total Orders, Pending Rx Approvals, Revenue, and Catalog Inventory.
-- **Rx Verification Desk**: Review uploaded patient scripts, examine patient allergies, and **Approve & Certify** with Dr. Eleanor Vance's PharmD digital license stamp (`RPH-942817-A`), request clarification, or reject invalid scripts.
-- **Medicine Catalog CMS**: Full inventory CRUD (add, edit, remove medications, toggle Rx requirement, update stock counts, batch numbers, and expiry dates).
-- **Orders & Dispensing Manager**: Advance order phases with real-time customer tracking synchronization.
-- **Configurable Jurisdiction & Regulatory Settings**: Switch between **United States (FDA/DEA)**, **United Kingdom (MHRA/GPhC)**, **Canada (Health Canada)**, **Australia (TGA)**, and **International WHO GPP** presets; configure pseudoephedrine limits and mandatory Rx verification enforcement.
+### 5. 🏛️ DRAP Certified & Regulated
+- **100% Genuine Medicine Guarantee**: Sourced directly from licensed national pharmaceutical manufacturers and authorized distributors.
+- **Licensed Pharmacists**: All orders verified by PharmD graduates registered under the Pharmacy Council of Pakistan (Pharmacy Act 1967).
+- **DRAP Act 2012 Compliance**: Strictly adhering to Drug Regulatory Authority of Pakistan standards and cold-chain thermal storage (2°C to 8°C).
 
 ---
 
-## ⚖️ Pharmaceutical Regulatory & Safety Compliance
+## 🏥 Key Pages & Modules
 
-- **Mandatory Prescription Enforcement**: Prescription-only medicines (Rx / POM) cannot be dispensed without verified pharmacist sign-off.
-- **Schedule II Controlled Narcotics Policy**: Strict prohibition on online dispensing of Schedule II narcotics pursuant to federal DEA regulations.
-- **Pseudoephedrine Restrictions**: Enforces legal transaction limits (3.6 grams per transaction) under Combat Methamphetamine legislation.
-- **HIPAA & GDPR Health Data Protection**: All patient health data (PHI) and prescription uploads are encrypted at rest and in transit.
-- **Cold-Chain Transport**: Validated thermal storage protocols (2°C – 8°C) for temperature-sensitive medications.
+1. **Master Homepage ([`index.html`](index.html))**:
+   - Micro top bar with DRAP certification, UAN `021-111-CURA-RX`, and WhatsApp helpline.
+   - Slim 58px sticky header with search, cart badge, and WhatsApp order CTA.
+   - Luminous split hero with instant medicine search and WhatsApp order button.
+   - 4-Box trust strip: Cash on Delivery, Free Delivery > Rs. 1,500, DRAP Approved, 24/7 Pharmacist Helpline.
+   - 6 Tabbed category filters & Dual Pakistani Promo Banners (Chronic Monthly Refills & Daily Wellness).
+   - 4-Step Pakistan delivery workflow & Major cities coverage strip.
+   - Verified Pakistani customer reviews from DHA Karachi, Gulberg Lahore, and F-10 Islamabad.
+2. **Product Catalog & Filters ([`shop.html`](shop.html))**:
+   - Sidebar filters by Pakistani pharmaceutical brands (GSK, Abbott, Getz, Searle, Reckitt, Martin Dow, etc.).
+   - Price slider in Pakistani Rupees (Rs. 100 - Rs. 10,000).
+   - Instant "Add to Basket" with COD badge.
+3. **Clinical Product Detail ([`product-detail.html`](product-detail.html))**:
+   - Detailed drug monograph, dosage guidelines, batch & expiry information.
+   - Estimated delivery schedule for Karachi, Lahore, Islamabad, and other cities.
+   - Dual "Add to Basket (COD)" + "Order on WhatsApp" buttons.
+4. **Shopping Basket ([`cart.html`](cart.html))**:
+   - Rs. 1,500 free shipping progress meter.
+   - Promo discount coupon support (`WELCOME100`).
+   - Direct Cash on Delivery checkout.
+5. **Pakistan Checkout ([`checkout.html`](checkout.html))**:
+   - City selector for all major Pakistani cities.
+   - Pakistani mobile number format (`03XX-XXXXXXX`).
+   - Payment selection: Cash on Delivery, JazzCash, Easypaisa, Raast / Bank Card.
+6. **Order Receipt ([`order-confirmation.html`](order-confirmation.html))**:
+   - Unique Pakistani order ID (`PK-CRX-XXXX`).
+   - Delivery rider contact & WhatsApp helpline link.
+7. **Live Order Tracking ([`track-order.html`](track-order.html))**:
+   - Track by Order ID or phone number.
+   - 4-phase status: Order Received ➔ Pharmacist Checked ➔ Cold-Chain Packed ➔ Rider Dispatched.
+   - Real-time thermal telemetry sensor (4.2°C).
+8. **WhatsApp Concierge ([`upload-prescription.html`](upload-prescription.html))**:
+   - Friendly order assistant directing users to WhatsApp ordering without needing prescription upload scripts.
+9. **Patient Health Portal ([`portal.html`](portal.html))**:
+   - Pakistani patient profile (Muhammad Ali Khan, DHA Phase 6, Karachi).
+   - Order history in PKR, saved addresses, and chronic medicine refill schedule.
+10. **Services ([`services.html`](services.html))**:
+    - 6 Core Pakistani pharmacy services: Express city delivery, WhatsApp ordering, 24/7 pharmacist hotline, chronic monthly refills, home blood sample collection (Chughtai/Essa Lab partner), and temperature-controlled cold-chain logistics.
+11. **About CuraRx Pakistan ([`about.html`](about.html))**:
+    - Zero-counterfeit mission, DRAP licensing, and Category 'A' clinical pharmacists.
+12. **Contact & Fulfillment Centers ([`contact.html`](contact.html))**:
+    - Central fulfillment hubs: Karachi (Shahrah-e-Faisal / PECHS), Lahore (Gulberg III), Islamabad (Blue Area).
+    - UAN: `021-111-CURA-RX` (021-111-287-279) and WhatsApp `+92 300 1234567`.
+13. **DRAP Compliance & Policy ([`compliance.html`](compliance.html))**:
+    - Drugs Act 1976, DRAP Act 2012, and Pharmacy Act 1967 compliance standards.
+14. **Pharmacist & Operations Dashboard ([`admin/index.html`](admin/index.html))**:
+    - Real-time revenue and orders in PKR.
+    - Pakistani customer order queue and inventory CRUD management.
 
 ---
 
@@ -86,33 +101,33 @@ Located at [`admin/index.html`](admin/index.html):
 ```
 Pharmacy/
 ├── admin/
-│   └── index.html               # Pharmacist & Admin Verification Dashboard
+│   └── index.html               # Pharmacist & Admin Operations Dashboard (PKR)
 ├── css/
-│   └── pharmacy.css             # Healthcare Green & Navy Blue Design System
+│   └── pharmacy.css             # Premium Healthcare Theme & Pakistani UI Elements
 ├── images/
-│   └── pharmacy-mockup.svg      # High-Resolution Vector Platform Mockup
+│   └── pharmacy-mockup.svg      # Vector Platform Mockup (CuraRx Pakistan Showcase)
 ├── js/
-│   ├── pharmacy-data.js         # Master Catalog Database (30+ Medications across 7 Departments)
-│   ├── pharmacy-store.js        # Reactive LocalStorage Engine (Cart, Orders, Rx, Settings)
-│   └── pharmacy-ui.js           # Cart Drawer, Autocomplete Live Search, Product Cards
+│   ├── pharmacy-data.js         # Master Catalog (32+ Pakistani Medicines in PKR)
+│   ├── pharmacy-store.js        # Reactive Storage (PKR Currency, COD, Localized Defaults)
+│   └── pharmacy-ui.js           # Cart Drawer, Autocomplete Live Search, WhatsApp Integration
 ├── .gitignore                   # Git Ignore Configuration
 ├── .nojekyll                    # GitHub Pages Jekyll Bypass
-├── about.html                   # Clinical Leadership & Accreditation
-├── cart.html                    # Shopping Basket & Prescription Warning
-├── checkout.html                # Clinical Checkout & Payment
-├── compliance.html              # Regulatory Dispensing & Controlled Substances Policy
-├── contact.html                 # 24/7 Urgent Pharmacist Hotline & Dispensary Hours
-├── index.html                   # Master Homepage
+├── about.html                   # Clinical Leadership & DRAP Accreditation
+├── cart.html                    # Shopping Basket & Free Delivery Progress Bar (Rs. 1,500)
+├── checkout.html                # Pakistani Checkout (COD, JazzCash, Easypaisa, Raast)
+├── compliance.html              # DRAP Act 2012 & Drugs Act 1976 Standards
+├── contact.html                 # Karachi, Lahore & Islamabad Hubs + UAN & WhatsApp
+├── index.html                   # Master Homepage for Pakistani Customers
 ├── launch-pharmacy.bat          # 1-Click Windows Launcher
-├── order-confirmation.html      # Order Success Receipt & Printable Invoice
+├── order-confirmation.html      # Order Success Receipt (PKR & Rider Dispatch)
 ├── package.json                 # Node.js Project Configuration
-├── portal.html                  # Patient Account, Prescriptions & Allergy Profile
-├── product-detail.html          # Clinical Drug Monograph Page
+├── portal.html                  # Patient Account, Chronic Refills & Past Orders
+├── product-detail.html          # Drug Monograph with PKR & WhatsApp Order CTA
 ├── server.js                    # Zero-Dependency Node.js HTTP Server
-├── services.html                # Pharmacy Consultations, Vaccinations & Refill Program
-├── shop.html                    # Product Catalog & Faceted Filters
+├── services.html                # Express Delivery, WhatsApp Ordering & Lab Tests
+├── shop.html                    # Product Catalog & Pakistani Manufacturer Filters
 ├── test-server.js               # Automated 18-Endpoint Verification Suite
-└── track-order.html             # Live Order & Prescription Tracking with Cold-Chain Telemetry
+└── track-order.html             # Live Order Tracking & Cold-Chain Telemetry
 ```
 
 ---
@@ -129,8 +144,8 @@ node server.js
 Visit:
 - Storefront: `http://localhost:3030/index.html`
 - Pharmacist Admin: `http://localhost:3030/admin/index.html`
-- Prescription Upload: `http://localhost:3030/upload-prescription.html`
 - Catalog & Filters: `http://localhost:3030/shop.html`
+- WhatsApp Concierge: `http://localhost:3030/upload-prescription.html`
 
 ### Option C: Direct Browser Opening
 All HTML files use relative links and client-side reactive storage. You can double-click `index.html` to run the entire application directly in any browser with zero dependencies.
@@ -142,9 +157,8 @@ Run the automated endpoint test suite:
 ```bash
 node test-server.js
 ```
-*Result: 18/18 checks passed (100% pass rate).*
 
 ---
 
 ## 📄 License
-MIT License. Created by CuraRx Healthcare Systems.
+MIT License. Created for CuraRx Pakistan Healthcare.

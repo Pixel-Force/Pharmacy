@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medicine Details | CuraRx Pharmacy</title>
+  <title>Medicine Details | CuraRx Pharmacy Pakistan</title>
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/pharmacy.css">
 
@@ -25,7 +30,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      height: 480px;
+      height: 460px;
     }
 
     .detail-gallery img {
@@ -79,9 +84,9 @@
 
     .detail-current-price {
       font-family: var(--font-heading);
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      color: var(--navy);
+      color: #0f766e;
     }
 
     .detail-original-price {
@@ -103,10 +108,12 @@
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-md);
       padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
     }
 
     .detail-spec-item span {
-      display: block;
       font-size: 0.75rem;
       color: var(--slate-500);
       text-transform: uppercase;
@@ -115,46 +122,15 @@
 
     .detail-spec-item strong {
       color: var(--navy);
+      font-size: 0.875rem;
     }
 
-    /* Rx Verification Notice Box */
-    .rx-notice-card {
-      background: var(--rx-bg);
-      border: 1.5px solid var(--rx-border);
-      border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      margin-bottom: 24px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .rx-notice-card i {
-      color: var(--rx-teal);
-      font-size: 1.5rem;
-      margin-top: 2px;
-    }
-
-    .rx-notice-content h5 {
-      font-size: 0.9375rem;
-      font-weight: 800;
-      color: var(--rx-teal);
-      margin-bottom: 4px;
-    }
-
-    .rx-notice-content p {
-      font-size: 0.8125rem;
-      color: var(--slate-700);
-      line-height: 1.45;
-      margin-bottom: 8px;
-    }
-
-    /* Actions */
     .detail-actions-row {
       display: flex;
       gap: 16px;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
     .qty-picker {
@@ -187,6 +163,7 @@
 
     .btn-add-detail {
       flex: 1;
+      min-width: 200px;
       background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
       color: #ffffff;
       border: none;
@@ -208,7 +185,26 @@
       box-shadow: 0 10px 24px rgba(13, 148, 136, 0.45);
     }
 
-    /* Monograph Tabs */
+    .delivery-cities-box {
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      border-radius: var(--radius-xl);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 0.8125rem;
+    }
+
+    .delivery-city-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(153, 246, 228, 0.5);
+    }
+
+    .delivery-city-row:last-child {
+      border-bottom: none;
+    }
+
     .monograph-container {
       background: #ffffff;
       border: 1px solid var(--slate-200);
@@ -218,64 +214,60 @@
       margin-bottom: 80px;
     }
 
-    .monograph-tabs {
+    .monograph-nav {
       display: flex;
       gap: 12px;
       border-bottom: 2px solid var(--slate-100);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       overflow-x: auto;
     }
 
     .monograph-tab-btn {
+      padding: 12px 18px;
       background: none;
       border: none;
-      padding: 12px 18px;
-      font-size: 0.9375rem;
+      border-bottom: 3px solid transparent;
       font-weight: 700;
+      font-size: 0.9375rem;
       color: var(--slate-500);
       cursor: pointer;
-      position: relative;
       white-space: nowrap;
+      transition: all 0.2s;
     }
 
     .monograph-tab-btn.active {
       color: var(--primary);
+      border-bottom-color: var(--primary);
     }
 
-    .monograph-tab-btn.active::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: var(--primary);
-    }
-
-    .monograph-pane {
-      display: none;
-      line-height: 1.7;
-      color: var(--slate-700);
-      font-size: 0.9375rem;
-    }
-
-    .monograph-pane.active {
-      display: block;
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 992px) {
       .product-detail-layout {
         grid-template-columns: 1fr;
       }
       .detail-gallery {
-        height: 340px;
+        height: 350px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Main Header (Small & Sleek) -->
+  <!-- Top Bar -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> 100% Genuine DRAP Approved</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span>Free Delivery in Pakistan Over Rs. 1,500</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:021111287279"><i class="fa-solid fa-phone"></i> UAN: 021-111-CURA-RX</a>
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slim Header (No upload script) -->
   <header class="main-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
@@ -283,30 +275,29 @@
           <i class="fa-solid fa-mortar-pestle"></i>
         </div>
         <div class="logo-text">
-          <h1>Cura<span>Rx</span></h1>
+          <h1>Cura<span>Rx</span> <span style="font-size:0.75rem;background:#ccfbf1;color:#0f766e;padding:2px 8px;border-radius:6px;font-weight:800;">PAKISTAN</span></h1>
         </div>
       </a>
 
       <!-- Compact Navigation -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link active"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
-        <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
-        <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
-        <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="shop.html" class="header-nav-link active"><i class="fa-solid fa-pills"></i> All Medicines</a>
+        <a href="shop.html?category=pain-fever" class="header-nav-link">Pain & Fever</a>
+        <a href="shop.html?category=vitamins-nutrition" class="header-nav-link">Vitamins</a>
+        <a href="shop.html?category=devices-monitors" class="header-nav-link">Devices</a>
+        <a href="services.html" class="header-nav-link">Delivery Cities</a>
       </nav>
 
       <div class="search-wrapper">
         <div class="search-input-group">
-          <input type="text" class="search-input global-search-input" placeholder="Search medicines...">
-          <button type="button" class="search-btn" title="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+          <input type="text" class="search-input global-search-input" placeholder="Search Panadol, Augmentin, Surbex Z...">
+          <button type="button" class="search-btn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
       </div>
 
       <div class="header-actions">
-        <a href="upload-prescription.html" class="btn-upload-rx-header">
-          <i class="fa-solid fa-plus"></i> Upload Script
+        <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
         </a>
         <a href="portal.html" class="header-action-btn" title="Patient Account">
           <i class="fa-regular fa-user"></i>
@@ -326,7 +317,7 @@
     <div class="container" style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--slate-500);">
       <a href="index.html" style="color:var(--navy);font-weight:600;"><i class="fa-solid fa-house"></i> Home</a>
       <i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i>
-      <a href="shop.html" style="color:var(--navy);font-weight:600;">Shop Catalog</a>
+      <a href="shop.html" style="color:var(--navy);font-weight:600;">Medicines Catalog</a>
       <i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i>
       <span id="breadcrumb-title" style="color:var(--primary);font-weight:700;">Loading Medicine...</span>
     </div>
@@ -347,7 +338,7 @@
         <h1 class="detail-title" id="detail-name">Medicine Name</h1>
         
         <div class="detail-generic">
-          Active Generic: <strong id="detail-generic-name">--</strong> • Brand: <strong id="detail-brand">--</strong>
+          Active Generic: <strong id="detail-generic-name">--</strong> &bull; Manufacturer: <strong id="detail-brand">--</strong>
         </div>
 
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
@@ -358,10 +349,10 @@
         </div>
 
         <div class="detail-price-box">
-          <span class="detail-current-price" id="detail-price">$0.00</span>
-          <span class="detail-original-price" id="detail-orig-price" style="display:none;">$0.00</span>
-          <span style="background:var(--success-bg);color:var(--secondary-dark);font-size:0.78rem;font-weight:700;padding:2px 8px;border-radius:var(--radius-full);" id="detail-stock-status">
-            In Stock & Ready for Dispensing
+          <span class="detail-current-price" id="detail-price">Rs. 0</span>
+          <span class="detail-original-price" id="detail-orig-price" style="display:none;">Rs. 0</span>
+          <span style="background:#d1fae5;color:#065f46;font-size:0.78rem;font-weight:700;padding:4px 10px;border-radius:var(--radius-full);" id="detail-stock-status">
+            In Stock &bull; 100% Genuine DRAP Sourced
           </span>
         </div>
 
@@ -385,17 +376,22 @@
           </div>
         </div>
 
-        <!-- Rx Notice Alert Card -->
-        <div class="rx-notice-card" id="detail-rx-alert" style="display:none;">
-          <i class="fa-solid fa-prescription-bottle-medical"></i>
-          <div class="rx-notice-content">
-            <h5>Prescription Medication Verification Required</h5>
-            <p>
-              In accordance with pharmaceutical dispensing laws, this product cannot be shipped or picked up without a valid prescription written by a licensed medical practitioner.
-            </p>
-            <a href="upload-prescription.html" style="color:var(--rx-teal);font-weight:800;text-decoration:underline;">
-              <i class="fa-solid fa-cloud-arrow-up"></i> Upload your prescription now
-            </a>
+        <!-- Delivery Estimates in Pakistan -->
+        <div class="delivery-cities-box">
+          <div style="font-weight:800;color:#0f766e;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+            <i class="fa-solid fa-truck-fast"></i> Delivery Schedule Across Pakistan:
+          </div>
+          <div class="delivery-city-row">
+            <span><strong>Karachi:</strong> Same Day Delivery</span>
+            <span style="color:#059669;font-weight:700;">Within 2 - 4 Hours</span>
+          </div>
+          <div class="delivery-city-row">
+            <span><strong>Lahore & Islamabad / Rawalpindi:</strong></span>
+            <span style="color:#059669;font-weight:700;">Same Day / Next Morning</span>
+          </div>
+          <div class="delivery-city-row">
+            <span><strong>Faisalabad, Multan, Peshawar & Nationwide:</strong></span>
+            <span style="color:#475569;font-weight:600;">24 - 48 Hours via TCS</span>
           </div>
         </div>
 
@@ -408,20 +404,24 @@
           </div>
 
           <button class="btn-add-detail" onclick="handleDetailAddToCart()">
-            <i class="fa-solid fa-cart-plus"></i> Add to Prescription Basket
+            <i class="fa-solid fa-cart-plus"></i> Add to Basket (COD)
           </button>
+
+          <a href="#" id="detail-whatsapp-link" target="_blank" class="btn-whatsapp-hero" style="padding:15px 22px;">
+            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+          </a>
         </div>
 
-        <!-- Cold Chain & Genuine Guarantee -->
-        <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:14px;font-size:0.8125rem;color:var(--slate-600);display:flex;gap:16px;">
+        <!-- Trust Badges -->
+        <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-lg);padding:14px;font-size:0.8125rem;color:var(--slate-600);display:flex;gap:16px;flex-wrap:wrap;">
           <div style="display:flex;align-items:center;gap:6px;">
-            <i class="fa-solid fa-snowflake text-primary"></i> Cold-Chain Certified
+            <i class="fa-solid fa-snowflake text-primary"></i> Cold-Chain Guaranteed
           </div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <i class="fa-solid fa-shield-halved text-primary"></i> Tamper-Sealed
+            <i class="fa-solid fa-shield-halved text-primary"></i> Tamper-Sealed Packaging
           </div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <i class="fa-solid fa-certificate text-primary"></i> 100% Genuine
+            <i class="fa-solid fa-certificate text-primary"></i> Official DRAP Distributed
           </div>
         </div>
       </div>
@@ -429,107 +429,78 @@
 
     <!-- Clinical Monograph Tabs -->
     <div class="monograph-container">
-      <div class="monograph-tabs">
-        <button class="monograph-tab-btn active" onclick="switchTab('indications', this)">Indications & Description</button>
-        <button class="monograph-tab-btn" onclick="switchTab('dosage', this)">Dosage Instructions</button>
-        <button class="monograph-tab-btn" onclick="switchTab('ingredients', this)">Active Composition</button>
-        <button class="monograph-tab-btn" onclick="switchTab('warnings', this)">Precautions & Side Effects</button>
-        <button class="monograph-tab-btn" onclick="switchTab('storage', this)">Storage & Quality</button>
+      <div class="monograph-nav">
+        <button class="monograph-tab-btn active" onclick="switchTab('tab-description', this)">Overview & Description</button>
+        <button class="monograph-tab-btn" onclick="switchTab('tab-dosage', this)">Dosage & Usage</button>
+        <button class="monograph-tab-btn" onclick="switchTab('tab-warnings', this)">Precautions & Warnings</button>
+        <button class="monograph-tab-btn" onclick="switchTab('tab-storage', this)">Storage in Pakistan</button>
       </div>
 
-      <div class="monograph-pane active" id="pane-indications">
-        <h4 style="color:var(--navy);margin-bottom:8px;">Therapeutic Indications & Purpose</h4>
-        <p id="mono-indications">Loading clinical data...</p>
-        <h4 style="color:var(--navy);margin-top:16px;margin-bottom:8px;">Clinical Overview</h4>
-        <p id="mono-desc">Loading clinical data...</p>
+      <div id="tab-description" class="monograph-content active">
+        <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:12px;">Therapeutic Overview</h4>
+        <p id="mono-desc" style="color:var(--slate-600);line-height:1.7;margin-bottom:16px;">Loading...</p>
+        <h5 style="font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:8px;">Approved Indications:</h5>
+        <p id="mono-indications" style="color:var(--slate-600);line-height:1.6;">Loading...</p>
       </div>
 
-      <div class="monograph-pane" id="pane-dosage">
-        <h4 style="color:var(--navy);margin-bottom:8px;">Recommended Dosage & Administration</h4>
-        <p id="mono-dosage">Loading clinical data...</p>
-        <div style="background:var(--warning-bg);border:1px solid var(--warning-border);padding:12px;border-radius:var(--radius-md);margin-top:16px;font-size:0.8125rem;color:#78350f;">
-          <i class="fa-solid fa-triangle-exclamation"></i> <strong>Pharmacist Note:</strong> Never alter your prescribed dosage without consulting your primary doctor or speaking with our clinical pharmacist.
+      <div id="tab-dosage" class="monograph-content" style="display:none;">
+        <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:12px;">Recommended Administration</h4>
+        <p id="mono-dosage" style="color:var(--slate-600);line-height:1.7;margin-bottom:16px;">Loading...</p>
+        <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:12px 16px;font-size:0.84rem;color:#0f766e;">
+          <i class="fa-solid fa-user-doctor"></i> <strong>Consult Pharmacist:</strong> If you are taking any other medications, chat with our pharmacist on WhatsApp for drug interaction screening.
         </div>
       </div>
 
-      <div class="monograph-pane" id="pane-ingredients">
-        <h4 style="color:var(--navy);margin-bottom:8px;">Active Pharmaceutical Ingredients</h4>
-        <p id="mono-active">Loading clinical data...</p>
+      <div id="tab-warnings" class="monograph-content" style="display:none;">
+        <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:12px;">Safety & Contraindications</h4>
+        <p id="mono-warnings" style="color:var(--slate-600);line-height:1.7;margin-bottom:16px;">Loading...</p>
       </div>
 
-      <div class="monograph-pane" id="pane-warnings">
-        <h4 style="color:var(--navy);margin-bottom:8px;">Important Warnings & Safety Precautions</h4>
-        <p id="mono-warnings" style="color:#b91c1c;">Loading clinical data...</p>
-      </div>
-
-      <div class="monograph-pane" id="pane-storage">
-        <h4 style="color:var(--navy);margin-bottom:8px;">Storage & Handling Guidelines</h4>
-        <p id="mono-storage">Loading clinical data...</p>
+      <div id="tab-storage" class="monograph-content" style="display:none;">
+        <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:12px;">Storage Guidelines in Pakistan's Climate</h4>
+        <p id="mono-storage" style="color:var(--slate-600);line-height:1.7;margin-bottom:16px;">Loading...</p>
+        <p style="font-size:0.84rem;color:var(--slate-500);">Keep all medicines out of reach of children. Store in a dry, cool cabinet away from bathroom moisture and direct sunlight.</p>
       </div>
     </div>
   </main>
 
-  <!-- Cart Drawer -->
+  <!-- Slide-Out Cart Drawer -->
   <div class="cart-drawer-overlay"></div>
   <div class="cart-drawer">
     <div class="drawer-header">
-      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Prescription Basket</h3>
+      <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Your Basket</h3>
       <button class="btn-close-drawer" title="Close"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="shipping-progress-box"></div>
     <div class="drawer-items"></div>
     <div class="drawer-footer">
-      <div class="drawer-rx-warning" style="display:none;"></div>
       <div class="drawer-summary-row">
         <span>Subtotal</span>
-        <span class="drawer-subtotal-val">$0.00</span>
-      </div>
-      <div class="drawer-summary-row">
-        <span>Estimated Delivery</span>
-        <span class="drawer-shipping-val">Calculated at checkout</span>
+        <span class="drawer-subtotal-val">Rs. 0</span>
       </div>
       <div class="drawer-summary-total">
-        <span>Estimated Total</span>
-        <span class="drawer-total-val">$0.00</span>
+        <span>Total (Cash on Delivery)</span>
+        <span class="drawer-total-val">Rs. 0</span>
       </div>
       <a href="checkout.html" class="btn-checkout-drawer">
-        <i class="fa-solid fa-lock"></i> Proceed to Checkout
+        <i class="fa-solid fa-lock"></i> Proceed to Checkout (COD)
       </a>
     </div>
   </div>
 
-  <!-- Mobile Bottom Nav -->
-  <div class="mobile-bottom-nav">
-    <div class="mobile-bottom-inner">
-      <a href="index.html" class="mobile-nav-link">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-      </a>
-      <a href="shop.html" class="mobile-nav-link active">
-        <i class="fa-solid fa-pills"></i>
-        <span>Shop</span>
-      </a>
-      <a href="upload-prescription.html" class="mobile-nav-link mobile-upload-btn">
-        <i class="fa-solid fa-prescription"></i>
-      </a>
-      <a href="track-order.html" class="mobile-nav-link">
-        <i class="fa-solid fa-truck"></i>
-        <span>Track</span>
-      </a>
-      <a href="portal.html" class="mobile-nav-link">
-        <i class="fa-solid fa-user"></i>
-        <span>Account</span>
-      </a>
-    </div>
-  </div>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20medicines" target="_blank" class="floating-whatsapp-pill" title="Order via WhatsApp">
+    <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i>
+    <span>Order on WhatsApp</span>
+  </a>
 
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container footer-bottom">
-      <div>&copy; 2026 CuraRx Licensed Pharmacy & Wellness. All rights reserved.</div>
+      <div>&copy; 2026 CuraRx Licensed Pharmacy Pakistan &bull; All Rights Reserved.</div>
       <div>
-        <a href="compliance.html" style="margin-right:16px;">Privacy Policy</a>
-        <a href="compliance.html">Terms of Dispensing</a>
+        <a href="compliance.html" style="margin-right:16px;">DRAP Compliance</a>
+        <a href="compliance.html">Terms & Privacy</a>
       </div>
     </div>
   </footer>
@@ -541,89 +512,78 @@
 
   <script>
     let currentProduct = null;
-    let selectedQuantity = 1;
+    let detailQty = 1;
 
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get("id") || "med-rx-001";
-
+      const prodId = urlParams.get("id") || "med-pk-001";
       const store = window.PharmacyStore;
+      
       if (!store) return;
+      currentProduct = store.getProductById(prodId);
 
-      currentProduct = store.getProductById(productId);
       if (!currentProduct) {
-        // Fallback to first product
-        const all = store.getProducts();
-        currentProduct = all[0];
+        currentProduct = store.getProducts()[0];
       }
 
       renderProductDetail(currentProduct);
     });
 
-    function renderProductDetail(product) {
-      document.title = `${product.name} | CuraRx Pharmacy`;
-      document.getElementById("breadcrumb-title").textContent = product.name;
-      document.getElementById("detail-img").src = product.image;
-      document.getElementById("detail-img").alt = product.name;
-      document.getElementById("detail-cat").textContent = product.category.replace("-", " ");
-      document.getElementById("detail-name").textContent = product.name;
-      document.getElementById("detail-generic-name").textContent = product.genericName || "Standard";
-      document.getElementById("detail-brand").textContent = product.brand || "Licensed Laboratory";
-      document.getElementById("detail-price").textContent = `$${product.price.toFixed(2)}`;
+    function renderProductDetail(p) {
+      const store = window.PharmacyStore;
+      document.title = `${p.name} | CuraRx Pharmacy Pakistan`;
+      document.getElementById("breadcrumb-title").textContent = p.name;
+      document.getElementById("detail-name").textContent = p.name;
+      document.getElementById("detail-cat").textContent = p.category.replace("-", " ");
+      document.getElementById("detail-generic-name").textContent = p.genericName || "--";
+      document.getElementById("detail-brand").textContent = p.brand || "--";
+      document.getElementById("detail-reviews").textContent = `(${p.reviewsCount || 48} verified patient reviews)`;
+      document.getElementById("detail-img").src = p.image;
+      document.getElementById("detail-img").alt = p.name;
 
-      if (product.originalPrice && product.originalPrice > product.price) {
+      document.getElementById("detail-price").textContent = store.formatMoney(p.price);
+      if (p.originalPrice && p.originalPrice > p.price) {
         const origEl = document.getElementById("detail-orig-price");
-        origEl.textContent = `$${product.originalPrice.toFixed(2)}`;
+        origEl.textContent = store.formatMoney(p.originalPrice);
         origEl.style.display = "inline";
       }
 
-      // Specs
-      document.getElementById("spec-form").textContent = product.dosageForm || "Standard";
-      document.getElementById("spec-strength").textContent = product.strength || "Standard";
-      document.getElementById("spec-pack").textContent = product.packSize || "Standard Pack";
-      document.getElementById("spec-batch").textContent = `${product.batchNumber || 'CRX-2026'} (Exp: ${product.expiryDate || '2028'})`;
+      document.getElementById("spec-form").textContent = p.dosageForm || "Pack";
+      document.getElementById("spec-strength").textContent = p.strength || "--";
+      document.getElementById("spec-pack").textContent = p.packSize || "--";
+      document.getElementById("spec-batch").textContent = `${p.batchNumber} (Exp: ${p.expiryDate})`;
 
-      // Rx Badge & Warning
-      const badgeContainer = document.getElementById("badge-container");
-      const rxNotice = document.getElementById("detail-rx-alert");
+      // Monograph tabs
+      document.getElementById("mono-desc").textContent = p.description || "Information unavailable.";
+      document.getElementById("mono-indications").textContent = p.indications || "General healthcare maintenance.";
+      document.getElementById("mono-dosage").textContent = p.dosageInstructions || "As prescribed by physician.";
+      document.getElementById("mono-warnings").textContent = p.warnings || "Read packaging label carefully.";
+      document.getElementById("mono-storage").textContent = p.storage || "Store below 25°C in a dry place.";
 
-      if (product.prescriptionRequired) {
-        badgeContainer.innerHTML = `<span class="badge-rx" style="font-size:0.875rem;padding:4px 12px;"><i class="fa-solid fa-prescription"></i> Prescription Required (Rx)</span>`;
-        rxNotice.style.display = "flex";
-      } else {
-        badgeContainer.innerHTML = `<span class="badge-otc" style="font-size:0.875rem;padding:4px 12px;">Over-The-Counter (OTC)</span>`;
-        rxNotice.style.display = "none";
+      // WhatsApp link
+      const waLink = document.getElementById("detail-whatsapp-link");
+      if (waLink) {
+        waLink.href = `https://wa.me/923001234567?text=Hi%20CuraRx,%20I%20want%20to%20order%20${encodeURIComponent(p.name)}%20(${encodeURIComponent(store.formatMoney(p.price))})`;
       }
-
-      // Monograph
-      document.getElementById("mono-indications").textContent = product.indications || "Indicated for therapeutic management pursuant to doctor advice.";
-      document.getElementById("mono-desc").textContent = product.description || "";
-      document.getElementById("mono-dosage").textContent = product.dosageInstructions || "Take as directed by your physician or pharmacist.";
-      document.getElementById("mono-active").textContent = product.activeIngredients || product.genericName || "";
-      document.getElementById("mono-warnings").textContent = product.warnings || "Keep out of reach of children. Consult doctor if pregnant or nursing.";
-      document.getElementById("mono-storage").textContent = product.storage || "Store below 25°C away from moisture and direct sunlight.";
     }
 
     function changeDetailQty(delta) {
-      selectedQuantity = Math.max(1, selectedQuantity + delta);
-      document.getElementById("detail-qty-val").textContent = selectedQuantity;
+      detailQty = Math.max(1, detailQty + delta);
+      document.getElementById("detail-qty-val").textContent = detailQty;
     }
 
     function handleDetailAddToCart() {
       if (!currentProduct || !window.PharmacyStore) return;
-      window.PharmacyStore.addToCart(currentProduct, selectedQuantity);
-      if (window.PharmacyUI) {
-        window.PharmacyUI.openCartDrawer();
-      }
+      window.PharmacyStore.addToCart(currentProduct, detailQty);
+      if (window.PharmacyUI) window.PharmacyUI.openCartDrawer();
     }
 
-    function switchTab(tabName, btn) {
+    function switchTab(tabId, btn) {
+      document.querySelectorAll(".monograph-content").forEach(el => el.style.display = "none");
       document.querySelectorAll(".monograph-tab-btn").forEach(b => b.classList.remove("active"));
-      document.querySelectorAll(".monograph-pane").forEach(p => p.classList.remove("active"));
-
-      btn.classList.add("active");
-      const targetPane = document.getElementById(`pane-${tabName}`);
-      if (targetPane) targetPane.classList.add("active");
+      const target = document.getElementById(tabId);
+      if (target) target.style.display = "block";
+      if (btn) btn.classList.add("active");
     }
   </script>
 </body>
