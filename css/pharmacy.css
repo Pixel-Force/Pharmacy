@@ -2208,3 +2208,703 @@ button, input, select, textarea {
     padding-bottom: 65px;
   }
 }
+
+
+/* ===================================================================
+   PREMIUM WORDPRESS THEME HOMEPAGE STYLES
+   Inspired by top ThemeForest Medical & Pharmacy WooCommerce Themes
+   =================================================================== */
+
+@keyframes wpPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* 1. WordPress Micro-Top Bar */
+.wp-top-bar {
+  background-color: #0b1329;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 0;
+}
+
+.wp-top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wp-top-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wp-top-badge {
+  color: #2dd4bf;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wp-top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wp-top-right a {
+  color: #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.15s ease;
+}
+
+.wp-top-right a:hover {
+  color: #2dd4bf;
+}
+
+/* 2. Premium Bright Medical Hero */
+.wp-hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 45%, #eff6ff 100%);
+  padding: 58px 0 72px;
+  border-bottom: 1px solid var(--slate-200);
+  overflow: hidden;
+}
+
+.wp-hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#0d9488 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.wp-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.wp-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ccfbf1;
+  border: 1px solid #99f6e4;
+  color: #0f766e;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+}
+
+.wp-hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.15rem;
+  font-weight: 800;
+  line-height: 1.14;
+  color: #0f172a;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.wp-gradient-text {
+  background: linear-gradient(135deg, #0d9488 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wp-hero-desc {
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  color: #475569;
+  margin-bottom: 28px;
+  max-width: 540px;
+}
+
+.wp-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.wp-btn-primary {
+  background: linear-gradient(135deg, #0d9488 0%, #059669 100%);
+  color: #ffffff !important;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.wp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(13, 148, 136, 0.35);
+  color: #ffffff !important;
+}
+
+.wp-btn-secondary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1.5px solid #cbd5e1;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.wp-btn-secondary:hover {
+  border-color: #0d9488;
+  color: #0d9488;
+  transform: translateY(-2px);
+}
+
+.wp-trust-checklist {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid rgba(203, 213, 225, 0.6);
+}
+
+.wp-trust-checklist span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wp-trust-checklist i {
+  color: #059669;
+}
+
+/* Right Column: Hero Rx Interactive Desk Card */
+.wp-hero-card {
+  background: #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 22px;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.05);
+  padding: 30px;
+  position: relative;
+}
+
+.wp-hero-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.wp-hero-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wp-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #059669;
+  background: #d1fae5;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.wp-live-indicator .pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: wpPulse 1.8s infinite;
+}
+
+.wp-upload-dropzone {
+  border: 2px dashed #99f6e4;
+  background-color: #f0fdfa;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.wp-upload-dropzone:hover {
+  background-color: #e6fffa;
+  border-color: #0d9488;
+  transform: translateY(-2px);
+}
+
+.wp-drop-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ccfbf1;
+  color: #0d9488;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin: 0 auto 10px;
+}
+
+.wp-sample-scripts {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.wp-sample-scripts-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0f766e;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.wp-sample-chips-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.wp-sample-chip {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.wp-sample-chip:hover {
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+.wp-hero-card-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  text-align: center;
+}
+
+.wp-card-stat {
+  padding: 4px;
+}
+
+.wp-card-stat-num {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.wp-card-stat-lbl {
+  font-size: 0.6875rem;
+  color: #64748b;
+}
+
+/* Floating Badges on Hero Card */
+.wp-floating-badge {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  z-index: 3;
+}
+
+.wp-floating-badge.top-left {
+  top: -16px;
+  left: -20px;
+}
+
+.wp-floating-badge.bottom-right {
+  bottom: -16px;
+  right: -20px;
+}
+
+.wp-floating-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* 3. Theme Feature Strip */
+.wp-features-section {
+  padding: 24px 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--slate-200);
+}
+
+.wp-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.wp-feature-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wp-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08);
+  border-color: #99f6e4;
+}
+
+.wp-feature-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.wp-feature-icon.teal { background: #ccfbf1; color: #0d9488; }
+.wp-feature-icon.blue { background: #e0f2fe; color: #0284c7; }
+.wp-feature-icon.emerald { background: #d1fae5; color: #059669; }
+.wp-feature-icon.amber { background: #fef3c7; color: #d97706; }
+
+.wp-feature-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.wp-feature-subtitle {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* 4. Category Tabs Filter (WooCommerce Style) */
+.wp-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.wp-tab-btn {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wp-tab-btn:hover {
+  border-color: #0d9488;
+  color: #0d9488;
+}
+
+.wp-tab-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+/* 5. Dual Promotional Banners (The Classic WP Theme Split) */
+.wp-promo-section {
+  padding: 60px 0;
+  background-color: #f8fafc;
+}
+
+.wp-promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.wp-promo-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 36px 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.wp-promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1);
+}
+
+.wp-promo-card.teal {
+  background: linear-gradient(135deg, #ccfbf1 0%, #e6fffa 50%, #f0fdfa 100%);
+  border: 1px solid #99f6e4;
+}
+
+.wp-promo-card.blue {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #eff6ff 100%);
+  border: 1px solid #bae6fd;
+}
+
+.wp-promo-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.wp-promo-card.teal .wp-promo-badge {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.wp-promo-card.blue .wp-promo-badge {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.wp-promo-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.wp-promo-card p {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-bottom: 20px;
+  max-width: 360px;
+}
+
+.wp-promo-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0f172a;
+  transition: gap 0.2s;
+}
+
+.wp-promo-link:hover {
+  gap: 10px;
+  color: #0d9488;
+}
+
+/* 6. Step Timeline Cards (How It Works) */
+.wp-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.wp-step-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 28px 20px;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.wp-step-card:hover {
+  transform: translateY(-4px);
+  border-color: #0d9488;
+  box-shadow: 0 12px 24px -6px rgba(13, 148, 136, 0.12);
+}
+
+.wp-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f0fdfa;
+  border: 1.5px solid #0d9488;
+  color: #0d9488;
+  font-weight: 800;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.wp-step-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.wp-step-desc {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+/* 7. Newsletter Strip */
+.wp-newsletter-section {
+  padding: 50px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #0f766e 100%);
+  color: #ffffff;
+}
+
+.wp-newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.wp-newsletter-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.wp-newsletter-text p {
+  color: #ccfbf1;
+  font-size: 0.875rem;
+}
+
+.wp-newsletter-form {
+  display: flex;
+  gap: 10px;
+  max-width: 460px;
+  width: 100%;
+}
+
+.wp-newsletter-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  padding: 12px 20px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.wp-newsletter-input::placeholder {
+  color: #99f6e4;
+}
+
+.wp-newsletter-btn {
+  background: #ffffff;
+  color: #0f766e;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.wp-newsletter-btn:hover {
+  background: #ccfbf1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .wp-hero-grid { grid-template-columns: 1fr; }
+  .wp-floating-badge.top-left { top: -10px; left: 10px; }
+  .wp-floating-badge.bottom-right { bottom: -10px; right: 10px; }
+  .wp-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .wp-promo-grid { grid-template-columns: 1fr; }
+  .wp-steps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .wp-top-bar { display: none; }
+  .wp-features-grid { grid-template-columns: 1fr; }
+  .wp-steps-grid { grid-template-columns: 1fr; }
+  .wp-hero-title { font-size: 2.2rem; }
+  .wp-newsletter-inner { flex-direction: column; align-items: flex-start; }
+  .wp-newsletter-form { width: 100%; flex-direction: column; }
+}

@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CuraRx Pharmacy | Licensed Online Pharmacy & Wellness</title>
-  <meta name="description" content="Simple, fast, reliable online pharmacy. Order genuine prescription medicines, OTC remedies, vitamins, and medical equipment. Verified by licensed clinical pharmacists.">
+  <title>CuraRx Pharmacy | Licensed Online Pharmacy & Daily Healthcare</title>
+  <meta name="description" content="Premium licensed online pharmacy. Order genuine prescription medications, OTC remedies, vitamins, and healthcare equipment. 15-minute pharmacist verification and cold-chain delivery.">
   
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
@@ -14,7 +19,23 @@
 </head>
 <body>
 
-  <!-- 1. SLIM, ELEGANT STICKY HEADER -->
+  <!-- 1. WORDPRESS STYLE MICRO-TOP BAR -->
+  <div class="wp-top-bar">
+    <div class="container wp-top-bar-inner">
+      <div class="wp-top-left">
+        <span class="wp-top-badge"><i class="fa-solid fa-shield-halved"></i> LegitScript Certified & FDA Sourced</span>
+        <span style="color:rgba(255,255,255,0.2);">|</span>
+        <span><i class="fa-solid fa-truck-fast text-primary"></i> Free Cold-Chain Delivery on orders over $45.00</span>
+      </div>
+      <div class="wp-top-right">
+        <a href="tel:1800287279"><i class="fa-solid fa-phone"></i> 24/7 Clinical Desk: 1-800-CURA-RX</a>
+        <a href="track-order.html"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+        <a href="admin/index.html"><i class="fa-solid fa-user-doctor"></i> Pharmacist Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. SLIM, ELEGANT STICKY HEADER (Theme Navbar) -->
   <header class="main-header">
     <div class="container header-inner">
       <!-- Logo -->
@@ -27,15 +48,16 @@
         </div>
       </a>
 
-      <!-- Compact Navigation -->
+      <!-- Compact Navigation Menu -->
       <nav class="header-nav">
-        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop</a>
+        <a href="shop.html" class="header-nav-link"><i class="fa-solid fa-table-cells-large"></i> Shop Medicines</a>
         <a href="upload-prescription.html" class="header-nav-link"><i class="fa-solid fa-file-prescription"></i> Upload Rx</a>
         <a href="track-order.html" class="header-nav-link"><i class="fa-solid fa-truck"></i> Track Order</a>
         <a href="services.html" class="header-nav-link"><i class="fa-solid fa-stethoscope"></i> Services</a>
+        <a href="about.html" class="header-nav-link"><i class="fa-regular fa-hospital"></i> About Us</a>
       </nav>
 
-      <!-- Slim Search Bar -->
+      <!-- Slim Pill Search Bar -->
       <div class="search-wrapper">
         <div class="search-input-group">
           <input type="text" class="search-input global-search-input" placeholder="Search medicines, vitamins, brands...">
@@ -65,339 +87,645 @@
     </div>
   </header>
 
-  <!-- 2. ATTRACTIVE & MODERN HERO SECTION -->
-  <section class="hero-section" style="padding: 56px 0 68px;">
-    <div class="container hero-grid">
-      <!-- Left Content -->
-      <div class="hero-content">
-        <div class="hero-pill">
-          <i class="fa-solid fa-shield-halved"></i> Licensed Pharmacy • 15-Minute Pharmacist Review
+  <!-- 3. PREMIUM MEDICAL THEME HERO SECTION -->
+  <section class="wp-hero-section">
+    <div class="wp-hero-bg-pattern"></div>
+    <div class="container wp-hero-grid">
+      
+      <!-- Left Column: Compelling Copy & Theme CTA -->
+      <div class="wp-hero-content">
+        <div class="wp-badge-pill">
+          <i class="fa-solid fa-certificate"></i> #1 Rated Online Pharmacy 2026 &bull; LegitScript Certified
         </div>
-        <h1 class="hero-title" style="font-size: 3.1rem; line-height: 1.12; margin-bottom: 16px;">
-          Pharmacy, <span style="background:linear-gradient(135deg, #2dd4bf 0%, #6ee7b7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Made Simple.</span>
+        <h1 class="wp-hero-title">
+          Your Health, Our Priority.<br>
+          <span class="wp-gradient-text">Genuine Medicines Delivered In 24 Hours.</span>
         </h1>
-        <p class="hero-description" style="font-size: 1.05rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 28px; max-width: 520px;">
-          Order authentic prescription medications, OTC remedies, and clinical wellness essentials online. Fast doorstep delivery, verified by licensed Doctor of Pharmacy (PharmD) practitioners.
+        <p class="wp-hero-desc">
+          Upload your doctor's prescription or shop authentic healthcare essentials online. Every order is reviewed by licensed Doctor of Pharmacy (PharmD) practitioners with guaranteed cold-chain temperature packaging.
         </p>
-        <div class="hero-actions" style="margin-bottom: 32px;">
-          <a href="shop.html" class="btn-primary" style="padding: 13px 26px; font-size: 0.95rem;">
-            <i class="fa-solid fa-pills"></i> Shop All Medicines
+
+        <div class="wp-hero-actions">
+          <a href="shop.html" class="wp-btn-primary">
+            <i class="fa-solid fa-pills"></i> Shop All Medicines <i class="fa-solid fa-arrow-right"></i>
           </a>
-          <a href="upload-prescription.html" class="btn-white" style="padding: 13px 24px; font-size: 0.95rem;">
-            <i class="fa-solid fa-cloud-arrow-up text-primary"></i> Upload Prescription
+          <a href="upload-prescription.html" class="wp-btn-secondary">
+            <i class="fa-solid fa-file-prescription text-primary"></i> Upload Doctor's Script
           </a>
         </div>
 
-        <div class="hero-trust-badges" style="padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12);">
-          <div class="trust-item">
-            <i class="fa-solid fa-user-doctor" style="color:#2dd4bf;font-size:1.2rem;"></i>
-            <div class="trust-item-text">
-              <strong style="font-size:0.875rem;">15-Min Rx Review</strong>
-              <span style="font-size:0.75rem;">Licensed Pharmacist on Duty</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <i class="fa-solid fa-snowflake" style="color:#2dd4bf;font-size:1.2rem;"></i>
-            <div class="trust-item-text">
-              <strong style="font-size:0.875rem;">Cold-Chain Protected</strong>
-              <span style="font-size:0.75rem;">Thermal Monitored Delivery</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <i class="fa-solid fa-certificate" style="color:#2dd4bf;font-size:1.2rem;"></i>
-            <div class="trust-item-text">
-              <strong style="font-size:0.875rem;">100% Genuine</strong>
-              <span style="font-size:0.75rem;">Direct from Manufacturers</span>
-            </div>
-          </div>
+        <!-- Trust Checklist Strip -->
+        <div class="wp-trust-checklist">
+          <span><i class="fa-solid fa-circle-check"></i> Free Delivery Over $45</span>
+          <span><i class="fa-solid fa-circle-check"></i> 15-Min PharmD Review</span>
+          <span><i class="fa-solid fa-circle-check"></i> 100% Genuine Batch Verified</span>
         </div>
       </div>
 
-      <!-- Right Interactive Quick Rx Upload Card -->
-      <div class="hero-card-showcase">
-        <div class="hero-main-card" style="padding: 24px; border-radius: 20px;">
-          <div class="hero-card-header" style="margin-bottom: 16px; padding-bottom: 12px;">
+      <!-- Right Column: Interactive Prescription & Refill Desk Hero Card -->
+      <div class="wp-hero-card-col">
+        <div class="wp-hero-card">
+          
+          <!-- Floating Badge Top Left -->
+          <div class="wp-floating-badge top-left">
+            <div class="wp-floating-icon" style="background:#fef3c7;color:#d97706;">
+              <i class="fa-solid fa-star"></i>
+            </div>
             <div>
-              <span class="hero-badge-pill"><i class="fa-solid fa-bolt"></i> Fast-Track Service</span>
-              <h3 style="color:#ffffff;font-size:1.2rem;font-weight:800;margin-top:4px;">Have a Prescription?</h3>
+              <div style="font-weight:800;font-size:0.8125rem;color:var(--navy);">4.9 / 5 Rating</div>
+              <div style="font-size:0.6875rem;color:var(--slate-500);">From 18,400+ Patients</div>
             </div>
-            <i class="fa-solid fa-file-prescription" style="font-size:2rem;color:#5eead4;"></i>
           </div>
 
-          <!-- Quick Drop / Upload Target -->
+          <!-- Floating Badge Bottom Right -->
+          <div class="wp-floating-badge bottom-right">
+            <div class="wp-floating-icon" style="background:#ccfbf1;color:#0d9488;">
+              <i class="fa-solid fa-snowflake"></i>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:0.8125rem;color:var(--navy);">Cold-Chain Monitored</div>
+              <div style="font-size:0.6875rem;color:var(--slate-500);"><span style="color:#059669;font-weight:700;">4.2°C</span> Sensor Active</div>
+            </div>
+          </div>
+
+          <!-- Card Header -->
+          <div class="wp-hero-card-header">
+            <h3><i class="fa-solid fa-prescription-bottle-medical text-primary"></i> Rapid Rx Refill Desk</h3>
+            <span class="wp-live-indicator">
+              <span class="pulse-dot"></span> Pharmacists Active
+            </span>
+          </div>
+
+          <!-- Interactive Upload Dropzone -->
           <a href="upload-prescription.html" style="text-decoration:none;display:block;">
-            <div class="hero-upload-box" style="padding: 20px; margin-bottom: 16px;">
-              <div class="hero-upload-icon" style="width:48px;height:48px;font-size:20px;margin-bottom:8px;">
-                <i class="fa-solid fa-camera"></i>
+            <div class="wp-upload-dropzone">
+              <div class="wp-drop-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
               </div>
-              <h4 style="color:#ffffff;font-size:1rem;font-weight:700;margin-bottom:2px;">Snap & Upload Your Script</h4>
-              <p style="color:#cbd5e1;font-size:0.78rem;">Upload photo, scanned PDF, or select a sample</p>
+              <h4 style="color:var(--navy);font-size:1rem;font-weight:800;margin-bottom:3px;">
+                Snap & Upload Your Prescription
+              </h4>
+              <p style="color:var(--slate-500);font-size:0.8125rem;margin:0;">
+                Click to browse photo, PDF, or drag file here
+              </p>
             </div>
           </a>
 
-          <!-- Quick Sample Script Selector for Immediate Demo -->
-          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px;margin-bottom:14px;font-size:0.75rem;">
-            <span style="color:#99f6e4;font-weight:700;">1-Click Demo Scripts:</span>
-            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
-              <a href="upload-prescription.html?sample=cardio" class="quick-tag" style="background:rgba(255,255,255,0.1);color:#ffffff;border-color:rgba(255,255,255,0.2);padding:2px 8px;font-size:0.72rem;">
-                Cardiology (Atorvastatin)
+          <!-- 1-Click Instant Demo Scripts -->
+          <div class="wp-sample-scripts">
+            <div class="wp-sample-scripts-title">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> 1-Click Demo Prescriptions (Instant Test):
+            </div>
+            <div class="wp-sample-chips-row">
+              <a href="upload-prescription.html?sample=cardio" class="wp-sample-chip">
+                Cardiology (Atorvastatin 20mg)
               </a>
-              <a href="upload-prescription.html?sample=respiratory" class="quick-tag" style="background:rgba(255,255,255,0.1);color:#ffffff;border-color:rgba(255,255,255,0.2);padding:2px 8px;font-size:0.72rem;">
-                Inhaler (Ventolin)
+              <a href="upload-prescription.html?sample=respiratory" class="wp-sample-chip">
+                Inhaler (Ventolin HFA)
+              </a>
+              <a href="upload-prescription.html?sample=antibiotic" class="wp-sample-chip">
+                Antibiotic (Amoxicillin)
               </a>
             </div>
           </div>
 
-          <!-- 3-Step Micro Pipeline -->
-          <div class="hero-card-steps">
-            <div class="hero-step" style="padding: 8px;">
-              <div class="hero-step-num" style="font-size:0.68rem;">STEP 1</div>
-              <div class="hero-step-title" style="font-size:0.72rem;">Upload Script</div>
+          <!-- Card Footer Stats -->
+          <div class="wp-hero-card-footer">
+            <div class="wp-card-stat">
+              <div class="wp-card-stat-num">15 Mins</div>
+              <div class="wp-card-stat-lbl">Average Review</div>
             </div>
-            <div class="hero-step" style="padding: 8px;">
-              <div class="hero-step-num" style="font-size:0.68rem;">STEP 2</div>
-              <div class="hero-step-title" style="font-size:0.72rem;">Pharmacist Screen</div>
+            <div class="wp-card-stat">
+              <div class="wp-card-stat-num">100% HIPAA</div>
+              <div class="wp-card-stat-lbl">Encrypted Records</div>
             </div>
-            <div class="hero-step" style="padding: 8px;">
-              <div class="hero-step-num" style="font-size:0.68rem;">STEP 3</div>
-              <div class="hero-step-title" style="font-size:0.72rem;">Express Delivery</div>
+            <div class="wp-card-stat">
+              <div class="wp-card-stat-num">HSA / FSA</div>
+              <div class="wp-card-stat-lbl">Cards Accepted</div>
             </div>
           </div>
-        </div>
 
-        <!-- Floating Verification Pill -->
-        <div class="hero-floating-badge" style="padding: 8px 14px; bottom: -14px; left: -10px;">
-          <div class="floating-icon" style="width: 32px; height: 32px; font-size: 15px;">
-            <i class="fa-solid fa-certificate"></i>
-          </div>
-          <div>
-            <div style="font-weight:800;font-size:0.8125rem;color:var(--navy);">100% Genuine Medicines</div>
-            <div style="font-size:0.7rem;color:var(--slate-500);">Direct from licensed manufacturers</div>
-          </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- 3. QUICK TRUST STRIP -->
-  <section class="features-strip" style="padding: 16px 0; border-bottom: 1px solid var(--slate-200);">
-    <div class="container features-grid">
-      <div class="feature-box" style="padding: 8px;">
-        <div class="feature-icon-wrapper" style="width: 40px; height: 40px; font-size: 18px;">
+  <!-- 4. WORDPRESS 4-COLUMN FEATURE STRIP -->
+  <section class="wp-features-section">
+    <div class="container wp-features-grid">
+      
+      <div class="wp-feature-card">
+        <div class="wp-feature-icon teal">
           <i class="fa-solid fa-truck-fast"></i>
         </div>
-        <div class="feature-info">
-          <h4 style="font-size:0.875rem;">Free Express Delivery</h4>
-          <p style="font-size:0.75rem;">On qualifying orders over $45</p>
+        <div>
+          <h4 class="wp-feature-title">Free Express Shipping</h4>
+          <p class="wp-feature-subtitle">On qualifying orders over $45</p>
         </div>
       </div>
 
-      <div class="feature-box" style="padding: 8px;">
-        <div class="feature-icon-wrapper" style="width: 40px; height: 40px; font-size: 18px;">
+      <div class="wp-feature-card">
+        <div class="wp-feature-icon blue">
           <i class="fa-solid fa-user-doctor"></i>
         </div>
-        <div class="feature-info">
-          <h4 style="font-size:0.875rem;">15-Min Pharmacist Check</h4>
-          <p style="font-size:0.75rem;">Thorough interaction screening</p>
+        <div>
+          <h4 class="wp-feature-title">15-Min Pharmacist Check</h4>
+          <p class="wp-feature-subtitle">Clinical review & drug screening</p>
         </div>
       </div>
 
-      <div class="feature-box" style="padding: 8px;">
-        <div class="feature-icon-wrapper" style="width: 40px; height: 40px; font-size: 18px;">
+      <div class="wp-feature-card">
+        <div class="wp-feature-icon emerald">
           <i class="fa-solid fa-snowflake"></i>
         </div>
-        <div class="feature-info">
-          <h4 style="font-size:0.875rem;">Cold-Chain Monitored</h4>
-          <p style="font-size:0.75rem;">Insulin & biologic integrity</p>
+        <div>
+          <h4 class="wp-feature-title">Cold-Chain Monitored</h4>
+          <p class="wp-feature-subtitle">2°C - 8°C thermal packaging</p>
         </div>
       </div>
 
-      <div class="feature-box" style="padding: 8px;">
-        <div class="feature-icon-wrapper" style="width: 40px; height: 40px; font-size: 18px;">
+      <div class="wp-feature-card">
+        <div class="wp-feature-icon amber">
           <i class="fa-solid fa-arrows-rotate"></i>
         </div>
-        <div class="feature-info">
-          <h4 style="font-size:0.875rem;">Automated Refills</h4>
-          <p style="font-size:0.75rem;">Never miss chronic dosages</p>
+        <div>
+          <h4 class="wp-feature-title">Automated Refill Sync</h4>
+          <p class="wp-feature-subtitle">Never run out of chronic meds</p>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- 4. SHOP BY CATEGORY -->
-  <section class="categories-section" style="padding: 48px 0;">
+  <!-- 5. SHOP BY HEALTHCARE DEPARTMENT (Visual Carousel / Grid) -->
+  <section class="categories-section" style="padding: 64px 0 54px; background-color: #ffffff;">
     <div class="container">
-      <div class="section-header" style="margin-bottom: 28px;">
-        <div>
-          <span class="section-tag"><i class="fa-solid fa-folder-tree"></i> Departments</span>
-          <h2 class="section-title" style="font-size: 1.85rem;">Shop by Category</h2>
-          <p class="section-subtitle" style="font-size: 0.9375rem;">Explore prescription medicines, OTC remedies, vitamins, skincare, and medical supplies.</p>
-        </div>
-        <a href="shop.html" class="link-view-all">Browse All (30+) <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="section-header" style="margin-bottom: 32px;">
+        <span class="section-tag"><i class="fa-solid fa-table-cells-large"></i> Explore Departments</span>
+        <h2 class="section-title">Shop by Healthcare Category</h2>
+        <p class="section-subtitle">
+          Over 30+ certified medical departments from daily wellness to critical chronic prescriptions.
+        </p>
       </div>
 
       <div class="categories-grid" id="homepage-categories-grid">
-        <!-- Injected dynamically -->
+        <!-- Rendered dynamically from pharmacy-data.js -->
       </div>
     </div>
   </section>
 
-  <!-- 5. FEATURED MEDICINES & BEST SELLERS -->
-  <section class="products-section" style="padding: 48px 0;">
+  <!-- 6. FEATURED MEDICINES & HEALTHCARE PRODUCTS (WooCommerce Style Tabs) -->
+  <section class="products-section" style="padding: 60px 0 70px; background-color: var(--slate-50); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200);">
     <div class="container">
-      <div class="section-header" style="margin-bottom: 28px;">
-        <div>
-          <span class="section-tag"><i class="fa-solid fa-award"></i> Best Sellers</span>
-          <h2 class="section-title" style="font-size: 1.85rem;">Popular Medicines & Health Essentials</h2>
-          <p class="section-subtitle" style="font-size: 0.9375rem;">Genuine medications and daily healthcare items dispensed with pharmacist oversight.</p>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <a href="shop.html?filter=rx" class="btn-white" style="font-size:0.8125rem;padding:6px 14px;">
-            <i class="fa-solid fa-prescription text-primary"></i> Prescription Only
-          </a>
-          <a href="shop.html" class="link-view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="products-grid" id="featured-products-grid">
-        <!-- Injected dynamically -->
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. HOW IT WORKS (SIMPLE & CLEAR 3 STEPS) -->
-  <section style="padding: 56px 0; background-color: #ffffff; border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200);">
-    <div class="container">
-      <div style="text-align:center;max-width:600px;margin:0 auto 36px;">
-        <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Simple Process</span>
-        <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:var(--navy);margin-top:6px;">
-          How CuraRx Works
-        </h2>
-        <p style="color:var(--slate-500);font-size:0.9375rem;">
-          We make getting your medications effortless, secure, and legally verified.
+      
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-tag"><i class="fa-solid fa-prescription"></i> Doctor Recommended</span>
+        <h2 class="section-title">Featured Essential Medicines & Supplies</h2>
+        <p class="section-subtitle">
+          Authentic therapeutics and daily health remedies verified by our Doctor of Pharmacy clinical team.
         </p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:24px;">
-        <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:28px;text-align:center;">
-          <div style="width:52px;height:52px;background:var(--primary-subtle);color:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:800;">
-            1
-          </div>
-          <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:6px;">Find or Upload</h4>
-          <p style="font-size:0.875rem;color:var(--slate-600);line-height:1.5;">
-            Browse our pharmacy catalog for OTC items or upload a photo of your doctor's prescription in 1 click.
+      <!-- WooCommerce Style Category Tabs Filter -->
+      <div class="wp-filter-tabs">
+        <button type="button" class="wp-tab-btn active" data-category="all">
+          <i class="fa-solid fa-border-all"></i> All Products
+        </button>
+        <button type="button" class="wp-tab-btn" data-category="prescription-medicines">
+          <i class="fa-solid fa-prescription"></i> Prescription Meds
+        </button>
+        <button type="button" class="wp-tab-btn" data-category="otc-medicines">
+          <i class="fa-solid fa-capsules"></i> OTC Remedies
+        </button>
+        <button type="button" class="wp-tab-btn" data-category="vitamins-supplements">
+          <i class="fa-solid fa-leaf"></i> Vitamins & Minerals
+        </button>
+        <button type="button" class="wp-tab-btn" data-category="medical-equipment">
+          <i class="fa-solid fa-heart-pulse"></i> Diagnostic Equipment
+        </button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="featured-products-grid">
+        <!-- Populated dynamically by JS with tab filtering -->
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="shop.html" class="btn-primary" style="padding: 14px 34px; font-size: 0.95rem;">
+          View All 30+ Pharmacy Medicines & Products <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. DUAL PROMOTIONAL BANNERS (WordPress 2-Column Split) -->
+  <section class="wp-promo-section">
+    <div class="container wp-promo-grid">
+      
+      <!-- Promo Banner 1: Chronic Care -->
+      <div class="wp-promo-card teal">
+        <div>
+          <span class="wp-promo-badge">Chronic Care Refill Plan</span>
+          <h3>Save Up To 25% On Monthly Maintenance Meds</h3>
+          <p>
+            Consolidate your blood pressure, cholesterol, and diabetes medications into one synchronized monthly delivery with complimentary pill organizers.
+          </p>
+        </div>
+        <div>
+          <a href="upload-prescription.html" class="wp-promo-link">
+            Start Automated Refills <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Promo Banner 2: Immunity & Wellness -->
+      <div class="wp-promo-card blue">
+        <div>
+          <span class="wp-promo-badge">Doctor's Wellness Pick</span>
+          <h3>Clinically Formulated Immunity & Daily Vitamins</h3>
+          <p>
+            Pharmaceutical-grade Zinc, Vitamin D3, and high-potency Omega-3 to support daily cardiovascular vitality and cellular immunity.
+          </p>
+        </div>
+        <div>
+          <a href="shop.html?category=vitamins-supplements" class="wp-promo-link">
+            Explore Vitamin Range <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. HOW IT WORKS: 4-STEP REFILL & DELIVERY FLOW -->
+  <section style="padding: 70px 0 80px; background-color: #ffffff; border-bottom: 1px solid var(--slate-200);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-clock-rotate-left"></i> Simple 4-Step Process</span>
+        <h2 class="section-title">How CuraRx Delivers To Your Door</h2>
+        <p class="section-subtitle">
+          Getting your medications fulfilled has never been faster, safer, or more convenient.
+        </p>
+      </div>
+
+      <div class="wp-steps-grid">
+        
+        <div class="wp-step-card">
+          <div class="wp-step-num">01</div>
+          <h4 class="wp-step-title">Upload Or Select Meds</h4>
+          <p class="wp-step-desc">
+            Take a quick photo of your prescription or select OTC health items directly from our catalog.
           </p>
         </div>
 
-        <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:28px;text-align:center;">
-          <div style="width:52px;height:52px;background:#e0f2fe;color:#0284c7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:800;">
-            2
-          </div>
-          <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:6px;">Pharmacist Review</h4>
-          <p style="font-size:0.875rem;color:var(--slate-600);line-height:1.5;">
-            Our licensed clinical pharmacist verifies dosages, checks allergy interactions, and approves the dispensation.
+        <div class="wp-step-card">
+          <div class="wp-step-num">02</div>
+          <h4 class="wp-step-title">PharmD Clinical Check</h4>
+          <p class="wp-step-desc">
+            Our licensed pharmacists verify dosage, allergies, and drug interactions within 15 minutes.
           </p>
         </div>
 
-        <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-xl);padding:28px;text-align:center;">
-          <div style="width:52px;height:52px;background:var(--success-bg);color:var(--secondary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:800;">
-            3
-          </div>
-          <h4 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:6px;">Fast Delivery</h4>
-          <p style="font-size:0.875rem;color:var(--slate-600);line-height:1.5;">
-            Delivered straight to your doorstep in tamper-sealed, temperature-controlled packaging with live tracking.
+        <div class="wp-step-card">
+          <div class="wp-step-num">03</div>
+          <h4 class="wp-step-title">Sterile Thermal Packing</h4>
+          <p class="wp-step-desc">
+            Medications are tamper-sealed with cold-chain telemetry logs for temperature-sensitive items.
           </p>
         </div>
+
+        <div class="wp-step-card">
+          <div class="wp-step-num">04</div>
+          <h4 class="wp-step-title">Discreet Fast Delivery</h4>
+          <p class="wp-step-desc">
+            Delivered directly to your door in unbranded packaging with live real-time GPS tracking.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 7. CLINICAL SERVICES HIGHLIGHT -->
-  <section class="services-section" style="padding: 48px 0;">
+  <!-- 9. CLINICAL SERVICES & TELEHEALTH CONSULTATIONS -->
+  <section class="services-section" style="padding: 70px 0; background-color: var(--slate-50); border-bottom: 1px solid var(--slate-200);">
     <div class="container">
-      <div class="section-header" style="margin-bottom: 28px;">
-        <div>
-          <span class="section-tag"><i class="fa-solid fa-stethoscope"></i> Patient Services</span>
-          <h2 class="section-title" style="font-size: 1.85rem;">Clinical Healthcare Services</h2>
-          <p class="section-subtitle" style="font-size: 0.9375rem;">Personalized medication therapy management, chronic refills, and free consultations.</p>
-        </div>
-        <a href="services.html" class="link-view-all">All Services <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-stethoscope"></i> Clinical Services</span>
+        <h2 class="section-title">Professional Pharmacy Care & Advice</h2>
+        <p class="section-subtitle">
+          Connect directly with licensed Doctor of Pharmacy (PharmD) practitioners for personalized care.
+        </p>
       </div>
 
       <div class="services-grid" id="homepage-services-grid">
-        <!-- Injected dynamically -->
+        <!-- Rendered dynamically from pharmacy-data.js -->
       </div>
     </div>
   </section>
 
-  <!-- 8. STREAMLINED FOOTER -->
-  <footer class="main-footer" style="padding: 48px 0 0;">
-    <div class="container footer-top" style="padding-bottom: 36px;">
-      <!-- Col 1 -->
-      <div class="footer-col">
-        <div class="brand-logo" style="margin-bottom:12px;">
-          <div class="logo-symbol" style="width:32px;height:32px;font-size:15px;">
+  <!-- 10. CLINICAL ADVISORY BOARD / MEET OUR PHARMACISTS -->
+  <section class="pharmacists-section" style="padding: 70px 0; background-color: #ffffff; border-bottom: 1px solid var(--slate-200);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-user-doctor"></i> Clinical Leadership</span>
+        <h2 class="section-title">Meet Our Licensed Clinical Pharmacists</h2>
+        <p class="section-subtitle">
+          Board-certified medical specialists dedicated to patient safety and therapeutic excellence.
+        </p>
+      </div>
+
+      <div class="pharmacists-grid">
+        <!-- Pharmacist 1 -->
+        <div class="pharmacist-card">
+          <div class="pharmacist-image-box">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80" alt="Dr. Sarah Jenkins, PharmD" loading="lazy">
+          </div>
+          <div class="pharmacist-info">
+            <h4 class="pharmacist-name">Dr. Sarah Jenkins, PharmD</h4>
+            <div class="pharmacist-role">Chief Clinical Pharmacist &bull; BCPS</div>
+            <div class="pharmacist-badge">
+              <i class="fa-solid fa-id-card"></i> Lic. #PH-88421 &bull; 14+ Years Clinical Experience
+            </div>
+          </div>
+        </div>
+
+        <!-- Pharmacist 2 -->
+        <div class="pharmacist-card">
+          <div class="pharmacist-image-box">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&auto=format&fit=crop&q=80" alt="Dr. Marcus Vance, PharmD" loading="lazy">
+          </div>
+          <div class="pharmacist-info">
+            <h4 class="pharmacist-name">Dr. Marcus Vance, PharmD</h4>
+            <div class="pharmacist-role">Director of Cold-Chain & Sterile Dispensing</div>
+            <div class="pharmacist-badge">
+              <i class="fa-solid fa-id-card"></i> Lic. #PH-77194 &bull; Biologics & Cold-Chain Lead
+            </div>
+          </div>
+        </div>
+
+        <!-- Pharmacist 3 -->
+        <div class="pharmacist-card">
+          <div class="pharmacist-image-box">
+            <img src="https://images.unsplash.com/photo-1594824813583-14c1e405a2e7?w=600&auto=format&fit=crop&q=80" alt="Dr. Sophia Patel, PharmD" loading="lazy">
+          </div>
+          <div class="pharmacist-info">
+            <h4 class="pharmacist-name">Dr. Sophia Patel, PharmD</h4>
+            <div class="pharmacist-role">Chronic Care & Medication Synchronization</div>
+            <div class="pharmacist-badge">
+              <i class="fa-solid fa-id-card"></i> Lic. #PH-99203 &bull; Diabetes & Cardio Specialist
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. PATIENT TESTIMONIALS (Social Proof) -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-comment-medical"></i> Patient Stories</span>
+        <h2 class="section-title">Trusted by Over 250,000+ Patients</h2>
+        <p class="section-subtitle">
+          Read real reviews from patients who rely on CuraRx for their monthly prescriptions.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "Uploading my doctor's prescription took less than 30 seconds. Within 15 minutes, Dr. Jenkins called to double check my allergy history. My insulin arrived the next day at exactly 4°C!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">EM</div>
+            <div class="author-meta">
+              <h6>Eleanor Martinez</h6>
+              <span>Verified Patient &bull; Type 1 Diabetes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "The automated refill synchronization is a game-changer. I used to have 4 different pickup dates each month. Now everything arrives in one discreet box on the 1st of every month."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div class="author-meta">
+              <h6>Robert Kowalski</h6>
+              <span>Verified Patient &bull; Cardiovascular Care</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "I save over $60 a month compared to my local retail pharmacy on Atorvastatin and Metformin. Plus, the customer care team responds on live chat in under 2 minutes."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SC</div>
+            <div class="author-meta">
+              <h6>Susan Chen</h6>
+              <span>Verified Patient &bull; Maintenance Meds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. HEALTH BLOG & CLINICAL ARTICLES (WordPress Blog Section) -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-newspaper"></i> Clinical Guides</span>
+        <h2 class="section-title">Latest Healthcare Insights & Advice</h2>
+        <p class="section-subtitle">
+          Evidence-based articles written by our clinical pharmacists to support your daily wellness.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- Article 1 -->
+        <article class="blog-card">
+          <div class="blog-thumb">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80" alt="Generic vs Brand Medications" loading="lazy">
+          </div>
+          <div class="blog-body" style="padding: 24px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.75rem;color:var(--slate-500);margin-bottom:10px;">
+              <span style="color:var(--primary);font-weight:700;">PHARMACY 101</span> &bull; <span>5 min read</span>
+            </div>
+            <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:8px;line-height:1.35;">
+              <a href="about.html">Generic vs. Brand Name Drugs: Clinical Equivalence Explained</a>
+            </h3>
+            <p style="font-size:0.8125rem;color:var(--slate-600);line-height:1.5;margin-bottom:16px;">
+              Learn why FDA-approved generic drugs offer the exact same active therapeutic bioequivalence at up to 80% lower cost.
+            </p>
+            <a href="about.html" style="font-size:0.8125rem;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:6px;">
+              Read Full Guide <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card">
+          <div class="blog-thumb">
+            <img src="https://images.unsplash.com/photo-1576073719676-aa955fc6b889?w=600&auto=format&fit=crop&q=80" alt="Cold Chain Temperature Logistics" loading="lazy">
+          </div>
+          <div class="blog-body" style="padding: 24px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.75rem;color:var(--slate-500);margin-bottom:10px;">
+              <span style="color:var(--primary);font-weight:700;">LOGISTICS & SAFETY</span> &bull; <span>4 min read</span>
+            </div>
+            <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:8px;line-height:1.35;">
+              <a href="about.html">Why Cold-Chain Temperature Integrity Matters For Insulin</a>
+            </h3>
+            <p style="font-size:0.8125rem;color:var(--slate-600);line-height:1.5;margin-bottom:16px;">
+              How temperature excursions can degrade protein structures in biologics and how our sensors prevent medication loss.
+            </p>
+            <a href="about.html" style="font-size:0.8125rem;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:6px;">
+              Read Full Guide <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card">
+          <div class="blog-thumb">
+            <img src="https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=600&auto=format&fit=crop&q=80" alt="Managing Blood Pressure" loading="lazy">
+          </div>
+          <div class="blog-body" style="padding: 24px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.75rem;color:var(--slate-500);margin-bottom:10px;">
+              <span style="color:var(--primary);font-weight:700;">HEART HEALTH</span> &bull; <span>6 min read</span>
+            </div>
+            <h3 style="font-family:var(--font-heading);font-size:1.15rem;font-weight:700;margin-bottom:8px;line-height:1.35;">
+              <a href="about.html">Managing Hypertension: Daily Tips to Keep Your Numbers Healthy</a>
+            </h3>
+            <p style="font-size:0.8125rem;color:var(--slate-600);line-height:1.5;margin-bottom:16px;">
+              Key considerations when monitoring blood pressure at home and what to discuss with your cardiologist.
+            </p>
+            <a href="about.html" style="font-size:0.8125rem;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:6px;">
+              Read Full Guide <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. VIP NEWSLETTER & REFILL ALERTS STRIP -->
+  <section class="wp-newsletter-section">
+    <div class="container wp-newsletter-inner">
+      <div class="wp-newsletter-text">
+        <h3>Join 50,000+ Patients On Our Healthcare Newsletter</h3>
+        <p>Get personalized medication refill alerts, clinical wellness guides, and 15% off your first OTC health order.</p>
+      </div>
+      <form class="wp-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to CuraRx Health Updates!');">
+        <input type="email" class="wp-newsletter-input" placeholder="Enter your email address..." required>
+        <button type="submit" class="wp-newsletter-btn">
+          Subscribe Now <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 14. FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-top">
+      <!-- Col 1: Brand Info -->
+      <div class="footer-col brand-col">
+        <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+          <div class="logo-symbol">
             <i class="fa-solid fa-mortar-pestle"></i>
           </div>
           <div class="logo-text">
-            <h1 style="color:#ffffff;font-size:1.25rem;">Cura<span>Rx</span></h1>
+            <h1 style="color:#ffffff;">Cura<span>Rx</span></h1>
+          </div>
+        </a>
+        <p class="footer-desc">
+          State-of-the-art licensed online pharmacy dispensing authentic prescription medicines, OTC health remedies, and clinical wellness products. Verified by licensed clinical pharmacists.
+        </p>
+        <div class="footer-contacts">
+          <div class="contact-line">
+            <i class="fa-solid fa-phone"></i>
+            <span>1-800-CURA-RX (Toll-Free, 24/7)</span>
+          </div>
+          <div class="contact-line">
+            <i class="fa-solid fa-envelope"></i>
+            <span>support@curarx-pharmacy.com</span>
+          </div>
+          <div class="contact-line">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Lic. #NABP-984421 &bull; LegitScript Verified</span>
           </div>
         </div>
-        <p style="color:#94a3b8;font-size:0.8125rem;line-height:1.6;margin-bottom:14px;">
-          Licensed community and online pharmacy delivering genuine pharmaceuticals with clinical pharmacist oversight.
-        </p>
-        <div style="font-size:0.75rem;color:#2dd4bf;">
-          <i class="fa-solid fa-certificate"></i> State Dispensary Permit #RPH-942817-A
-        </div>
       </div>
 
-      <!-- Col 2 -->
+      <!-- Col 2: Quick Links -->
       <div class="footer-col">
-        <h5 style="font-size:0.9375rem;margin-bottom:14px;">Shop Departments</h5>
-        <ul class="footer-links" style="font-size:0.8125rem;gap:8px;">
-          <li><a href="shop.html?category=prescription">Prescription Medicines</a></li>
-          <li><a href="shop.html?category=otc">Over-The-Counter (OTC)</a></li>
-          <li><a href="shop.html?category=vitamins">Vitamins & Supplements</a></li>
-          <li><a href="shop.html?category=medical-equipment">Medical Devices</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3 -->
-      <div class="footer-col">
-        <h5 style="font-size:0.9375rem;margin-bottom:14px;">Patient Care</h5>
-        <ul class="footer-links" style="font-size:0.8125rem;gap:8px;">
+        <h4 class="footer-title">Pharmacy Services</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html">Browse All Medicines</a></li>
           <li><a href="upload-prescription.html">Upload Prescription</a></li>
-          <li><a href="track-order.html">Track Order</a></li>
-          <li><a href="portal.html">Patient Account</a></li>
-          <li><a href="services.html">Pharmacist Consultations</a></li>
+          <li><a href="track-order.html">Track Order & Cold Chain</a></li>
+          <li><a href="services.html">Clinical Pharmacist Care</a></li>
+          <li><a href="portal.html">Patient Account Portal</a></li>
+          <li><a href="admin/index.html">Pharmacist Admin Desk</a></li>
         </ul>
       </div>
 
-      <!-- Col 4 -->
+      <!-- Col 3: Categories -->
       <div class="footer-col">
-        <h5 style="font-size:0.9375rem;margin-bottom:14px;">Dispensary Contact</h5>
-        <div style="font-size:0.8125rem;color:#cbd5e1;line-height:1.6;">
-          <strong>Hotline:</strong> 1-800-CURA-RX<br>
-          <strong>Urgent Pharmacist 24/7:</strong> 1-888-PHARM-24<br>
-          <strong>Email:</strong> dispensary@curarx-pharmacy.com<br>
-          <a href="admin/index.html" style="color:#2dd4bf;font-weight:700;margin-top:6px;display:inline-block;">
-            <i class="fa-solid fa-user-doctor"></i> Pharmacist Portal
-          </a>
+        <h4 class="footer-title">Departments</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html?category=prescription-medicines">Prescription Medicines</a></li>
+          <li><a href="shop.html?category=otc-medicines">OTC Remedies</a></li>
+          <li><a href="shop.html?category=vitamins-supplements">Vitamins & Supplements</a></li>
+          <li><a href="shop.html?category=personal-care">Personal & Skin Care</a></li>
+          <li><a href="shop.html?category=medical-equipment">Medical Devices</a></li>
+          <li><a href="shop.html?category=first-aid">First Aid & Emergency</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Trust & Compliance -->
+      <div class="footer-col">
+        <h4 class="footer-title">Accreditations</h4>
+        <div style="color:var(--slate-400);font-size:0.8125rem;line-height:1.6;margin-bottom:14px;">
+          Certified by National Association of Boards of Pharmacy (NABP) and LegitScript verified for healthcare compliance.
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;color:#2dd4bf;font-size:1.4rem;">
+          <i class="fa-solid fa-shield-virus" title="Sterile Dispensing"></i>
+          <i class="fa-solid fa-user-doctor" title="Licensed Pharmacists"></i>
+          <i class="fa-solid fa-temperature-arrow-down" title="Cold-Chain Certified"></i>
+          <i class="fa-solid fa-lock" title="HIPAA Compliant"></i>
         </div>
       </div>
     </div>
 
-    <div class="container footer-bottom" style="padding: 16px 0; font-size: 0.75rem;">
-      <div>&copy; 2026 CuraRx Licensed Pharmacy & Wellness. All rights reserved.</div>
-      <div>
-        <a href="compliance.html" style="margin-right:12px;">Privacy Policy</a>
-        <a href="compliance.html" style="margin-right:12px;">Dispensing Policy</a>
-        <a href="compliance.html">Terms of Service</a>
+    <!-- Bottom Bar -->
+    <div class="container footer-bottom">
+      <p class="copyright-text">
+        &copy; 2026 CuraRx Licensed Pharmacy &bull; All Rights Reserved. Dispensing compliant with national pharmacy and pharmaceutical regulatory bodies.
+      </p>
+      <div class="footer-legal-links">
+        <a href="compliance.html">HIPAA Privacy Notice</a>
+        <a href="compliance.html">Terms of Dispensing</a>
+        <a href="compliance.html">Pharmacist Verification Policy</a>
       </div>
     </div>
   </footer>
 
-  <!-- 9. SLIDE-OUT CART DRAWER -->
+  <!-- 15. CART SLIDE-OVER DRAWER -->
   <div class="cart-drawer-overlay"></div>
   <div class="cart-drawer">
     <div class="drawer-header">
@@ -424,7 +752,7 @@
     </div>
   </div>
 
-  <!-- 10. MOBILE BOTTOM NAVIGATION -->
+  <!-- 16. MOBILE BOTTOM NAVIGATION -->
   <div class="mobile-bottom-nav">
     <div class="mobile-bottom-inner">
       <a href="index.html" class="mobile-nav-link active">
@@ -460,37 +788,65 @@
       const categoriesGrid = document.getElementById("homepage-categories-grid");
       if (categoriesGrid && window.PHARMACY_CATEGORIES) {
         categoriesGrid.innerHTML = window.PHARMACY_CATEGORIES.map(cat => `
-          <a href="shop.html?category=${cat.id}" class="category-card" style="padding:16px 12px;border-radius:14px;">
-            <div class="category-icon-box" style="width:48px;height:48px;font-size:20px;margin-bottom:10px;color:${cat.color};">
+          <a href="shop.html?category=${cat.id}" class="category-card" style="padding:22px 14px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff;">
+            <div class="category-icon-box" style="width:52px;height:52px;font-size:22px;margin-bottom:12px;color:${cat.color};background:#f8fafc;border:1px solid #e2e8f0;">
               <i class="fa-solid ${cat.icon}"></i>
             </div>
-            <div class="category-name" style="font-size:0.875rem;">${cat.name}</div>
-            <div class="category-count" style="font-size:0.72rem;">${cat.itemCount} Items</div>
+            <div class="category-name" style="font-size:0.925rem;font-weight:700;">${cat.name}</div>
+            <div class="category-count" style="font-size:0.75rem;color:#64748b;margin-top:2px;">${cat.itemCount} Items</div>
           </a>
         `).join("");
       }
 
-      // 2. Render Featured Products
+      // 2. Render Featured Products with Interactive Tab Filtering
       const featuredGrid = document.getElementById("featured-products-grid");
-      if (featuredGrid && window.PharmacyStore) {
+      const tabButtons = document.querySelectorAll(".wp-tab-btn");
+
+      function renderProducts(filterCategory = "all") {
+        if (!featuredGrid || !window.PharmacyStore) return;
         const products = window.PharmacyStore.getProducts();
-        const featured = products.filter(p => p.featured).slice(0, 8);
-        featuredGrid.innerHTML = featured.map(p => window.PharmacyUI.createProductCard(p)).join("");
+        let filtered = products;
+
+        if (filterCategory !== "all") {
+          filtered = products.filter(p => p.category === filterCategory);
+        } else {
+          filtered = products.filter(p => p.featured || p.rating >= 4.8);
+        }
+
+        const displayItems = filtered.slice(0, 8);
+        if (displayItems.length === 0) {
+          featuredGrid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#64748b;">No products found in this category.</div>`;
+        } else {
+          featuredGrid.innerHTML = displayItems.map(p => window.PharmacyUI.createProductCard(p)).join("");
+        }
       }
 
-      // 3. Render Pharmacy Services (Top 3 simple services)
+      // Initial Render
+      renderProducts("all");
+
+      // Tab Click Handling
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const cat = btn.getAttribute("data-category");
+          renderProducts(cat);
+        });
+      });
+
+      // 3. Render Pharmacy Clinical Services
       const servicesGrid = document.getElementById("homepage-services-grid");
       if (servicesGrid && window.PHARMACY_SERVICES) {
         servicesGrid.innerHTML = window.PHARMACY_SERVICES.slice(0, 3).map(srv => `
-          <div class="service-card" style="padding:22px;border-radius:16px;">
-            <div class="service-icon-box" style="width:44px;height:44px;font-size:18px;margin-bottom:14px;">
+          <div class="service-card" style="padding:28px;border-radius:18px;background:#ffffff;border:1px solid #e2e8f0;">
+            <div class="service-icon-box" style="width:50px;height:50px;font-size:22px;margin-bottom:16px;background:#f0fdfa;color:#0d9488;border-radius:14px;">
               <i class="fa-solid ${srv.icon}"></i>
             </div>
-            <h4 style="font-size:1.1rem;margin-bottom:6px;">${srv.title}</h4>
-            <p style="font-size:0.8125rem;line-height:1.5;margin-bottom:14px;">${srv.summary}</p>
-            <div class="service-meta" style="padding-top:10px;font-size:0.75rem;">
-              <span><i class="fa-regular fa-clock"></i> ${srv.turnaround}</span>
-              <span style="color:var(--primary);font-weight:700;">${srv.free ? 'FREE' : 'Standard'}</span>
+            <h4 style="font-size:1.15rem;margin-bottom:8px;font-weight:700;">${srv.title}</h4>
+            <p style="font-size:0.84rem;line-height:1.55;margin-bottom:16px;color:#64748b;">${srv.summary}</p>
+            <div class="service-meta" style="padding-top:14px;border-top:1px solid #f1f5f9;font-size:0.78rem;display:flex;justify-content:space-between;">
+              <span style="color:#475569;"><i class="fa-regular fa-clock"></i> ${srv.turnaround}</span>
+              <span style="color:var(--primary);font-weight:700;">${srv.free ? 'FREE CLINICAL CHAT' : 'Standard'}</span>
             </div>
           </div>
         `).join("");
