@@ -31,7 +31,13 @@
 - **2026-11-20**: Relocated project directory to `D:\My-Work\Ai-Websites\Pharmacy` to align with the workspace standard for AI websites.
 - **2026-11-20**: UI/UX Simplification & Header Modernization.
 - **2026-11-21**: Premium WordPress Theme Homepage Overhaul.
-- **2026-11-21**: Complete Pakistani Consumer Redesign & Removal of Script Upload:
+- **2026-11-21**: Provisioned public GitHub repositories and enabled GitHub Pages:
+  - Created public repositories `https://github.com/Penta-Websites/Pharmacy` and `https://github.com/Pixel-Force/Pharmacy`.
+  - Pushed the latest codebase to both remotes (`origin` and `pixel`).
+  - Enabled GitHub Pages with root branch tracking on `main` for both organizations.
+  - Verified live deployment status with HTTP 200 OK responses on:
+    - [https://penta-websites.github.io/Pharmacy/](https://penta-websites.github.io/Pharmacy/)
+    - [https://pixel-force.github.io/Pharmacy/](https://pixel-force.github.io/Pharmacy/)
   - Redesigned header to slim 58px layout with Pakistani flag badge, DRAP approval indicator, UAN `021-111-CURA-RX`, and prominent WhatsApp button (`.btn-whatsapp-header`).
   - Completely rewrote catalog (`js/pharmacy-data.js`) with 32 authentic Pakistani medicines with realistic PKR prices (Panadol Extra Rs. 380, Surbex Z Rs. 495, CaC-1000 Rs. 480, Augmentin 625mg Rs. 445, Risek 20mg Rs. 320, Arinac Forte Rs. 210, Disprin Rs. 120, Brufen Rs. 180, etc.).
   - Removed all prescription script upload gating and warnings across `cart.html`, `checkout.html`, and `shop.html`.
